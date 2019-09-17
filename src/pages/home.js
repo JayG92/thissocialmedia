@@ -1,14 +1,13 @@
-import React, { Component } from "react";
-import thisNavbar from "../components/navbar/index";
+import React from "react";
+import ThisNavbar from "../components/navbar/thisNavbar";
 
-class Home extends Component {
-    render() {
-        return (
-        <div>
-          <thisNavbar />
+
+function Home() {
+  return (
+    <div>
+        <ThisNavbar/>
         </div>
     );
-}
 }
 
 export default Home;
