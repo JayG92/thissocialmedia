@@ -1,0 +1,14 @@
+.navbar {
+    background-color: rgb(62, 177, 219);
+}
+
+#logo {
+    width: 100px;
+    height: 60px;
+}
+
+#logoText {
+    display: inline;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
