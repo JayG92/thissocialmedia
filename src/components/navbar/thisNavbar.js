@@ -1,4 +1,7 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import {
     Collapse,
     Navbar,
@@ -12,7 +15,7 @@ import {
     DropdownMenu,
     DropdownItem } from 'reactstrap';
 
-    class thisNavbar extends React.Component {
+    class ThisNavbar extends React.Component {
         constructor(props) {
           super(props);
       
@@ -65,4 +68,4 @@ import {
         }
       }
   
-  export default thisNavbar;
+  export default ThisNavbar;
