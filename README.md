@@ -1,7 +1,7 @@
 <img width="546" alt="Screen Shot 2019-09-16 at 3 23 59 PM" src="https://user-images.githubusercontent.com/52174242/65068210-087aaa80-d93d-11e9-8609-920376f8e77f.png">
 
 Project proposal
-Presented by Jay, brent and kevin
+Presented by jay, brent and Kevin
 
 
 ### MVP
