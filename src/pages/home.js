@@ -1,10 +1,11 @@
 import React from "react";
-import thisNavbar from "../components/navbar/thisNavbar";
+import ThisNavbar from "../components/navbar/thisNavbar";
+
 
 function Home() {
-    return (
-        <div>
-          <thisNavbar />
+  return (
+    <div>
+        <ThisNavbar/>
         </div>
       );
     }
