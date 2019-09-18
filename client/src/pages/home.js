@@ -1,4 +1,6 @@
 import React from "react";
+import API from "../utils/API";
+
 import ThisNavbar from "../components/navbar/index";
 
 
