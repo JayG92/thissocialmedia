@@ -16,7 +16,7 @@ return(
       <Jumbotron className="feed" fluid>
         <Container fluid>
           <h1 className="display-3"></h1>
-            <div class="feedcard">
+            <div className="feedcard">
             <ul>
             <img src={logo} alt="text"/>
                 <ul>post category</ul>
@@ -25,7 +25,7 @@ return(
 
             </ul>
             </div>
-            <div class="feedcard">
+            <div className="feedcard">
             <ul>
             <img src={logo} alt="text"/>
                 <ul>post category</ul>
@@ -33,7 +33,7 @@ return(
                 <ul>date</ul>
             </ul>
             </div>
-            <div class="feedcard">
+            <div className="feedcard">
             <ul>
             <img src={logo} alt="text"/>
                 <ul>post category</ul>

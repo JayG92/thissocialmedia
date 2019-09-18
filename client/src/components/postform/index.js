@@ -31,7 +31,7 @@ import classnames from 'classnames';
                 className={classnames({ active: this.state.activeTab === '1' })}
                 onClick={() => { this.toggle('1'); }}
               >
-                <i class="far fa-share-square"></i>
+                <i className="far fa-share-square"></i>
               </NavLink>
             </NavItem>
             <NavItem>
@@ -39,7 +39,7 @@ import classnames from 'classnames';
                 className={classnames({ active: this.state.activeTab === '2' })}
                 onClick={() => { this.toggle('2'); }}
               >
-                <i class="fas fa-calendar-day"></i>
+                <i className="fas fa-calendar-day"></i>
               </NavLink>
               
             </NavItem>
@@ -48,7 +48,7 @@ import classnames from 'classnames';
                 className={classnames({ active: this.state.activeTab === '3' })}
                 onClick={() => { this.toggle('3'); }}
               >
-                <i class="far fa-clipboard"></i>
+                <i className="far fa-clipboard"></i>
               </NavLink>
             </NavItem>
 

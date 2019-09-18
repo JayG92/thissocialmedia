@@ -4,7 +4,7 @@ import {
   Card, CardText, CardBody,
   CardTitle, Button
 } from 'reactstrap';
-import "./style.css"
+import style from "./style.css"
 
 const ProfileCard = (props) => {
 
@@ -17,7 +17,7 @@ const ProfileCard = (props) => {
 
     
   return (
-    <div id="pCard">
+    <div className={style.test}>
       <Card>
         <CardBody>
         <div className="border-bottom" id="pBgColor"></div>
