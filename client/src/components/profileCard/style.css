@@ -1,12 +1,20 @@
 body {
     background-color: rgb(243, 243, 243);
 }
+<<<<<<< HEAD
 
+=======
+​
+>>>>>>> c7f9fec0f009c8b69b904eabc4c75ec5457ed005
 .card {
     border-radius: 0rem;
     z-index: -2;
 }
+<<<<<<< HEAD
 
+=======
+​
+>>>>>>> c7f9fec0f009c8b69b904eabc4c75ec5457ed005
 #pCard {
     z-index: 0;
     width: 320px;
@@ -14,17 +22,29 @@ body {
     height: auto;
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
 }
+<<<<<<< HEAD
 
+=======
+​
+>>>>>>> c7f9fec0f009c8b69b904eabc4c75ec5457ed005
 #pUsername {
     font-size: 20px;
     font-weight: 700;
 }
+<<<<<<< HEAD
 
+=======
+​
+>>>>>>> c7f9fec0f009c8b69b904eabc4c75ec5457ed005
 #pImage {
     border-radius: 50%;
     margin-bottom: 2%;
 }
+<<<<<<< HEAD
 
+=======
+​
+>>>>>>> c7f9fec0f009c8b69b904eabc4c75ec5457ed005
 #pBgColor {
     top: 0%;
     left: 0%;
@@ -33,4 +53,8 @@ body {
     width: 100%;
     position: absolute;
     z-index: -1;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c7f9fec0f009c8b69b904eabc4c75ec5457ed005

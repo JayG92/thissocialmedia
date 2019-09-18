@@ -1,0 +1,20 @@
+.feed {
+        margin-top:5px;
+        height:500px;
+        background-color:rgb(62, 177, 219);}
+
+img {   width: 100px;
+    height: 60px;
+    float:left;
+}
+
+ul{text-align:center;
+    }
+
+ .feedcard{
+        margin-right:10%;
+        margin-left:10%;
+        
+        background-color:white
+        
+        }
