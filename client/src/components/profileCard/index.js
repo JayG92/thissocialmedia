@@ -4,7 +4,7 @@ import {
   Card, CardText, CardBody,
   CardTitle, Button
 } from 'reactstrap';
-import style from "./style.css"
+import "./style.css"
 
 const ProfileCard = (props) => {
 
@@ -17,13 +17,13 @@ const ProfileCard = (props) => {
 
     
   return (
-    <div className={style.test}>
+    <div className="pCard">
       <Card>
         <CardBody>
-        <div className="border-bottom" id="pBgColor"></div>
+        <div className="border-bottom" className="pBgColor"></div>
         <div className="text-center">
-          <img id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
-          <CardTitle id="pUsername">@{username}</CardTitle>
+          <img className="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
+          <CardTitle className="pUsername">@{username}</CardTitle>
           </div>
 
           <CardText>This is the users bio, and other features on the profile! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</CardText>
