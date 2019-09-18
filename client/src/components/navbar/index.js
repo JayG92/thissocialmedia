@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css"
-import logo from "../../imgs/this.png";
+import logo from "../../imgs/whitelogo.png";
 
 import {
   Collapse,
@@ -11,10 +11,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
 } from 'reactstrap';
 
 class ThisNavbar extends React.Component {
@@ -34,34 +30,23 @@ class ThisNavbar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="#51CAF5" light expand="md">
+        <Navbar color="#51CAF5" expand="md">
           <NavbarBrand href="/"><img id="logo" src={logo} alt="Logo"></img><div id="logoText">THIS.</div></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+              <NavItem id="navLinks">
+                <NavLink id="Active" href="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <NavLink href="/members">Members</NavLink>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                      </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                        </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                        </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                        </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              <NavItem>
+                <NavLink href="/messages">Messages</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/profile">Profile</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
