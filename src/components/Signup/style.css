@@ -1,0 +1,26 @@
+.col-6 {
+    /* margin-top: 30%; */
+    /* color: white; */
+}
+
+.App-logo {
+    /* background:  #20232a; */
+
+}
+
+.row {
+   margin-top: 1%
+    
+}
+
+body{
+    background:rgb(62, 177, 219);
+}
+
+form {
+    width: 45%;
+}
+
+h3 {
+    color: rgb(252, 253, 254);
+}
