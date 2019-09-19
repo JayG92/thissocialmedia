@@ -10,8 +10,14 @@ export default {
   deleteUser: function(id) {
     return axios.delete("/api/users/" + id);
   },
-  saveUser: function(bookData) {
-    return axios.post("/api/users", bookData);
+  saveUser: function(userData) {
+    return axios.post("/api/users", userData);
+  },
+  getPosts: function(){
+    return axios.get("/api/posts");
+  },
+  savePost: function(postData){
+    return axios.post("/api/posts", postData)
   }
 };
 

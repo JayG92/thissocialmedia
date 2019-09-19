@@ -1,7 +1,12 @@
 .feed {
         margin-top:5px;
         height:500px;
-        background-color:rgb(62, 177, 219);}
+        box-shadow: 10px 10px 8px #888888;
+        border-style:solid;
+        border-width:2em;
+        
+         border-color:rgb(62, 177, 219);
+        }
 
 
 

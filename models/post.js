@@ -2,12 +2,11 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 var PostSchema = new Schema({
-  title: String,
-  body: String,
-  category:String,
-  Date:Date,
-  Time:String,
-
+    title: String,
+    body: String,
+    category: String,
+    Date: Date,
+    Time: String
 
 });
 

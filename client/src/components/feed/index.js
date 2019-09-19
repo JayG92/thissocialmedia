@@ -1,51 +1,45 @@
 import React from 'react';
 import "./style.css"
-import { Jumbotron, Container,  } from 'reactstrap';
+import { Button, CardText, Jumbotron, } from 'reactstrap';
 import logo from "../../imgs/this.png";
 
 
 class Feed extends React.Component {
-render(){
-return(
-
-    <div>
-      <Jumbotron className="feed" fluid>
-        <Container fluid>
-          <h1 className="display-3">feed</h1>
-            <div className="feedcard">
-            <ul>
-                <ul>post category</ul>
-                <ul>HERE IS MY POST</ul>
-                <ul>date</ul>
-
-            </ul>
-            </div>
-            <div className="feedcard">
-            <ul>
-                <ul>post category</ul>
-                <ul>HERE IS MY POST</ul>
-                <ul>date</ul>
-            </ul>
-            </div>
-            <div className="feedcard">
-            <ul>
-                <ul>post category</ul>
-                <ul>HERE IS MY POST</ul>
-                <ul>date</ul>
-
-            </ul>
-            </div>
-
-
+    state = {
+        user:"username",
+        title: "",
+        body: "Woof, react is kinda tough!",
         
-        </Container>
-      </Jumbotron>
-    </div>
+    }
 
 
-)
+    render() {
+        return (
 
-}
+            <Jumbotron className="feed" fluid >
+             <div className="text-center">
+
+                      <CardText>
+                
+
+            <strong>{this.state.user}</strong>
+            <br></br>
+            {this.state.title}
+            <br></br>
+            {this.state.body}
+            <br></br>
+            {this.state.time}
+            <br></br>
+            <hr/>
+            </CardText>
+            <Button>comment</Button>
+            <input></input>
+            </div>
+            </Jumbotron >
+
+        )
+
+    }
 
 }
 

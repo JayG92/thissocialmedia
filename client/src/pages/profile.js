@@ -1,6 +1,6 @@
 import React from "react";
 import API from "../utils/API";
-
+import Footer from "../components/footer/index";
 import PostForm from "../components/postform/index";
 import Feed from "../components/feed/index";
 import EventCard from "../components/eventcard/index";
@@ -12,7 +12,13 @@ class Profile extends React.Component {
 state= {
 title:"",
 body:"",
+date:"",
+time:"",
 }
+
+componentDidMount() {
+    this.loadPosts();
+  }
 
 handleInputChange = event => {
     const { name, value } = event.target;
@@ -31,10 +37,12 @@ handleInputChange = event => {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title && this.state.body) {
+    if (this.state.title || this.state.body||this.state.date||this.state.time) {
       API.savePost({
-        title: this.state.title,
-        body: this.state.body,
+         title:this.state.title,
+         body: this.state.body,
+         date:this.state.date,
+         time:this.state.time
       })
         .then(res => this.loadPosts())
         .catch(err => console.log(err));
@@ -51,7 +59,7 @@ handleInputChange = event => {
             <Container>
             <div className="topContainer"></div>
                 <Row>
-                    <Col xs="3"><ProfileCard/></Col>
+                    <Col xs="3"><ProfileCard/><Footer/></Col>
                     <Col xs="6">
                         <PostForm />
                         <Feed />
