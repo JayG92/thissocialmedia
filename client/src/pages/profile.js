@@ -10,12 +10,28 @@ import { Row, Col, Container } from 'reactstrap';
 
 class Profile extends React.Component {
   state = {
-    posts: []
+    posts: [
+      {
+        user: "username",
+        title: "Testing title",
+        body: "Woof, react is kinda tough!"
+      },
+      {
+        user: "username",
+        title: "Testing title",
+        body: "Woof, react is kinda tough!"
+      },
+      {
+        user: "username",
+        title: "Testing title",
+        body: "Woof, react is kinda tough!"
+      }
+    ]
   }
 
-  componentDidMount() {
-    this.loadPosts();
-  }
+  // componentDidMount() {
+  //   this.loadPosts();
+  // }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -47,8 +63,6 @@ class Profile extends React.Component {
   };
 
 
-
-
   render() {
     return (
       <div>
@@ -58,8 +72,8 @@ class Profile extends React.Component {
           <Row>
             <Col xs="3"><ProfileCard /><Footer /></Col>
             <Col xs="6">
-              <PostForm />
-              <Feed />
+              <PostForm loadPosts={this.loadPosts} />
+              <Feed posts={this.state.posts} />
             </Col>
             <Col xs="3">
               <EventCard />

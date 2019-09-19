@@ -1,7 +1,5 @@
 import React from 'react';
-import API from "/Users/garybuchik/code/homework/thissocialmedia/client/src/utils/API.js"
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import API from "../../utils/API";
 import "./style.css"
 
 import { Jumbotron, FormGroup, Label, Input, TabContent, TabPane, Nav, NavItem, NavLink, Button, Row, Col } from 'reactstrap';
@@ -9,40 +7,40 @@ import classnames from 'classnames';
 
 
 class PostForm extends React.Component {
-    state = {
-        title: "",
-        body: "",
-    }
 
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
             activeTab: '1',
-          
+            title: "",
+            body: "",
+            date: "",
+            time: ""
         };
     }
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-          [name]: value
+            [name]: value
         });
-      };
+    };
 
-      handleFormSubmit = event => {
+    handleFormSubmit = event => {
         event.preventDefault();
+        console.log(this.state);
         if (this.state.title || this.state.body || this.state.date || this.state.time) {
-          API.savePost({
-            title: this.state.title,
-            body: this.state.body,
-            date: this.state.date,
-            time: this.state.time
-          })
-            .then(res => this.loadPosts())
-            .catch(err => console.log(err));
+            API.savePost({
+                title: this.state.title,
+                body: this.state.body,
+                date: this.state.date,
+                time: this.state.time
+            })
+                .then(res => this.props.loadPosts())
+                .catch(err => console.log(err));
         }
-      };
-    
+    };
+
     toggle(tab) {
         if (this.state.activeTab !== tab) {
             this.setState({
@@ -87,9 +85,17 @@ class PostForm extends React.Component {
                             <Col sm="12">
                                 <FormGroup>
                                     <Label for="exampleText"></Label>
-                                    <Input value={this.state.body} type="textarea" name="text" id="exampleText" placeholder="Post.." />
+                                    <Input
+                                        value={this.state.body}
+                                        onChange={this.handleInputChange}
+                                        type="textarea"
+                                        name="body"
+                                        id="exampleText"
+                                        placeholder="Post.."
+                                    />
                                 </FormGroup>
                                 <Button onClick={this.handleFormSubmit}
+
                                 >Post</Button>
                             </Col>
                         </Row>
@@ -98,12 +104,17 @@ class PostForm extends React.Component {
                         <Row>
 
                         </Row>
-                        <Input value={this.state.title}
-                            placeholder="Event Name..." bsSize="sm" />
+                        <Input
+                            value={this.state.title}
+                            onChange={this.handleInputChange}
+                            name="title"
+                            placeholder="Event Name..."
+                            bsSize="sm" />
                         <FormGroup className="timeform">
                             <Label for="exampleDate"></Label>
                             <Input
                                 value={this.state.date}
+                                onChange={this.handleInputChange}
                                 type="date"
                                 name="date"
                                 id="exampleDate"
@@ -114,7 +125,7 @@ class PostForm extends React.Component {
                             <Label for="exampleTime"></Label>
                             <Input
                                 value={this.state.time}
-
+                                onChange={this.handleInputChange}
                                 type="time"
                                 name="time"
                                 id="exampleTime"
@@ -123,20 +134,39 @@ class PostForm extends React.Component {
                         </FormGroup>
                         <FormGroup>
                             <Label for="exampleText"></Label>
-                            <Input value={this.state.body}
-                                type="textarea" name="text" id="exampleText" placeholder="Post..." />
+                            <Input
+                                value={this.state.body}
+                                onChange={this.handleInputChange}
+                                type="textarea"
+                                name="body"
+                                id="exampleText"
+                                placeholder="Post..."
+                            />
                         </FormGroup>
-                        <Button onClick={this.handleFormSubmit}
+                        <Button
+                            onClick={this.handleFormSubmit}
                         >Post</Button>
                     </TabPane>
                     <TabPane tabId="3">
                         <Row>
                             <Col sm="12">
-                                <Input value={this.state.title} placeholder="Project Name..." bsSize="sm" />
+                                <Input
+                                    value={this.state.title}
+                                    onChange={this.handleInputChange}
+                                    name="title"
+                                    placeholder="Project Name..."
+                                    bsSize="sm"
+                                />
 
                                 <FormGroup>
                                     <Label for="exampleText"></Label>
-                                    <Input placeholder="Post..." type="textarea" name="text" id="exampleText" />
+                                    <Input
+                                        value={this.state.body}
+                                        placeholder="Post..."
+                                        type="textarea"
+                                        name="body"
+                                        id="exampleText"
+                                    />
                                 </FormGroup>
                                 <Button onClick={this.handleFormSubmit}>Post</Button>
 

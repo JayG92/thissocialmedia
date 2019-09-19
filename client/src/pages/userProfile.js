@@ -1,5 +1,5 @@
 import React from "react";
-import API from "../utils/API";
+// import API from "../utils/API";
 import { Container, Row, Col } from 'reactstrap';
 import ThisNavbar from "../components/navbar/index";
 import Search_profileCard from "../components/search_profileCard";

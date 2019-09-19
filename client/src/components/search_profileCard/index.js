@@ -6,28 +6,43 @@ import {
 } from 'reactstrap';
 import "./style.css"
 
-const Search_profileCard = (props) => {
+class Search_profileCard extends React.Component {
 
-    var username = "OtherUser";
-    var skills = [
-     "Breaking Code"
-    ]
+  constructor(props) {
+    super(props);
+    this.state = {
+      username:"BrentHaskins",
+      skills:
+      "Breaking code",
+ 
+      modal: false
+    };
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  }
 
     
-  return (
-    <div id="pCard">
+  render () {
+    return (
+    <div className="pCard">
       <Card>
         <CardBody>
         <div className="border-bottom" id="pBgColor"></div>
         <div className="text-center">
           <img id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
-          <CardTitle id="pUsername">@{username}</CardTitle>
+          <CardTitle id="pUsername">@{this.state.username}</CardTitle>
           </div>
 
           <CardText>When you click on a users profile, it will bring you to their page and change the profile card! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</CardText>
           <hr></hr>
           <h5 className="text-center">My Skills</h5>
-          <p><FaCode /> {skills[0]}</p>
+          <p><FaCode /> {this.state.skills}</p>
           <hr></hr>
           <div className="text-center">
           <a href="/profile"><Button>View Profile</Button></a>
@@ -37,7 +52,8 @@ const Search_profileCard = (props) => {
     </div>
 
     
-  );
+);
 };
+}
 
 export default Search_profileCard;
