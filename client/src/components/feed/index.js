@@ -1,7 +1,6 @@
 import React from 'react';
 import "./style.css"
 import { Button, CardText, Jumbotron, } from 'reactstrap';
-import logo from "../../imgs/this.png";
 
 
 class Feed extends React.Component {

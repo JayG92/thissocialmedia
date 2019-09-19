@@ -11,7 +11,15 @@ const Member_userBox = (props) => {
           <div className="text-center">
       <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="memberName">Username</CardTitle>
-          <Button className="memberViewProfile">View Profile</Button>
+          <a><Button className="memberViewProfile view-profile">View Profile</Button></a>
+            </div>
+      </Card>
+
+      <Card className="memberBox memberFloat">
+          <div className="text-center">
+      <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
+          <CardTitle className="memberName">Username</CardTitle>
+          <Button className="memberViewProfile view-profile">View Profile</Button>
         </div>
       </Card>
 
@@ -19,7 +27,7 @@ const Member_userBox = (props) => {
           <div className="text-center">
       <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="memberName">Username</CardTitle>
-          <Button className="memberViewProfile">View Profile</Button>
+          <Button className="memberViewProfile view-profile">View Profile</Button>
         </div>
       </Card>
 
@@ -27,7 +35,7 @@ const Member_userBox = (props) => {
           <div className="text-center">
       <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="memberName">Username</CardTitle>
-          <Button className="memberViewProfile">View Profile</Button>
+          <Button className="memberViewProfile view-profile">View Profile</Button>
         </div>
       </Card>
 
@@ -35,7 +43,7 @@ const Member_userBox = (props) => {
           <div className="text-center">
       <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="memberName">Username</CardTitle>
-          <Button className="memberViewProfile">View Profile</Button>
+          <Button className="memberViewProfile view-profile">View Profile</Button>
         </div>
       </Card>
 
@@ -43,15 +51,7 @@ const Member_userBox = (props) => {
           <div className="text-center">
       <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="memberName">Username</CardTitle>
-          <Button className="memberViewProfile">View Profile</Button>
-        </div>
-      </Card>
-
-      <Card className="memberBox memberFloat">
-          <div className="text-center">
-      <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
-          <CardTitle className="memberName">Username</CardTitle>
-          <Button className="memberViewProfile">View Profile</Button>
+          <Button className="memberViewProfile view-profile">View Profile</Button>
         </div>
       </Card>
     </div>
