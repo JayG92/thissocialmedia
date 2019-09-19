@@ -1,56 +1,29 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css"
-import { Jumbotron, Container,  } from 'reactstrap';
+import { ListGroupItem,  Jumbotron,  } from 'reactstrap';
 import logo from "../../imgs/this.png";
 
 
 class Feed extends React.Component {
+    state= {
+        title:"",
+        body:"",
+        }
 
 
+    render() {
+        return (
 
-render(){
-return(
-
-    <div>
-      <Jumbotron className="feed" fluid>
-        <Container fluid>
-          <h1 className="display-3">feed</h1>
-            <div class="feedcard">
-            <ul>
-            {this.state.posts.map(post => (
-                <ul>post category</ul>
-                <ul>HERE IS MY POST</ul>
-                <ul>date</ul>
-
-            </ul>
-            </div>
-            <div class="feedcard">
-            <ul>
-                <ul>post category</ul>
-                <ul>HERE IS MY POST</ul>
-                <ul>date</ul>
-            </ul>
-            </div>
-            <div class="feedcard">
-            <ul>
-                <ul>post category</ul>
-                <ul>HERE IS MY POST</ul>
-                <ul>date</ul>
-
-            </ul>
-            </div>
-
-
+  
+     <Jumbotron className="feed" fluid >
         
-        </Container>
-      </Jumbotron>
-    </div>
+      </Jumbotron >
 
 
 )
 
-}
+    }
 
 }
 
