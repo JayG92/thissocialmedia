@@ -8,7 +8,12 @@ import classnames from 'classnames';
 
 
 class PostForm extends React.Component {
+    state = {
+        title: "",
+        body: "",
 
+
+    }
 
 
     constructor(props) {
@@ -63,11 +68,11 @@ class PostForm extends React.Component {
                         <Row>
                             <Col sm="12">
                                 <FormGroup>
-                                    <Label  for="exampleText">Text Area</Label>
-                                    <Input value={this.state.body} type="textarea" name="text" id="exampleText" />
+                                    <Label for="exampleText"></Label>
+                                    <Input value={this.state.body} type="textarea" name="text" id="exampleText" placeholder="Post.." />
                                 </FormGroup>
-                                <Button>Post</Button>
-
+                                <Button onClick={this.handleFormSubmit}
+                                >Post</Button>
                             </Col>
                         </Row>
                     </TabPane>
@@ -75,10 +80,12 @@ class PostForm extends React.Component {
                         <Row>
 
                         </Row>
-                        <Input placeholder="sm" bsSize="sm" />
+                        <Input value={this.state.title}
+                            placeholder="Event Name..." bsSize="sm" />
                         <FormGroup className="timeform">
-                            <Label for="exampleDate">Date</Label>
+                            <Label for="exampleDate"></Label>
                             <Input
+                                value={this.state.date}
                                 type="date"
                                 name="date"
                                 id="exampleDate"
@@ -86,8 +93,9 @@ class PostForm extends React.Component {
                             />
                         </FormGroup>
                         <FormGroup>
-                            <Label for="exampleTime">Time</Label>
+                            <Label for="exampleTime"></Label>
                             <Input
+                                value={this.state.time}
 
                                 type="time"
                                 name="time"
@@ -96,9 +104,9 @@ class PostForm extends React.Component {
                             />
                         </FormGroup>
                         <FormGroup>
-                            <Label for="exampleText">Text Area</Label>
+                            <Label for="exampleText"></Label>
                             <Input value={this.state.body}
-                                type="textarea" name="text" id="exampleText" />
+                                type="textarea" name="text" id="exampleText" placeholder="Post..." />
                         </FormGroup>
                         <Button onClick={this.handleFormSubmit}
                         >Post</Button>
@@ -106,13 +114,13 @@ class PostForm extends React.Component {
                     <TabPane tabId="3">
                         <Row>
                             <Col sm="12">
-                                <Input value={this.state.title} placeholder="sm" bsSize="sm" />
+                                <Input value={this.state.title} placeholder="Project Name..." bsSize="sm" />
 
                                 <FormGroup>
-                                    <Label for="exampleText">Text Area</Label>
-                                    <Input type="textarea" name="text" id="exampleText" />
+                                    <Label for="exampleText"></Label>
+                                    <Input placeholder="Post..." type="textarea" name="text" id="exampleText" />
                                 </FormGroup>
-                                <Button>Post</Button>
+                                <Button onClick={this.handleFormSubmit}>Post</Button>
 
                             </Col>
                         </Row>
@@ -120,9 +128,11 @@ class PostForm extends React.Component {
 
                 </TabContent>
             </Jumbotron>
-        );
-    }
-}
 
+        );
+
+    }
+
+}
 
 export default PostForm

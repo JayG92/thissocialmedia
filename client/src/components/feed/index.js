@@ -1,27 +1,44 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css"
-import { ListGroupItem,  Jumbotron,  } from 'reactstrap';
+import { Button, CardText, Jumbotron, } from 'reactstrap';
 import logo from "../../imgs/this.png";
 
 
 class Feed extends React.Component {
-    state= {
-        title:"",
-        body:"",
-        }
+    state = {
+        user:"username",
+        title: "",
+        body: "Woof, react is kinda tough!",
+        
+    }
 
 
     render() {
         return (
 
-  
-     <Jumbotron className="feed" fluid >
-        
-      </Jumbotron >
+            <Jumbotron className="feed" fluid >
+             <div className="text-center">
 
+                      <CardText>
+                
 
-)
+            <strong>{this.state.user}</strong>
+            <br></br>
+            {this.state.title}
+            <br></br>
+            {this.state.body}
+            <br></br>
+            {this.state.time}
+            <br></br>
+            <hr/>
+            </CardText>
+            <Button>comment</Button>
+            <input></input>
+            </div>
+            </Jumbotron >
+
+        )
 
     }
 

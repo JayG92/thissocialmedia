@@ -12,9 +12,7 @@ const UserSchema = new Schema({
     }
     ],
     email:{type:String},
-    phoneNumber:{type:String},
     password:{type:String},
-    birthday:{type:Date}
 
 
 });
