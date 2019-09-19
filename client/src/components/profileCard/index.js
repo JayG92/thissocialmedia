@@ -20,7 +20,7 @@ const ProfileCard = (props) => {
     <div className="pCard">
       <Card>
         <CardBody>
-        <div className="border-bottom" className="pBgColor"></div>
+        <div className="border-bottom pBgColor"></div>
         <div className="text-center">
           <img className="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="pUsername">@{username}</CardTitle>

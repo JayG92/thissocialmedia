@@ -1,7 +1,6 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css"
-import { Card, CardHeader,CardTitle, CardText, Button} from 'reactstrap';
+import { Card, CardHeader,CardTitle, CardText} from 'reactstrap';
 
 class EventCard extends React.Component {
 
