@@ -18,6 +18,7 @@ return(
           <h1 className="display-3">feed</h1>
             <div class="feedcard">
             <ul>
+            {this.state.posts.map(post => (
                 <ul>post category</ul>
                 <ul>HERE IS MY POST</ul>
                 <ul>date</ul>

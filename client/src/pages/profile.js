@@ -13,6 +13,10 @@ title:"",
 body:"",
 }
 
+componentDidMount() {
+    this.loadPosts();
+  }
+
 handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -32,8 +36,8 @@ handleInputChange = event => {
     event.preventDefault();
     if (this.state.title && this.state.body) {
       API.savePost({
-        title: this.state.title,
-        body: this.state.body,
+         title:this.state.title,
+         body: this.state.body,
       })
         .then(res => this.loadPosts())
         .catch(err => console.log(err));
