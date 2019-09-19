@@ -1,6 +1,6 @@
 import React from 'react';
-import "./style.css"
 import { Card, CardHeader,CardTitle, CardText} from 'reactstrap';
+import "./style.css"
 
 class EventCard extends React.Component {
 
@@ -9,9 +9,9 @@ class EventCard extends React.Component {
 render(){
 return(
     <div className="eventcard">
-    <Card  body outline color="secondary">
-    
-    <CardHeader>Events</CardHeader>
+    <Card  body outline>
+    <div className="border-bottom" id="eBgColor"></div>
+    <CardHeader>Upcoming Events</CardHeader>
     <CardTitle>Event Name</CardTitle>
 
     <CardText> 

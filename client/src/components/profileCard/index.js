@@ -20,10 +20,10 @@ const ProfileCard = (props) => {
     <div className="pCard">
       <Card>
         <CardBody>
-        <div className="border-bottom pBgColor"></div>
+        <div className="border-bottom" id="pBgColor"></div>
         <div className="text-center">
-          <img className="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
-          <CardTitle className="pUsername">@{username}</CardTitle>
+          <img id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
+          <CardTitle id="pUsername">@{username}</CardTitle>
           </div>
 
           <CardText>This is the users bio, and other features on the profile! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</CardText>
@@ -35,6 +35,7 @@ const ProfileCard = (props) => {
           <hr></hr>
           <div className="text-center">
           <a href="/profile"><Button>View Profile</Button></a>
+
           </div>
         </CardBody>
       </Card>
