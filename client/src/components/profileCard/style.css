@@ -4,7 +4,7 @@ body {
 
 .card {
     border-radius: 0rem;
-    z-index: -2;
+    z-index: 0;
 }
 
 #pCard {
@@ -35,3 +35,28 @@ body {
     position: absolute;
     z-index: -1;
 }
+
+
+.edit-button{z-index:2;
+}
+
+.modal-button{
+    background-color: rgb(81, 165, 196);
+    border-color: rgb(81, 165, 196);
+
+}
+.buttons{
+    display: flex;
+    margin-left:20%;
+    
+}
+
+.view-profile{
+    background-color: rgb(81, 165, 196);
+    border-color: rgb(81, 165, 196);
+
+
+
+
+}
+
