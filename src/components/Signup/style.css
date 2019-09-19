@@ -15,6 +15,9 @@
 
 body{
     background:rgb(62, 177, 219);
+    font-size: .85rem;
+    font-weight: 550;
+    color: white;
 }
 
 form {
@@ -22,5 +25,5 @@ form {
 }
 
 h3 {
-    color: rgb(252, 253, 254);
+    color: rgb(0, 0, 0);
 }
