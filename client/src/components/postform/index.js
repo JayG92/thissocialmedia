@@ -1,4 +1,5 @@
 import React from 'react';
+import API from "/Users/garybuchik/code/homework/thissocialmedia/client/src/utils/API.js"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css"
@@ -11,20 +12,37 @@ class PostForm extends React.Component {
     state = {
         title: "",
         body: "",
-
-
     }
-
 
     constructor(props) {
         super(props);
-
         this.toggle = this.toggle.bind(this);
         this.state = {
-            activeTab: '1'
+            activeTab: '1',
+          
         };
     }
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+      };
 
+      handleFormSubmit = event => {
+        event.preventDefault();
+        if (this.state.title || this.state.body || this.state.date || this.state.time) {
+          API.savePost({
+            title: this.state.title,
+            body: this.state.body,
+            date: this.state.date,
+            time: this.state.time
+          })
+            .then(res => this.loadPosts())
+            .catch(err => console.log(err));
+        }
+      };
+    
     toggle(tab) {
         if (this.state.activeTab !== tab) {
             this.setState({

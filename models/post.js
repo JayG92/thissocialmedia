@@ -7,7 +7,6 @@ var PostSchema = new Schema({
     category: String,
     Date: Date,
     Time: String
-
 });
 
 var Post = mongoose.model("Note", PostSchema);

@@ -9,18 +9,15 @@ import ProfileCard from "../components/profileCard/index"
 import { Row, Col, Container } from 'reactstrap';
 
 class Profile extends React.Component {
-state= {
-title:"",
-body:"",
-date:"",
-time:"",
-}
+  state = {
+    posts: []
+  }
 
-componentDidMount() {
+  componentDidMount() {
     this.loadPosts();
   }
 
-handleInputChange = event => {
+  handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -30,19 +27,19 @@ handleInputChange = event => {
   loadPosts = () => {
     API.getPosts()
       .then(res =>
-        this.setState({ posts: res.data, title: "", user: "", body: "" })
+        this.setState({ posts: res.data })
       )
       .catch(err => console.log(err));
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title || this.state.body||this.state.date||this.state.time) {
+    if (this.state.title || this.state.body || this.state.date || this.state.time) {
       API.savePost({
-         title:this.state.title,
-         body: this.state.body,
-         date:this.state.date,
-         time:this.state.time
+        title: this.state.title,
+        body: this.state.body,
+        date: this.state.date,
+        time: this.state.time
       })
         .then(res => this.loadPosts())
         .catch(err => console.log(err));
@@ -52,27 +49,27 @@ handleInputChange = event => {
 
 
 
-    render() {
-    return(
-        <div>
-            <ThisNavbar />
-            <Container>
-            <div className="topContainer"></div>
-                <Row>
-                    <Col xs="3"><ProfileCard/><Footer/></Col>
-                    <Col xs="6">
-                        <PostForm />
-                        <Feed />
-                    </Col>
-                    <Col xs="3">
-                        <EventCard />
-                    </Col>
-                </Row>
-            </Container>
-        </div>
-    
+  render() {
+    return (
+      <div>
+        <ThisNavbar />
+        <Container>
+          <div className="topContainer"></div>
+          <Row>
+            <Col xs="3"><ProfileCard /><Footer /></Col>
+            <Col xs="6">
+              <PostForm />
+              <Feed />
+            </Col>
+            <Col xs="3">
+              <EventCard />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
     );
-    }
+  }
 }
 
 export default Profile;
