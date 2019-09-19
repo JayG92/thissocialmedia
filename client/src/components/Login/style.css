@@ -1,0 +1,22 @@
+.form-inline {
+    float: right;
+}
+
+.btn-secondary {
+    border-color:white;
+    background-color: rgb(62, 177, 219);
+    color: white;
+    border-radius: 19%;
+   
+}
+
+.col-3 {
+    max-width: 100%;
+    flex: 100%;
+    margin-bottom: 10%;
+}
+
+body{
+    color:  #20232a;
+}
+
