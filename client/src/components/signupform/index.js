@@ -120,7 +120,7 @@ export default class Signupform extends React.Component {
               />
               <br>
               </br>
-              <Button onClick={this.handleFormSubmit}>Submit</Button>
+              <Button className="submit-button" onClick={this.handleFormSubmit}>Submit</Button>
               
             </Form>
 

@@ -22,7 +22,7 @@ function EventCard({ events }) {
               <br></br>
               {event.time}
               <br></br>
-              <hr/>
+              <hr />
 
 
             </CardText>

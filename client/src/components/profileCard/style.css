@@ -35,6 +35,10 @@ body {
     z-index: -1;
 }
 
+.card-text {
+    font-size: 15px;
+}
+
 
 .edit-button{z-index:2;
 }
@@ -44,6 +48,7 @@ body {
     border-color: rgb(81, 165, 196);
 
 }
+
 .buttons{
     display: flex;
     margin-left:20%;
@@ -55,3 +60,23 @@ body {
     border-color: rgb(81, 165, 196);
 }
 
+.pEdit {
+    margin-left: 5%;
+}
+
+.pBio {
+    min-height:110px;
+}
+  
+.noresize {
+    min-height:140px;
+    width: 465px;
+    border: none;
+    resize: none; 
+  }
+
+  .pMaxLength {
+    position: absolute;
+    left: 5%;  
+    width: 200px;
+}

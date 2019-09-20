@@ -76,7 +76,7 @@ class PostForm extends React.Component {
                             className={classnames({ active: this.state.activeTab === '1' })}
                             onClick={() => { this.toggle('1'); }}
                         >
-                            <i class="far fa-share-square"></i>
+                            <i className="far fa-share-square"></i>
                         </NavLink>
                     </NavItem>
                     <NavItem>
