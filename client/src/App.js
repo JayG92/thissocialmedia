@@ -5,6 +5,8 @@ import Members from "./pages/members";
 import Messages from "./pages/messages";
 import Profile from "./pages/profile";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Signupform from "./components/signupform";
+import LoginForm from "./components/login";
 
 
 
@@ -16,6 +18,9 @@ function App() {
           <Route exact path="/members" component={Members} />
           <Route exact path="/messages" component={Messages} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/login" component={Signupform} />
+         
       </div>
     </Router>
   );
