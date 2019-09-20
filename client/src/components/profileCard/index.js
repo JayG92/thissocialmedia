@@ -15,7 +15,6 @@ class ProfileCard extends React.Component {
       username:"BrentHaskins",
       skills:
       "HTML & CSS",
- 
       modal: false
     };
 

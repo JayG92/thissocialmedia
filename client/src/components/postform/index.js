@@ -12,15 +12,13 @@ class PostForm extends React.Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            activeTab: '1',
+            activeTab: '2',
             title: "",
             body: "",
             date: "",
             time: "",
             eventTitle:"",
             eventBody:"",
-
-
         };
     }
 
@@ -34,19 +32,33 @@ class PostForm extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state);
-        if (this.state.title || this.state.body || this.state.date || this.state.time||this.state.eventTitle||this.state.eventBody) {
+        if (this.state.title || this.state.body) {
             API.savePost({
                 title: this.state.title,
-                body: this.state.body,
-                date: this.state.date,
-                time: this.state.time,
-                eventTitle:this.state.eventTitle,
-                eventBody:this.state.eventBody
+                body: this.state.body
+            
             })
                 .then(res => this.props.loadPosts())
                 .catch(err => console.log(err));
         }
     };
+
+    handleEventSubmit = event => {
+        event.preventDefault();
+        if (this.state.title || this.state.body || this.state.date ||this.state.time) {
+          API.saveEvent({
+            eventTitle: this.state.eventTitle,
+            eventBody: this.state.eventBody,
+            date: this.state.date,
+            time: this.state.time,
+    
+            
+          })
+            .then(res => this.props.loadEvents())
+            .catch(err => console.log(err));
+        }
+      };
+
 
     toggle(tab) {
         if (this.state.activeTab !== tab) {
@@ -151,7 +163,7 @@ class PostForm extends React.Component {
                             />
                         </FormGroup>
                         <Button
-                            onClick={this.handleFormSubmit}
+                            onClick={this.handleEventSubmit}
                         >Post</Button>
                     </TabPane>
                     <TabPane tabId="3">

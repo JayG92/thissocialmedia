@@ -18,6 +18,12 @@ export default {
   },
   savePost: function(postData){
     return axios.post("/api/posts", postData)
+  },
+  getEvents: function(){
+    return axios.get("/api/events");
+  },
+  saveEvent: function(eventData){
+    return axios.post("/api/events", eventData)
   }
 };
 

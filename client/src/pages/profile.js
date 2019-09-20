@@ -11,33 +11,15 @@ import { Row, Col, Container } from 'reactstrap';
 class Profile extends React.Component {
   state = {
     posts: [
-      {
-        user: "username",
-        title: "Testing title",
-        body: "Woof, react is kinda tough!"
-      },
-      {
-        user: "username",
-        title: "Testing title",
-        body: "Woof, react is kinda tough!"
-      },
-      {
-        user: "username",
-        title: "Testing title",
-        body: "Woof, react is kinda tough!"
-      },
-      {
-      eventTitle:"Event Title",
-      date:"11/22/2019",
-      time:"12:00",
-      eventBody:"Come join us for a sweet tech meetup.  You'll meet some great folks and flex with your supreme coding skills"
-      }
+    ],
+    events: [
     ]
   }
 
-  // componentDidMount() {
-  //   this.loadPosts();
-  // }
+  componentDidMount() {
+    this.loadPosts();
+    this.loadEvents();
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -53,6 +35,30 @@ class Profile extends React.Component {
       )
       .catch(err => console.log(err));
   };
+  loadEvents = () => {
+    API.getEvents()
+      .then(res =>
+        this.setState({ events: res.data })
+      )
+      .catch(err => console.log(err));
+  };
+
+  handleEventSubmit = event => {
+    event.preventDefault();
+    if (this.state.eventTitle || this.state.eventBody || this.state.date || this.state.time) {
+      API.saveEvent({
+        eventTitle: this.state.eventTitle,
+        eventBody: this.state.eventBody,
+        date: this.state.date,
+        time: this.state.time,
+
+
+      })
+        .then(res => this.loadEvents())
+        .catch(err => console.log(err));
+    }
+  };
+
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -60,11 +66,7 @@ class Profile extends React.Component {
       API.savePost({
         title: this.state.title,
         body: this.state.body,
-        date: this.state.date,
-        time: this.state.time,
-        eventTitle:this.state.eventTitle,
-        eventBody:this.state.eventBody
-        
+
       })
         .then(res => this.loadPosts())
         .catch(err => console.log(err));
@@ -81,11 +83,13 @@ class Profile extends React.Component {
           <Row>
             <Col xs="3"><ProfileCard /><Footer /></Col>
             <Col xs="6">
-              <PostForm loadPosts={this.loadPosts} />
+              <PostForm
+                loadPosts={this.loadPosts}
+                loadEvents={this.loadEvents} />
               <Feed posts={this.state.posts} />
             </Col>
             <Col xs="3">
-              <EventCard  posts={this.state.posts}/>
+              <EventCard events={this.state.events} />
             </Col>
           </Row>
         </Container>

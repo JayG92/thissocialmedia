@@ -1,29 +1,28 @@
 import React from 'react';
 import "./style.css"
 import { Card, CardBody, CardText } from 'reactstrap';
-function EventCard({ posts }) {
+
+
+function EventCard({ events }) {
   return (
     <Card className="event-card">
       <CardBody>
         <div className="border-bottom" id="pBgColor"></div>
         <div className="text-center"><strong>Events</strong>
         </div>
-        <br></br>
-        <br></br>
-        {posts.map(post => (
-
+        {events.map(event => (
           <div className="text-center">
-
+            <br></br>
             <CardText>
-              <strong>{post.eventTitle}</strong>
+              <strong>{event.eventTitle}</strong>
               <br></br>
-              {post.eventBody}
+              {event.eventBody}
               <br></br>
-              {post.date}
+              {event.date}
               <br></br>
-              {post.time}
+              {event.time}
               <br></br>
-              <hr />
+              <hr/>
 
 
             </CardText>

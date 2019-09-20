@@ -14,7 +14,7 @@ function Feed({ posts }) {
                     <div>
                         <CardText>
                             <strong>
-                                {post.user}
+                            {post.user}
                             </strong>
                             <br></br>
                             {post.title}
@@ -31,7 +31,6 @@ function Feed({ posts }) {
                 )}
             </div>
         </Jumbotron >
-
     )
 }
 

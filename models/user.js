@@ -13,7 +13,11 @@ const UserSchema = new Schema({
     ],
     email:{type:String},
     password:{type:String},
-    profilepic:{type:String}
+    profilepic:{type:String},
+    events:[{
+        type:Schema.Types.ObjectId,
+        ref:"Event"
+    }]
 
 
 });
