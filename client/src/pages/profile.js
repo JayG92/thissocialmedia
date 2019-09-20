@@ -25,6 +25,12 @@ class Profile extends React.Component {
         user: "username",
         title: "Testing title",
         body: "Woof, react is kinda tough!"
+      },
+      {
+      eventTitle:"Event Title",
+      date:"11/22/2019",
+      time:"12:00",
+      eventBody:"Come join us for a sweet tech meetup.  You'll meet some great folks and flex with your supreme coding skills"
       }
     ]
   }
@@ -55,7 +61,10 @@ class Profile extends React.Component {
         title: this.state.title,
         body: this.state.body,
         date: this.state.date,
-        time: this.state.time
+        time: this.state.time,
+        eventTitle:this.state.eventTitle,
+        eventBody:this.state.eventBody
+        
       })
         .then(res => this.loadPosts())
         .catch(err => console.log(err));
@@ -76,7 +85,7 @@ class Profile extends React.Component {
               <Feed posts={this.state.posts} />
             </Col>
             <Col xs="3">
-              <EventCard />
+              <EventCard  posts={this.state.posts}/>
             </Col>
           </Row>
         </Container>

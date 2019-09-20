@@ -21,7 +21,6 @@ function Feed({ posts }) {
                             <br></br>
                             {post.body}
                             <br></br>
-                            {post.time}
                             <br></br>
                         </CardText>
                         <hr />

@@ -16,9 +16,14 @@ class PostForm extends React.Component {
             title: "",
             body: "",
             date: "",
-            time: ""
+            time: "",
+            eventTitle:"",
+            eventBody:"",
+
+
         };
     }
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -29,12 +34,14 @@ class PostForm extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state);
-        if (this.state.title || this.state.body || this.state.date || this.state.time) {
+        if (this.state.title || this.state.body || this.state.date || this.state.time||this.state.eventTitle||this.state.eventBody) {
             API.savePost({
                 title: this.state.title,
                 body: this.state.body,
                 date: this.state.date,
-                time: this.state.time
+                time: this.state.time,
+                eventTitle:this.state.eventTitle,
+                eventBody:this.state.eventBody
             })
                 .then(res => this.props.loadPosts())
                 .catch(err => console.log(err));
@@ -105,9 +112,9 @@ class PostForm extends React.Component {
 
                         </Row>
                         <Input
-                            value={this.state.title}
+                            value={this.state.eventTitle}
                             onChange={this.handleInputChange}
-                            name="title"
+                            name="eventTitle"
                             placeholder="Event Name..."
                             bsSize="sm" />
                         <FormGroup className="timeform">
@@ -135,10 +142,10 @@ class PostForm extends React.Component {
                         <FormGroup>
                             <Label for="exampleText"></Label>
                             <Input
-                                value={this.state.body}
+                                value={this.state.eventBody}
                                 onChange={this.handleInputChange}
                                 type="textarea"
-                                name="body"
+                                name="eventBody"
                                 id="exampleText"
                                 placeholder="Post..."
                             />
@@ -162,6 +169,8 @@ class PostForm extends React.Component {
                                     <Label for="exampleText"></Label>
                                     <Input
                                         value={this.state.body}
+                                        onChange={this.handleInputChange}
+
                                         placeholder="Post..."
                                         type="textarea"
                                         name="body"

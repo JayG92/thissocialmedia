@@ -6,8 +6,11 @@ var PostSchema = new Schema({
     body: String,
     category: String,
     Date: Date,
-    Time: String
-    
+    Time: Number,
+    eventBody:String,
+    eventTitle:String
+
+
 });
 
 var Post = mongoose.model("Note", PostSchema);
