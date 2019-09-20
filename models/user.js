@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    name: { type: String, required: true },
+    name: { type: String },
     bio: { type: String },
     skills: { type: Array },
     date: { type: Date, default: Date.now },
@@ -12,6 +12,8 @@ const UserSchema = new Schema({
     }
     ],
     email:{type:String},
+    phonenumber:{type:String},
+    birthday:{type:String},
     password:{type:String},
     profilepic:{type:String},
     events:[{

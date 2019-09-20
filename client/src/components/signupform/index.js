@@ -6,23 +6,21 @@ import axios from 'axios';
 import API from "../../utils/API";
 
 export default class Signupform extends React.Component {
-
-
-  state = {
-    email: "",
+  constructor(props) {
+    super(props);
+    this.state = {
+        email: "",
     password: "",
     phonenumber: "",
     birthday: ""
-  };
+    };
+}
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
+    const value = event.target.value;
     const name = event.target.name;
-   
-    if (name === "password") {
-      value = value.substring(0, 15);
-    }
+  
     // Updating the input's state
     this.setState({
       [name]: value
@@ -30,27 +28,20 @@ export default class Signupform extends React.Component {
   });
 };
 
-  handleFormSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
-    event.preventDefault();
-    if (this.state.password.length < 6) {
-      alert(
-        `Choose a more secure password ${this.state.email}`
-    
-      );
-    } else {
-      alert(`${this.state.email} signed up successfully`);
-       console.log("User created successfully")
-    }
+handleFormSubmit=event=>{
+  event.preventDefault();
+  API.saveUser({
+  email:this.state.email,
+  password:this.state.password,
+  phonenumber:this.state.phonenumber,
+  birthday:this.state.birthday
+  })
+  .then(res=>this.props.loadUser())
+  .catch(err=>console.log(err))
 
-    this.setState({
-      email: "",
-      password: "",
-      phonenumber: "",
-      birthday: ""
-    });
-    
-  };
+
+}
+
 
   //   API.saveUser("/users",{
   //     email: this.state.email,
@@ -133,3 +124,5 @@ export default class Signupform extends React.Component {
     );
   }
 }
+
+

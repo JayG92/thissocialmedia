@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 // /api/profile routes
-router.use("/profile", require("./user"));
+router.use("/user", require("./user"));
 // /api/post
 router.use("/posts", require("./post"));
 
