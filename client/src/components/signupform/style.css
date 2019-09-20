@@ -1,0 +1,41 @@
+body{
+    font-weight: 500;
+}
+
+button {
+    margin: 1px;
+}
+
+.col-6 {
+    margin-top: 15%;
+}
+
+#signuplogo {
+    width: 500px;
+    height: 500px;
+    background: rgb(81, 165, 196)
+}
+
+.btn-secondary {
+    color: rgb(81, 165, 196);
+    background-color: white;
+    border-color: rgb(81, 165, 196);
+}
+
+#userEmail {
+    border-color: rgb(81, 165, 196)
+}
+#userPassword {
+    border-color: rgb(81, 165, 196)
+}
+#userPhoneNumber {
+    border-color: rgb(81, 165, 196)
+}
+#userBday {
+    border-color: rgb(81, 165, 196)
+}
+
+.form-control {
+    width: 70%;
+}
+

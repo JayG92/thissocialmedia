@@ -1,0 +1,23 @@
+.form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-left: 55%;
+    padding-top: 8px;
+}
+
+#userEmail {
+    border-color: rgb(81, 165, 196)
+}
+#userPassword {
+    border-color: rgb(81, 165, 196)
+}
+
+.signinform {
+    
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-left: 65%;
+    padding-top: 8px;
+}
