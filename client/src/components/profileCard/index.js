@@ -56,7 +56,19 @@ class ProfileCard extends React.Component {
     this.setState({ cSelected: [...this.state.cSelected] });
   }
 
+  isArrayEmpty() {
+    if (this.state.cSelected[1].length > 1) {
+      
+ }
+  }
+
   render() {
+    const TopSkill1 = this.state.cSelected.length > 0 ? <p><FaCode /> {this.state.cSelected[0]}</p> : <p className="text-center">Add your top 5 skills here!</p>
+    const TopSkill2 = this.state.cSelected.length > 1 ? <p><FaCode /> {this.state.cSelected[1]}</p> : <p></p>
+    const TopSkill3 = this.state.cSelected.length > 2 ? <p><FaCode /> {this.state.cSelected[2]}</p> : <p></p>
+    const TopSkill4 = this.state.cSelected.length > 3 ? <p><FaCode /> {this.state.cSelected[3]}</p> : <p></p>
+    const TopSkill5 = this.state.cSelected.length > 4 ? <p><FaCode /> {this.state.cSelected[4]}</p> : <p></p>
+
     return (
       <div className="pCard">
         <Card>
@@ -70,10 +82,13 @@ class ProfileCard extends React.Component {
             <CardText>{this.state.bio}
             </CardText>
             <hr></hr>
-            <h5 className="text-center">My Skills</h5>
-            <p><FaCode /> {this.state.skills}</p>
-            <p><FaCode /> {this.state.skills}</p>
-            <p><FaCode /> {this.state.skills}</p>
+            <h5 className="text-center">Top Skills</h5>
+            <p className="topSkill1">{ TopSkill1 }</p>
+            <p className="topSkill2">{ TopSkill2 }</p>
+            <p className="topSkill3">{ TopSkill3 }</p>
+            <p className="topSkill4">{ TopSkill4 }</p>
+            <p className="topSkill5">{ TopSkill5 }</p>
+
             <hr></hr>
             <div className="buttons">
               <a href="/profile"><Button className="view-profile">View Profile</Button></a><div><Button className="modal-button pEdit" onClick={this.toggle}>{this.props.buttonLabel}<i className="far fa-edit"></i> </Button>
@@ -89,14 +104,29 @@ class ProfileCard extends React.Component {
                       {/* <Input type="textarea" name="text" id="exampleText" value={this.state.bio} onChange={this.onChangeBio} /> */}
                       <textarea type="textarea" name="text" id="exampleText" className="noresize" maxLength={155} value={this.state.bio} onChange={this.onChangeBio}></textarea>
                     </FormGroup>
+                    <br></br>
                     <div>
                     <h5>Add/Remove skills</h5>
-        <ButtonGroup>
-          <Button color="primary" onClick={() => this.onCheckboxBtnClick("HTML & CSS")} active={this.state.cSelected.includes(1)}>HTML & CSS</Button>
-          <Button color="primary" onClick={() => this.onCheckboxBtnClick("Javascript & jQuery")} active={this.state.cSelected.includes(2)}>Javascript & jQuery</Button>
-          <Button color="primary" onClick={() => this.onCheckboxBtnClick("Node.js")} active={this.state.cSelected.includes(3)}>Node.js</Button>
-        </ButtonGroup>
-        <p>Selected: {(this.state.cSelected)}</p>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("HTML ")} active={this.state.cSelected.includes(1)}>HTML</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("CSS ")} active={this.state.cSelected.includes(2)}>CSS</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Javascript ")} active={this.state.cSelected.includes(3)}>Javascript</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("jQuery ")} active={this.state.cSelected.includes(4)}>jQuery</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("React.js ")} active={this.state.cSelected.includes(5)}>React.js</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Node.js ")} active={this.state.cSelected.includes(5)}>Node.js</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("PHP ")} active={this.state.cSelected.includes(5)}>PHP</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Ruby ")} active={this.state.cSelected.includes(5)}>Ruby</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Python ")} active={this.state.cSelected.includes(5)}>Python</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Golang ")} active={this.state.cSelected.includes(5)}>Golang</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("ASP.NET ")} active={this.state.cSelected.includes(5)}>ASP.NET</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("C# ")} active={this.state.cSelected.includes(5)}>C#</Button>
+          <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Java ")} active={this.state.cSelected.includes(5)}>Java</Button>
+
+
+
+
+
+
+        {/* <p>Selected: {(this.state.cSelected)}</p> */}
       </div>
                   </ModalBody>
                   <ModalFooter>

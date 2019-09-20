@@ -1,5 +1,5 @@
 import React, { Component } from './node_modules/react';
-import { Button, ButtonGroup } from './node_modules/reactstrap';
+import { ButtonGroup } from './node_modules/reactstrap';
 
 class AddSkill extends Component {
   constructor (props) {
