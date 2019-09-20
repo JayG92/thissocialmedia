@@ -1,5 +1,9 @@
 body{
-    background: white;
+    font-weight: 500;
+}
+
+button {
+    margin: 1px;
 }
 
 .col-6 {
@@ -29,5 +33,9 @@ body{
 }
 #userBday {
     border-color: rgb(81, 165, 196)
+}
+
+.form-control {
+    width: 70%;
 }
 

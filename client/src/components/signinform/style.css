@@ -12,3 +12,12 @@
 #userPassword {
     border-color: rgb(81, 165, 196)
 }
+
+.signinform {
+    
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-left: 65%;
+    padding-top: 8px;
+}

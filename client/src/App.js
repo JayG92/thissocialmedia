@@ -6,7 +6,7 @@ import Messages from "./pages/messages";
 import Profile from "./pages/profile";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Signupform from "./components/signupform";
-import LoginForm from "./components/login";
+import LoginForm from "./components/signinform";
 
 
 

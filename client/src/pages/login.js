@@ -1,11 +1,11 @@
 import React from "react";
 import Signupform from "./components/signupform";
-import LoginForm from "../components/signinform";
+import SigninForm from "../components/signinform";
 
 function loginPage() {
     return (
         <div>
-            <LoginForm />
+            <SigninForm />
             <Signupform />
         </div>
     )
