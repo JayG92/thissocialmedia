@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import "./style.css"
+import API from "../../utils/API";
 
 
 class SigninForm extends React.Component {
@@ -28,12 +29,20 @@ class SigninForm extends React.Component {
   handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
+    API.loginUser ({
+      email: this.state.email,
+      password: this.state.password,
+    })
+    .then(res => this.props.loadUser())
+    .catch(err => console.log(err));
+
     if (this.state.password.length < 6) {
       alert(
         `Choose a more secure password ${this.state.email}`
       );
     } else {
       alert(`Signin form hit for:  ${this.state.email}`);
+     
     }
 
     this.setState({
@@ -64,7 +73,7 @@ class SigninForm extends React.Component {
             type="password"
             placeholder="Password"
           />
-          <Button onClick={this.handleFormSubmit}>Submit</Button>
+          <Button className="signin-button" onClick={this.handleFormSubmit}>Log In</Button>
         </Form>
       </div>
     );

@@ -11,9 +11,10 @@ class Search_profileCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username:"BrentHaskins",
+      username:"OtherUser",
       skills:
       "Breaking code",
+      isFollowing: false,
  
       modal: false
     };
@@ -26,6 +27,8 @@ class Search_profileCard extends React.Component {
       modal: !prevState.modal
     }));
   }
+
+  
 
     
   render () {
@@ -45,13 +48,12 @@ class Search_profileCard extends React.Component {
           <p><FaCode /> {this.state.skills}</p>
           <hr></hr>
           <div className="text-center">
-          <a href="/profile"><Button>View Profile</Button></a>
+          <Button onClick={() => this.setState({ isFollowing: !this.state.isFollowing })} className="modal-button memberUnfollow"><span id="searchFollow">{this.state.isFollowing ? <t>Unfollow</t> : <t>Follow</t>}</span>{this.state.isFollowing ? <i class="fas fa-user-minus"></i> : <i class="fas fa-user-plus"></i>}</Button>
           </div>
         </CardBody>
       </Card>
     </div>
 
-    
 );
 };
 }

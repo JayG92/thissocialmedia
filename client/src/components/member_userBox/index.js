@@ -11,15 +11,15 @@ const Member_userBox = (props) => {
           <div className="text-center">
       <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="memberName">Username</CardTitle>
-          <a><Button className="memberViewProfile view-profile">View Profile</Button></a>
+          <Button className="memberViewProfile view-profile">View Profile</Button><Button className="modal-button memberFollow"><i class="fas fa-user-plus"></i></Button>
             </div>
       </Card>
-
+    
       <Card className="memberBox memberFloat">
           <div className="text-center">
       <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="memberName">Username</CardTitle>
-          <Button className="memberViewProfile view-profile">View Profile</Button>
+          <Button className="memberViewProfile view-profile">View Profile</Button><Button className="modal-button memberFollow"><i class="fas fa-user-plus"></i></Button>
         </div>
       </Card>
 
@@ -27,7 +27,7 @@ const Member_userBox = (props) => {
           <div className="text-center">
       <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="memberName">Username</CardTitle>
-          <Button className="memberViewProfile view-profile">View Profile</Button>
+          <Button className="memberViewProfile view-profile">View Profile</Button><Button className="modal-button memberFollow"><i class="fas fa-user-plus"></i></Button>
         </div>
       </Card>
 
@@ -35,7 +35,7 @@ const Member_userBox = (props) => {
           <div className="text-center">
       <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="memberName">Username</CardTitle>
-          <Button className="memberViewProfile view-profile">View Profile</Button>
+          <Button className="memberViewProfile view-profile">View Profile</Button><Button className="modal-button memberFollow"><i class="fas fa-user-plus"></i></Button>
         </div>
       </Card>
 
@@ -43,7 +43,7 @@ const Member_userBox = (props) => {
           <div className="text-center">
       <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="memberName">Username</CardTitle>
-          <Button className="memberViewProfile view-profile">View Profile</Button>
+          <Button className="memberViewProfile view-profile">View Profile</Button><Button className="modal-button memberFollow"><i class="fas fa-user-plus"></i></Button>
         </div>
       </Card>
 
@@ -51,7 +51,7 @@ const Member_userBox = (props) => {
           <div className="text-center">
       <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
           <CardTitle className="memberName">Username</CardTitle>
-          <Button className="memberViewProfile view-profile">View Profile</Button>
+          <Button className="memberViewProfile view-profile">View Profile</Button><Button className="modal-button memberFollow"><i class="fas fa-user-plus"></i></Button>
         </div>
       </Card>
     </div>

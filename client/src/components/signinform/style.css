@@ -1,23 +1,30 @@
-.form-inline {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    margin-left: 55%;
-    padding-top: 8px;
-}
 
 #userEmail {
-    border-color: rgb(81, 165, 196)
+    border-color: rgb(11, 184, 246);
 }
 #userPassword {
-    border-color: rgb(81, 165, 196)
+    border-color: rgb(11, 184, 246);
 }
 
 .signinform {
-    
+   
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     margin-left: 65%;
     padding-top: 8px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-left: 55%;
+    padding-top: 8px;
+    margin-bottom: 50px;
+}
+
+.signin-button {
+    margin: 3px;
+    color: rgb(11, 184, 246);
+    background-color: white;
+    border-color: rgb(11, 184, 246);
+    border-radius: 1.75rem;
 }

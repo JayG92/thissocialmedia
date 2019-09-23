@@ -2,13 +2,17 @@ import React from "react";
 import Signupform from "./components/signupform";
 import SigninForm from "../components/signinform";
 
-function loginPage() {
+class LoginPage extends React.Component{
+
+
+render(){
     return (
         <div>
             <SigninForm />
-            <Signupform />
+            <Signupform saveUsers={this.saveUser} />
         </div>
     )
 }
+}
 
-export default loginPage;
+export default LoginPage;

@@ -6,86 +6,61 @@ import axios from 'axios';
 import API from "../../utils/API";
 
 export default class Signupform extends React.Component {
-
-
-  state = {
-    email: "",
-    password: "",
-    phonenumber: "",
-    birthday: ""
-  };
-
-  handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
-   
-    if (name === "password") {
-      value = value.substring(0, 15);
-    }
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    
-  });
-};
-
-  handleFormSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
-    event.preventDefault();
-    if (this.state.password.length < 6) {
-      alert(
-        `Choose a more secure password ${this.state.email}`
-    
-      );
-    } else {
-      alert(`${this.state.email} signed up successfully`);
-       console.log("User created successfully")
-    }
-
-    this.setState({
+  constructor(props) {
+    super(props);
+    this.state = {
       email: "",
       password: "",
       phonenumber: "",
       birthday: ""
+    };
+  }
+
+  handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    const value = event.target.value;
+    const name = event.target.name;
+
+    // Updating the input's state
+    this.setState({
+      [name]: value
+
     });
-    
   };
 
-  //   API.saveUser("/users",{
-  //     email: this.state.email,
-  //     password: this.state.password,
-  //     phonenumber: this.state.phonenumber
-  //   }).then(response => {
-  //     console.log(response)
-  //     if (response.data){
-  //       console.log("successful sign up")
-  //       this.setState({
-  //         redirectTo:"/login"
-  //       })
-  //     } else {
-  //       console.log("signup Error")
-  //     }
-  //   }).catch(error =>{
-  //     console.log("sign up server error: ")
-  //     console.log(error)
-  //   })
-  // }
+  handleFormSubmit = event => {
+    event.preventDefault();
+    API.saveUser({
+      email: this.state.email,
+      password: this.state.password,
+      phonenumber: this.state.phonenumber,
+      birthday: this.state.birthday
+    })
+      .then(res => this.props.loadUser())
+      .catch(err => console.log(err))
+
+
+  }
 
 
   render() {
     return (
-      <Container>
+      <Container className="loginPageBody">
 
         <Row>
           {/* Logo */}
-          <Col xs="6"><h1>THIS.SOCIAL.MEDIA</h1><img id="signuplogo" src={logo} alt="Logo"></img></Col>
+          <Col className="leftSide" xs="6">
+            <h1 className="LogoText">THIS.</h1>
+            <h3 className="secondLogoName">SOCIAL.MEDIA</h3>
+            <h4 className="descriptionforwebsite">for(DVLPRS)</h4>
+            <img id="signuplogo" src={logo} alt="Logo"></img>
+          </Col>
 
 
           {/* SignupSheet */}
 
-          <Col xs="6">
-            <h3>Sign Up</h3>
+          <Col className="rightSide" xs="6">
+            <h3 className="SignupText">Sign Up</h3>
             <Form className="signupform">
               <Label>Email</Label>
               <Input
@@ -120,8 +95,8 @@ export default class Signupform extends React.Component {
               />
               <br>
               </br>
-              <Button onClick={this.handleFormSubmit}>Submit</Button>
-              
+              <Button className="submit-button" onClick={this.handleFormSubmit}>Sign Up</Button>
+
             </Form>
 
 
@@ -133,3 +108,5 @@ export default class Signupform extends React.Component {
     );
   }
 }
+
+

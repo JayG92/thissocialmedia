@@ -9,18 +9,19 @@ import ProfileCard from "../components/profileCard/index"
 import { Row, Col, Container } from 'reactstrap';
 
 class Profile extends React.Component {
-state= {
-title:"",
-body:"",
-date:"",
-time:"",
-}
-
-componentDidMount() {
-    this.loadPosts();
+  state = {
+    posts: [
+    ],
+    events: [
+    ]
   }
 
-handleInputChange = event => {
+  componentDidMount() {
+    this.loadPosts();
+    this.loadEvents();
+  }
+
+  handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -30,19 +31,42 @@ handleInputChange = event => {
   loadPosts = () => {
     API.getPosts()
       .then(res =>
-        this.setState({ posts: res.data, title: "", user: "", body: "" })
+        this.setState({ posts: res.data })
+      )
+      .catch(err => console.log(err));
+  };
+  loadEvents = () => {
+    API.getEvents()
+      .then(res =>
+        this.setState({ events: res.data })
       )
       .catch(err => console.log(err));
   };
 
+  handleEventSubmit = event => {
+    event.preventDefault();
+    if (this.state.eventTitle || this.state.eventBody || this.state.date || this.state.time) {
+      API.saveEvent({
+        eventTitle: this.state.eventTitle,
+        eventBody: this.state.eventBody,
+        date: this.state.date,
+        time: this.state.time,
+
+
+      })
+        .then(res => this.loadEvents())
+        .catch(err => console.log(err));
+    }
+  };
+
+
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title || this.state.body||this.state.date||this.state.time) {
+    if (this.state.title || this.state.body || this.state.date || this.state.time) {
       API.savePost({
-         title:this.state.title,
-         body: this.state.body,
-         date:this.state.date,
-         time:this.state.time
+        title: this.state.title,
+        body: this.state.body,
+
       })
         .then(res => this.loadPosts())
         .catch(err => console.log(err));
@@ -50,29 +74,29 @@ handleInputChange = event => {
   };
 
 
+  render() {
+    return (
+      <div>
+        <ThisNavbar />
+        <Container>
+          <div className="topContainer"></div>
+          <Row>
+            <Col xs="3"><ProfileCard /><Footer /></Col>
+            <Col xs="6">
+              <PostForm
+                loadPosts={this.loadPosts}
+                loadEvents={this.loadEvents} />
+              <Feed posts={this.state.posts} />
+            </Col>
+            <Col xs="3">
+              <EventCard events={this.state.events} />
+            </Col>
+          </Row>
+        </Container>
+      </div>
 
-
-    render() {
-    return(
-        <div>
-            <ThisNavbar />
-            <Container>
-            <div className="topContainer"></div>
-                <Row>
-                    <Col xs="3"><ProfileCard/><Footer/></Col>
-                    <Col xs="6">
-                        <PostForm />
-                        <Feed />
-                    </Col>
-                    <Col xs="3">
-                        <EventCard />
-                    </Col>
-                </Row>
-            </Container>
-        </div>
-    
     );
-    }
+  }
 }
 
 export default Profile;

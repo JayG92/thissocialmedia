@@ -18,8 +18,8 @@ function App() {
           <Route exact path="/members" component={Members} />
           <Route exact path="/messages" component={Messages} />
           <Route exact path="/profile" component={Profile} />
-          <Route exact path="/login" component={LoginForm} />
-          <Route exact path="/login" component={Signupform} />
+          <Route exact path="/" component={LoginForm} />
+          <Route exact path="/" component={Signupform} />
          
       </div>
     </Router>

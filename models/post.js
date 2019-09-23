@@ -5,11 +5,9 @@ var PostSchema = new Schema({
     title: String,
     body: String,
     category: String,
-    Date: Date,
-    Time: String
 
 });
 
-var Post = mongoose.model("Note", PostSchema);
+var Post = mongoose.model("Post", PostSchema);
 
 module.exports = Post;

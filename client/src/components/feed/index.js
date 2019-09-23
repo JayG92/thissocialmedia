@@ -3,43 +3,37 @@ import "./style.css"
 import { Button, CardText, Jumbotron, } from 'reactstrap';
 
 
-class Feed extends React.Component {
-    state = {
-        user:"username",
-        title: "",
-        body: "Woof, react is kinda tough!",
-        
-    }
+// function Feed(props) {
+//     const posts = props.posts;
 
-
-    render() {
-        return (
-
-            <Jumbotron className="feed" fluid >
-             <div className="text-center">
-
-                      <CardText>
-                
-
-            <strong>{this.state.user}</strong>
-            <br></br>
-            {this.state.title}
-            <br></br>
-            {this.state.body}
-            <br></br>
-            {this.state.time}
-            <br></br>
-            <hr/>
-            </CardText>
-            <Button>comment</Button>
-            <input></input>
+function Feed({ posts }) {
+    return (
+        <Jumbotron className="feed" fluid >
+            <div className="text-center">
+                {posts.map(post => (
+                    <div>
+                        <CardText>
+                            <strong>
+                            {post.user}
+                            </strong>
+                            <br></br>
+                            {post.title}
+                            <br></br>
+                            {post.body}
+                            <br></br>
+                            <br></br>
+                        </CardText>
+                        <hr />
+                        {/* <Button>comment</Button>
+                        <input></input> */}
+                    </div>
+                )
+                )}
             </div>
-            </Jumbotron >
-
-        )
-
-    }
-
+        </Jumbotron >
+    )
 }
+
+
 
 export default Feed
