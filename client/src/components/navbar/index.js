@@ -33,7 +33,7 @@ class ThisNavbar extends React.Component {
           <NavbarBrand href="/"><img id="logo" src={logo} alt="Logo"></img><div id="logoText">THIS.</div></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav navbar>
               <NavItem id="navLinks">
                 <NavLink id="Active" href="/">Home</NavLink>
               </NavItem>

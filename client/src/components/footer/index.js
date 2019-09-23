@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css"
 import { CardFooter } from 'reactstrap';
-import logo from "../../imgs/this.png";
+
 
 
 class Footer extends React.Component {
