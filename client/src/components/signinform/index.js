@@ -1,19 +1,18 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, Input } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import "./style.css"
-import API from "../../utils/API";
+import API from '../../utils/API';
+import Axios from 'axios';
+
 
 class SigninForm extends React.Component {
-  constructor() {
-    super()
-
   // Setting the component's initial state
-  this.state = {
+  state = {
     email: "",
     password: "",
-   redirectTo: null
-  }
+    redirectTo: null,
+    loggedIn: "false",
   };
 
   handleInputChange = event => {
@@ -29,31 +28,39 @@ class SigninForm extends React.Component {
       [name]: value
     });
   };
-  loadUser = (id) => {
-    API.getUser(id)
-      .then(res =>
-        //_id? 
-        this.setState({ user: res.data })
-      )
-      .catch(err => console.log(err));
-  };
 
-  handleFormSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
+  handleFormSubmit = (event) => {
+
     event.preventDefault();
-    if (this.state.password.length < 6) {
-      alert(
-        `Choose a more secure password ${this.state.email}`
-      );
-    } else {
-      alert(`Signin form hit for:  ${this.state.email}`);
-    }
+    console.log("handle-submit")
+    Axios.post("/user/signin", {
+      email: this.state.email,
+      password: this.state.password
+    })
+      .then(response => {
+        console.log("loginresponse")
+        console.log(response)
+        if (response.status === 200) {
+          localStorage.setItem("token", response.data.token);
+          this.props.updateUser({
+            loggedIn: true,
+            email: response.data.email
+          })
+          this.setState({
+            redirectTo: "/profile"
+          })
 
-    this.setState({
-      email: "",
-      password: ""
-    });
-  };
+        }
+
+      })
+      .catch(error => {
+        console.log("login-error")
+        console.log(error)
+      })
+
+
+
+  }
 
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
@@ -82,12 +89,8 @@ class SigninForm extends React.Component {
           <Button className="submit-button" onClick={this.handleFormSubmit}>Submit</Button>
         </Form>
       </div>
-  
     );
-      
   }
-  
 }
-
 
 export default SigninForm;

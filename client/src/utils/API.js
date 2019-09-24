@@ -14,7 +14,7 @@ export default {
     return axios.post("/user", userData);
   },
   updateUser:function(id){
-    return axios.patch("/user"+id)
+    return axios.patch("/user/signin"+id)
   },
   getPosts: function(){
     return axios.get("/posts");
@@ -28,9 +28,7 @@ export default {
   saveEvent: function(eventData){
     return axios.post("/events", eventData)
   },
-
-
-
+  
 
 };
 

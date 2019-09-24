@@ -1,9 +1,7 @@
 .feed {
         margin-top:5px;
-        box-shadow: 10px 10px 8px #888888;
-        border-style:solid;
-        border-width:.5em;
-         border-color:rgb(62, 177, 219);
+        background-color: white;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
         }
 
 .postBox {
@@ -66,47 +64,7 @@ text-align:center;
         margin-left: 0%;
         display: inline-block;
 }
-
 .sortText {
         line-height: -10px;
 }
         */
-
-.username {
-        position: relative;
-        top: -60px;
-        right: 200px;
-
-}
-
-#feed-image{
-        right:200px;
-        height:50px;
-        top: -60px;
-        position:relative;}
-
-
-.comment-button{
-        width: 20px;
-        height:20px;
-        text-align:center;
-        position:relative;
-        top:-60px;
-        left:220px;
-}
-
-.comment-box{
-position:relative;
-height:100px;
-width:450px;
-right:10px;
-}
-
-.post-title{
-        position: relative;
-        top: -50px;
-
-}
-
-.post-body{position: relative;
-        top: -30px;}

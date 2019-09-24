@@ -17,10 +17,8 @@ class PostForm extends React.Component {
             body: "",
             date: "",
             time: "",
-            eventTitle:"",
-            eventBody:"",
-            projectLink:"",
-            likes: 0,
+            eventTitle: "",
+            eventBody: "",
         };
     }
 
@@ -34,11 +32,10 @@ class PostForm extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state);
-        if (this.state.title || this.state.body||this.state.projectLink) {
+        if (this.state.title || this.state.body) {
             API.savePost({
                 title: this.state.title,
-                body: this.state.body,
-                likes: this.state.likes
+                body: this.state.body
 
             })
                 .then(res => this.props.loadPosts())
@@ -54,7 +51,6 @@ class PostForm extends React.Component {
                 eventBody: this.state.eventBody,
                 date: this.state.date,
                 time: this.state.time,
-
 
             })
                 .then(res => this.props.loadEvents())
@@ -188,14 +184,6 @@ class PostForm extends React.Component {
                                     onChange={this.handleInputChange}
                                     name="title"
                                     placeholder="Project title"
-                                    bsSize="sm"
-                                />
-
-                                <Input className="project-title"
-                                    value={this.state.projectLink}
-                                    onChange={this.handleInputChange}
-                                    name="projectLink"
-                                    placeholder="Project Link..."
                                     bsSize="sm"
                                 />
 

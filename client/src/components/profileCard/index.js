@@ -3,7 +3,7 @@ import { FaCode } from 'react-icons/fa';
 import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
   Card, CardText, CardBody,
-  CardTitle, FormGroup, Label, Input
+  CardTitle, FormGroup, Label
 } from 'reactstrap';
 import "./style.css"
 

@@ -1,9 +1,10 @@
 import React from "react";
-import API from "../utils/API";
+// import API from "../utils/API";
 import { Container, Row, Col } from 'reactstrap';
 import ThisNavbar from "../components/navbar/index";
 import Member_userBox from "../components/member_userBox/index";
 import Axios from "axios";
+
 
 class UserProfile extends React.Component {
   state = {
@@ -62,10 +63,9 @@ class UserProfile extends React.Component {
       console.log(res.data)
       if (res.data) {
         this.setState({
-          users: res.data.users
+          users: res.data,
         })
       }
-
     });
     // catch(err => console.log(err));
 
