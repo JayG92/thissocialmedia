@@ -14,7 +14,7 @@ export default {
     return axios.post("/user", userData);
   },
   updateUser:function(id){
-    return axios.patch("/api/user"+id)
+    return axios.patch("/user/signin"+id)
   },
   getPosts: function(){
     return axios.get("/posts");

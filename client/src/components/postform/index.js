@@ -52,7 +52,6 @@ class PostForm extends React.Component {
                 date: this.state.date,
                 time: this.state.time,
 
-
             })
                 .then(res => this.props.loadEvents())
                 .catch(err => console.log(err));
@@ -172,7 +171,7 @@ class PostForm extends React.Component {
                             />
                         </FormGroup>
                         <div className="text-center">
-                            <Button className="formPostBtn" onClick={this.handleFormSubmit}>Post Event</Button>
+                            <Button className="formPostBtn" onClick={this.handleEventSubmit}>Post Event</Button>
                         </div>
                     </TabPane>
                     <TabPane tabId="3">

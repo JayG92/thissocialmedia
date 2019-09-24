@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, Input } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import "./style.css"
 import API from '../../utils/API';
@@ -11,8 +11,8 @@ class SigninForm extends React.Component {
   state = {
     email: "",
     password: "",
-    redirectTo:null,
-    loggedIn:""
+    redirectTo: null,
+    loggedIn: "false",
   };
 
   handleInputChange = event => {
@@ -30,36 +30,36 @@ class SigninForm extends React.Component {
   };
 
   handleFormSubmit = (event) => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
+
     event.preventDefault();
     console.log("handle-submit")
-    API.signIn({
-      email:this.state.email,
-      password:this.state.password
+    Axios.post("/user/signin", {
+      email: this.state.email,
+      password: this.state.password
     })
-    .then(response => {
-      console.log("loginresponse")
-      console.log(response)
-    if(response.status===200){
-      localStorage.setItem("token", response.data.token);
-      API.updateUser({
-        loggedIn:true,
-        email:response.data.email
+      .then(response => {
+        console.log("loginresponse")
+        console.log(response)
+        if (response.status === 200) {
+          localStorage.setItem("token", response.data.token);
+          this.props.updateUser({
+            loggedIn: true,
+            email: response.data.email
+          })
+          this.setState({
+            redirectTo: "/profile"
+          })
+
+        }
+
       })
-      this.setState({
-        redirectTo:"/profile"
+      .catch(error => {
+        console.log("login-error")
+        console.log(error)
       })
-    
-    }
-  
-    })
-    .catch(error => {
-      console.log("login-error")
-      console.log(error)
-    })
-    
-  
-    
+
+
+
   }
 
   render() {

@@ -9,38 +9,36 @@ export default class Signupform extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        email: "",
-    password: "",
-    phonenumber: "",
-    birthday: ""
+      email: "",
+      password: "",
+      phonenumber: "",
+      birthday: ""
     };
-}
+  }
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
     const value = event.target.value;
     const name = event.target.name;
-  
+
     // Updating the input's state
     this.setState({
       [name]: value
-    
-  });
-};
+    });
+  };
 
-handleFormSubmit=event=>{
-  event.preventDefault();
-  API.saveUser({
-  email:this.state.email,
-  password:this.state.password,
-  phonenumber:this.state.phonenumber,
-  birthday:this.state.birthday
-  })
-  .then(res=>this.props.loadUser())
-  .catch(err=>console.log(err))
+  handleFormSubmit = event => {
+    event.preventDefault();
+    API.saveUser({
+      email: this.state.email,
+      password: this.state.password,
+      phonenumber: this.state.phonenumber,
+      birthday: this.state.birthday
+    })
+      .then(res => this.props.loadUser())
+      .catch(err => console.log(err))
 
-
-}
+  }
 
 
   //   API.saveUser("/users",{
@@ -71,11 +69,21 @@ handleFormSubmit=event=>{
         <div className="logoBg"></div>
         <Row>
           {/* Logo */}
-          <Col xs="6"><h1 className="logoTitle">THIS.SOCIAL.MEDIA</h1><img id="signuplogo" src={logo} alt="Logo"></img>
-          <h4 className="logoSubText"><i className="fas fa-search logoSubIcons"></i>Follow your interests.</h4>
-          <h4 className="logoSubText"><i className="fas fa-user-friends logoSubIcons"></i>Hear what people are talking about.</h4>
-          <h4 className="logoSubText"><i className="far fa-comment logoSubIcons"></i>Join the conversation.</h4>
-
+          <Col xs="6">
+            <h1 className="logoTitle">THIS.SOCIAL.MEDIA</h1>
+            <img id="signuplogo" src={logo} alt="Logo" />
+            <h4 className="logoSubText">
+              <i className="fas fa-search logoSubIcons" />
+              Follow your interests.
+            </h4>
+            <h4 className="logoSubText">
+              <i className="fas fa-user-friends logoSubIcons" />
+              Hear what people are talking about.
+            </h4>
+            <h4 className="logoSubText">
+              <i className="far fa-comment logoSubIcons" />
+              Join the conversation.
+            </h4>
           </Col>
 
 
@@ -97,8 +105,8 @@ handleFormSubmit=event=>{
               />
               <Label>Password</Label>
               <Input
-              id="signupPassword"
-              className="marginForm"
+                id="signupPassword"
+                className="marginForm"
                 value={this.state.password}
                 name="password"
                 onChange={this.handleInputChange}
@@ -107,8 +115,8 @@ handleFormSubmit=event=>{
               />
               <Label>Phone Number</Label>
               <Input
-              id="signupPhone"
-              className="marginForm"
+                id="signupPhone"
+                className="marginForm"
                 value={this.state.phonenumber}
                 name="phonenumber"
                 onChange={this.handleInputChange}
@@ -117,8 +125,8 @@ handleFormSubmit=event=>{
               />
               <Label>Birthday</Label>
               <Input
-              id="signupBirthday"
-              className="marginForm"
+                id="signupBirthday"
+                className="marginForm"
                 type="date"
                 name="bithday"
                 id="birthday"
@@ -127,7 +135,7 @@ handleFormSubmit=event=>{
               <br>
               </br>
               <Button className="submit-button signupBtn" onClick={this.handleFormSubmit}>Submit</Button>
-              
+
             </Form>
 
 
