@@ -62,7 +62,7 @@ class Profile extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title || this.state.body || this.state.date || this.state.time) {
+    if (this.state.title || this.state.body || this.state.date || this.state.time ||this.state.projectLink) {
       API.savePost({
         title: this.state.title,
         body: this.state.body,

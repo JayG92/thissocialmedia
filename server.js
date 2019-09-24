@@ -1,10 +1,15 @@
 const express = require("express");
-
-const mongoose = require("mongoose");
+require("dotenv").config();
 const logger = require("morgan");
-const routes = require("./routes/api");
+
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+require('./services/passport');
+
+//Mongoose Connection
+const db = require("./config/connection");
+db(process.env.MONGODB_URI || "mongodb://localhost/thissocialmedia");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -15,15 +20,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Add routes, both API and view
-app.use("/api", routes);
+app.use(require("./routes/api"));
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/thissocialmedia",
-  {
-    useCreateIndex: true,
-    useNewUrlParser: true
-  }
-);
+
+
+
+
+
+
 
 // Start the API server
 app.listen(PORT, function () {

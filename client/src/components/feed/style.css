@@ -2,8 +2,7 @@
         margin-top:5px;
         box-shadow: 10px 10px 8px #888888;
         border-style:solid;
-        border-width:2em;
-        
+        border-width:.5em;
          border-color:rgb(62, 177, 219);
         }
 
@@ -15,7 +14,45 @@ ul{text-align:center;
  .feedcard{
         margin-right:10%;
         margin-left:10%;
-        
         background-color:white
-        
+
         }
+
+.username {
+        position: relative;
+        top: -60px;
+        right: 200px;
+
+}
+
+#feed-image{
+        right:200px;
+        height:50px;
+        top: -60px;
+        position:relative;}
+
+
+.comment-button{
+        width: 20px;
+        height:20px;
+        text-align:center;
+        position:relative;
+        top:-60px;
+        left:220px;
+}
+
+.comment-box{
+position:relative;
+height:100px;
+width:450px;
+right:10px;
+}
+
+.post-title{
+        position: relative;
+        top: -50px;
+
+}
+
+.post-body{position: relative;
+        top: -30px;}

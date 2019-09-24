@@ -1,6 +1,6 @@
 import React from 'react';
 import "./style.css"
-import { Button, CardText, Jumbotron, } from 'reactstrap';
+import { Button, CardText, Jumbotron, Collapse,CardBody, } from 'reactstrap';
 
 
 // function Feed(props) {
@@ -8,29 +8,33 @@ import { Button, CardText, Jumbotron, } from 'reactstrap';
 
 function Feed({ posts }) {
     return (
-        <Jumbotron className="feed" fluid >
             <div className="text-center">
                 {posts.map(post => (
                     <div>
-                        <CardText>
-                            <strong>
-                            {post.user}
+
+                    <Jumbotron className="feed" fluid >
+
+                            <strong className="username">
+                            User Name{post.user}
                             </strong>
+                        <CardText className="post-content">
+                        <img id="feed-image" src="https://via.placeholder.com/100" alt="Profile"></img>
+
                             <br></br>
+                            <strong className="post-title">
                             {post.title}
+                            </strong>
+                            
                             <br></br>
-                            {post.body}
-                            <br></br>
+                            <p className="post-body">
+                            {post.body}</p>
                             <br></br>
                         </CardText>
-                        <hr />
-                        {/* <Button>comment</Button>
-                        <input></input> */}
+                        </Jumbotron >
                     </div>
                 )
                 )}
             </div>
-        </Jumbotron >
     )
 }
 

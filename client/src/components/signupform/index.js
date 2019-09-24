@@ -12,7 +12,8 @@ export default class Signupform extends React.Component {
         email: "",
     password: "",
     phonenumber: "",
-    birthday: ""
+    birthday: "",
+    confirmPasword:""
     };
 }
 
@@ -37,6 +38,9 @@ handleFormSubmit=event=>{
   birthday:this.state.birthday
   })
   .then(res=>this.props.loadUser())
+
+
+  
   .catch(err=>console.log(err))
 
 

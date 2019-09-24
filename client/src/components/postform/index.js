@@ -12,13 +12,14 @@ class PostForm extends React.Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            activeTab: '2',
+            activeTab: '1',
             title: "",
             body: "",
             date: "",
             time: "",
             eventTitle:"",
             eventBody:"",
+            projectLink:"",
         };
     }
 
@@ -32,7 +33,7 @@ class PostForm extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state);
-        if (this.state.title || this.state.body) {
+        if (this.state.title || this.state.body||this.state.projectLink) {
             API.savePost({
                 title: this.state.title,
                 body: this.state.body
@@ -174,6 +175,14 @@ class PostForm extends React.Component {
                                     onChange={this.handleInputChange}
                                     name="title"
                                     placeholder="Project Name..."
+                                    bsSize="sm"
+                                />
+
+                                <Input className="project-title"
+                                    value={this.state.projectLink}
+                                    onChange={this.handleInputChange}
+                                    name="projectLink"
+                                    placeholder="Project Link..."
                                     bsSize="sm"
                                 />
 
