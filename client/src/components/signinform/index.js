@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import "./style.css"
-import API from "../../utils/API";
 
 
 class SigninForm extends React.Component {
@@ -29,12 +28,14 @@ class SigninForm extends React.Component {
   handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-    API.loginUser ({
-      email: this.state.email,
-      password: this.state.password,
-    })
-    .then(res => this.props.loadUser())
-    .catch(err => console.log(err));
+
+    // API.loginUser ({
+    //   email: this.state.email,
+    //   password: this.state.password,
+    // })
+    // .then(res => this.props.loadUser())
+    // .catch(err => console.log(err));
+
 
     if (this.state.password.length < 6) {
       alert(
@@ -42,7 +43,6 @@ class SigninForm extends React.Component {
       );
     } else {
       alert(`Signin form hit for:  ${this.state.email}`);
-     
     }
 
     this.setState({
@@ -60,6 +60,7 @@ class SigninForm extends React.Component {
         </p> */}
         <Form inline className="signinform">
           <Input
+            id="userEmail"
             value={this.state.email}
             name="email"
             onChange={this.handleInputChange}
@@ -67,13 +68,14 @@ class SigninForm extends React.Component {
             placeholder="User Email"
           />
           <Input
+            id="userPassword"
             value={this.state.password}
             name="password"
             onChange={this.handleInputChange}
             type="password"
             placeholder="Password"
           />
-          <Button className="signin-button" onClick={this.handleFormSubmit}>Log In</Button>
+          <Button className="submit-button" onClick={this.handleFormSubmit}>Submit</Button>
         </Form>
       </div>
     );

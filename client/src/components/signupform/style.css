@@ -1,93 +1,94 @@
 body{
     font-weight: 500;
-    background-color: rgb(11, 184, 246);
-    color: white;
-
 }
 
 .submit-button {
-    margin: 13px;
-    color: white;
-    background-color: rgb(11, 184, 246);
-    border-radius: 1.75rem;
-    border-color: rgb(11, 184, 246)
-  
+    margin: 1px;
+    color: rgb(81, 165, 196);
+    background-color: white;
+    border-color: rgb(81, 165, 196);
 }
 
+.signupContainer {
+    height: 70px;
+}
 
+.marginSignup {
+    left: 10%;
+}
 
 
 
 #signuplogo {
-    width: 400px;
-    height: 400px;
-    background-color: rgb(11, 184, 246)
+    width: 200px;
+    height: 200px;
+    background: rgb(81, 165, 196);
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+.logoTitle {
+    color: white;
+    margin-bottom: 5%;
+}
+
+.logoSubIcons {
+    margin-right: 5%;
+    width: 20px;
+}
+
+.logoSubText {
+    margin-top: 5%;
+    color: white;
+}
+
+.marginForm {
+    margin-bottom: 3.5%;
 }
 
 
 
-#userEmail {
-    border-color: rgb(11, 184, 246);
+/* #userEmail {
+    border-color: rgb(81, 165, 196)
 }
 #userPassword {
-    border-color: rgb(11, 184, 246);
-}
-#userPhoneNumber {
-    border-color: rgb(11, 184, 246);
+    border-color: rgb(81, 165, 196)
+} */
+/* #userPhoneNumber {
+    border-color: rgb(81, 165, 196)
 }
 #userBday {
-    border-color: rgb(11, 184, 246);
+    border-color: rgb(81, 165, 196)
+} */
+
+#signupEmail:active, #signupEmail:focus, #signupPassword:active, #signupPassword:focus, #signupPhone:active, #signupPhone:focus, #signupBirthday:active, #signupBirthday:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: rgb(81, 165, 196)
 }
 
+.signupBtn {
+    width: 50%;
+    margin-left: 25%;
+}
 
+.signupTitle {
+    margin-left: 23.5%;
+    margin-bottom: 5%;
+}
 
 .signupform{
-    
-    width: 75%;
-    padding-left: 137px;
-
-}
-
-.form-control {
-    border-radius: 1.75rem;
-}
-
-.LogoText {
-    color: black;
-    font-size: 3.5rem;
-    text-align: center;
-    padding-right: 20%;
-   
-}
-
-.secondLogoName {
-    font-size: 1.75rem;
-    text-align: center;
-    padding-right: 21%;
-}
-
-.descriptionforwebsite{
-font-size: 1.5rem;
-    text-align: center;
-    padding-right: 40%;
-}
-
-.SignupText {
-    color: black;
-    font-weight: 700;
-}
-.rightSide {
-    background: white;
-    border-radius: 1.75rem;
-    text-align: center;
-    align-self: center;
+    width: 80%;
     
 }
 
-.descriptionforwebsite {
-    padding-left: 111px;
-}
-
-.leftSide {
-    padding-bottom: 12%;
+.logoBg {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: rgb(81, 165, 196);
+    height: 100%;
+    width: 50%;
 }
