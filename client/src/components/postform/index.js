@@ -12,13 +12,13 @@ class PostForm extends React.Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            activeTab: '2',
+            activeTab: '1',
             title: "",
             body: "",
             date: "",
             time: "",
-            eventTitle:"",
-            eventBody:"",
+            eventTitle: "",
+            eventBody: "",
         };
     }
 
@@ -36,7 +36,7 @@ class PostForm extends React.Component {
             API.savePost({
                 title: this.state.title,
                 body: this.state.body
-            
+
             })
                 .then(res => this.props.loadPosts())
                 .catch(err => console.log(err));
@@ -45,19 +45,19 @@ class PostForm extends React.Component {
 
     handleEventSubmit = event => {
         event.preventDefault();
-        if (this.state.title || this.state.body || this.state.date ||this.state.time) {
-          API.saveEvent({
-            eventTitle: this.state.eventTitle,
-            eventBody: this.state.eventBody,
-            date: this.state.date,
-            time: this.state.time,
-    
-            
-          })
-            .then(res => this.props.loadEvents())
-            .catch(err => console.log(err));
+        if (this.state.title || this.state.body || this.state.date || this.state.time) {
+            API.saveEvent({
+                eventTitle: this.state.eventTitle,
+                eventBody: this.state.eventBody,
+                date: this.state.date,
+                time: this.state.time,
+
+
+            })
+                .then(res => this.props.loadEvents())
+                .catch(err => console.log(err));
         }
-      };
+    };
 
 
     toggle(tab) {
@@ -76,7 +76,7 @@ class PostForm extends React.Component {
                             className={classnames({ active: this.state.activeTab === '1' })}
                             onClick={() => { this.toggle('1'); }}
                         >
-                            <i className="far fa-share-square"></i>
+                            <i class="far fa-file-alt fa-lg"></i>
                         </NavLink>
                     </NavItem>
                     <NavItem>
@@ -84,7 +84,7 @@ class PostForm extends React.Component {
                             className={classnames({ active: this.state.activeTab === '2' })}
                             onClick={() => { this.toggle('2'); }}
                         >
-                            <i className="fas fa-calendar-day"></i>
+                            <i className="fas fa-calendar-day fa-lg"></i>
                         </NavLink>
 
                     </NavItem>
@@ -93,7 +93,7 @@ class PostForm extends React.Component {
                             className={classnames({ active: this.state.activeTab === '3' })}
                             onClick={() => { this.toggle('3'); }}
                         >
-                            <i className="far fa-clipboard"></i>
+                            <i className="far fa-clipboard fa-lg"></i>
                         </NavLink>
                     </NavItem>
 
@@ -103,19 +103,22 @@ class PostForm extends React.Component {
                         <Row>
                             <Col sm="12">
                                 <FormGroup>
-                                    <Label for="exampleText"></Label>
+
+                                    <div className="inputMargin"></div>
                                     <Input
+                                        rows="3"
+                                        className="formBox"
                                         value={this.state.body}
                                         onChange={this.handleInputChange}
                                         type="textarea"
                                         name="body"
                                         id="exampleText"
-                                        placeholder="Post.."
+                                        placeholder="Start a post!"
                                     />
                                 </FormGroup>
-                                <Button onClick={this.handleFormSubmit}
-
-                                >Post</Button>
+                                <div className="text-center">
+                                    <Button className="formPostBtn" onClick={this.handleFormSubmit}>Post</Button>
+                                </div>
                             </Col>
                         </Row>
                     </TabPane>
@@ -123,15 +126,18 @@ class PostForm extends React.Component {
                         <Row>
 
                         </Row>
+                        <div className="inputMargin"></div>
                         <Input
+                            className="formBox"
                             value={this.state.eventTitle}
                             onChange={this.handleInputChange}
                             name="eventTitle"
-                            placeholder="Event Name..."
+                            placeholder="Event Name"
                             bsSize="sm" />
                         <FormGroup className="timeform">
                             <Label for="exampleDate"></Label>
                             <Input
+                                className="formBox"
                                 value={this.state.date}
                                 onChange={this.handleInputChange}
                                 type="date"
@@ -143,6 +149,7 @@ class PostForm extends React.Component {
                         <FormGroup>
                             <Label for="exampleTime"></Label>
                             <Input
+                                className="formBox"
                                 value={this.state.time}
                                 onChange={this.handleInputChange}
                                 type="time"
@@ -154,42 +161,49 @@ class PostForm extends React.Component {
                         <FormGroup>
                             <Label for="exampleText"></Label>
                             <Input
+                                rows="3"
+                                className="formBox"
                                 value={this.state.eventBody}
                                 onChange={this.handleInputChange}
                                 type="textarea"
                                 name="eventBody"
                                 id="exampleText"
-                                placeholder="Post..."
+                                placeholder="Description of the event"
                             />
                         </FormGroup>
-                        <Button
-                            onClick={this.handleEventSubmit}
-                        >Post</Button>
+                        <div className="text-center">
+                            <Button className="formPostBtn" onClick={this.handleEventSubmit}>Post Event</Button>
+                        </div>
                     </TabPane>
                     <TabPane tabId="3">
                         <Row>
                             <Col sm="12">
+                                <div className="inputMargin"></div>
                                 <Input
+                                    className="formBox"
                                     value={this.state.title}
                                     onChange={this.handleInputChange}
                                     name="title"
-                                    placeholder="Project Name..."
+                                    placeholder="Project title"
                                     bsSize="sm"
                                 />
 
                                 <FormGroup>
                                     <Label for="exampleText"></Label>
                                     <Input
+                                        rows="3"
+                                        className="formBox"
                                         value={this.state.body}
                                         onChange={this.handleInputChange}
-
-                                        placeholder="Post..."
+                                        placeholder="Description of the project"
                                         type="textarea"
                                         name="body"
                                         id="exampleText"
                                     />
                                 </FormGroup>
-                                <Button onClick={this.handleFormSubmit}>Post</Button>
+                                <div className="text-center">
+                                    <Button className="formPostBtn" onClick={this.handleFormSubmit}>Post Project</Button>
+                                </div>
 
                             </Col>
                         </Row>

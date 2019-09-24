@@ -71,7 +71,7 @@ handleFormSubmit=event=>{
         <div className="logoBg"></div>
         <Row>
           {/* Logo */}
-          <Col xs="6"><h1 className="logoTitle">THIS.SOCIAL.MEDIA</h1><img id="signuplogo" src={logo} alt="Logo"></img>
+          <Col xs="6"><h1 className="logoTitle">(THIS.SOCIAL.MEDIA)</h1><img id="signuplogo" src={logo} alt="Logo"></img>
           <h4 className="logoSubText"><i className="fas fa-search logoSubIcons"></i>Follow your interests.</h4>
           <h4 className="logoSubText"><i className="fas fa-user-friends logoSubIcons"></i>Hear what people are talking about.</h4>
           <h4 className="logoSubText"><i className="far fa-comment logoSubIcons"></i>Join the conversation.</h4>

@@ -8,7 +8,7 @@ class LoginPage extends React.Component{
 render(){
     return (
         <div>
-            <SigninForm />
+            <SigninForm updateUser={this.updateUser} />
             <Signupform saveUsers={this.saveUser} />
         </div>
     )

@@ -2,13 +2,16 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import "./style.css"
-
+import API from '../../utils/API';
+import Axios from 'axios';
 
 class SigninForm extends React.Component {
   // Setting the component's initial state
   state = {
     email: "",
-    password: ""
+    password: "",
+    redirectTo:null,
+    loggedIn:""
   };
 
   handleInputChange = event => {
@@ -25,31 +28,38 @@ class SigninForm extends React.Component {
     });
   };
 
-  handleFormSubmit = event => {
+  handleFormSubmit = (event) => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-
-    // API.loginUser ({
-    //   email: this.state.email,
-    //   password: this.state.password,
-    // })
-    // .then(res => this.props.loadUser())
-    // .catch(err => console.log(err));
-
-
-    if (this.state.password.length < 6) {
-      alert(
-        `Choose a more secure password ${this.state.email}`
-      );
-    } else {
-      alert(`Signin form hit for:  ${this.state.email}`);
+    console.log("handle-submit")
+    API.getUser({
+      email:this.state.email,
+      password:this.state.password
+    })
+    .then(response => {
+      console.log("loginresponse")
+      console.log(response)
+    if(response.status===200){
+      localStorage.setItem("token", response.data.token);
+      API.updateUser({
+        loggedIn:true,
+        email:response.data.email
+      })
+      this.setState({
+        redirectTo:"/profile"
+      })
+    
     }
-
-    this.setState({
-      email: "",
-      password: ""
-    });
-  };
+  
+    })
+    .catch(error => {
+      console.log("login-error")
+      console.log(error)
+    })
+    
+  
+    
+  }
 
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
