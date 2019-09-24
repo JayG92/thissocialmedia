@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button, Label, Input } from 'reactstrap';
-import logo from "../../imgs/logo.png";
+import logo from "../../imgs/whitelogo.png";
 import "./style.css"
 import axios from 'axios';
 import API from "../../utils/API";
@@ -12,8 +12,7 @@ export default class Signupform extends React.Component {
         email: "",
     password: "",
     phonenumber: "",
-    birthday: "",
-    confirmPasword:""
+    birthday: ""
     };
 }
 
@@ -38,9 +37,6 @@ handleFormSubmit=event=>{
   birthday:this.state.birthday
   })
   .then(res=>this.props.loadUser())
-
-
-  
   .catch(err=>console.log(err))
 
 
@@ -71,19 +67,28 @@ handleFormSubmit=event=>{
   render() {
     return (
       <Container>
-
+        <div className="signupContainer"></div>
+        <div className="logoBg"></div>
         <Row>
           {/* Logo */}
-          <Col xs="6"><h1>THIS.SOCIAL.MEDIA</h1><img id="signuplogo" src={logo} alt="Logo"></img></Col>
+          <Col xs="6"><h1 className="logoTitle">THIS.SOCIAL.MEDIA</h1><img id="signuplogo" src={logo} alt="Logo"></img>
+          <h4 className="logoSubText"><i className="fas fa-search logoSubIcons"></i>Follow your interests.</h4>
+          <h4 className="logoSubText"><i className="fas fa-user-friends logoSubIcons"></i>Hear what people are talking about.</h4>
+          <h4 className="logoSubText"><i className="far fa-comment logoSubIcons"></i>Join the conversation.</h4>
+
+          </Col>
+
 
 
           {/* SignupSheet */}
 
-          <Col xs="6">
-            <h3>Sign Up</h3>
+          <Col className="marginSignup" xs="6">
+            <h3 className="signupTitle">Join today!</h3>
             <Form className="signupform">
               <Label>Email</Label>
               <Input
+                id="signupEmail"
+                className="marginForm"
                 value={this.state.email}
                 name="email"
                 onChange={this.handleInputChange}
@@ -92,6 +97,8 @@ handleFormSubmit=event=>{
               />
               <Label>Password</Label>
               <Input
+              id="signupPassword"
+              className="marginForm"
                 value={this.state.password}
                 name="password"
                 onChange={this.handleInputChange}
@@ -100,6 +107,8 @@ handleFormSubmit=event=>{
               />
               <Label>Phone Number</Label>
               <Input
+              id="signupPhone"
+              className="marginForm"
                 value={this.state.phonenumber}
                 name="phonenumber"
                 onChange={this.handleInputChange}
@@ -108,6 +117,8 @@ handleFormSubmit=event=>{
               />
               <Label>Birthday</Label>
               <Input
+              id="signupBirthday"
+              className="marginForm"
                 type="date"
                 name="bithday"
                 id="birthday"
@@ -115,7 +126,7 @@ handleFormSubmit=event=>{
               />
               <br>
               </br>
-              <Button className="submit-button" onClick={this.handleFormSubmit}>Submit</Button>
+              <Button className="submit-button signupBtn" onClick={this.handleFormSubmit}>Submit</Button>
               
             </Form>
 
@@ -128,5 +139,4 @@ handleFormSubmit=event=>{
     );
   }
 }
-
 

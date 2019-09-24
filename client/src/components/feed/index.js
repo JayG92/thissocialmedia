@@ -1,43 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./style.css"
-import { Button, CardText, Jumbotron, Collapse,CardBody, } from 'reactstrap';
-
+import { Button, CardText, Jumbotron, } from 'reactstrap';
 
 // function Feed(props) {
 //     const posts = props.posts;
-
-function Feed({ posts }) {
+ function Feed({ posts }) {
+    const [count, setCount] = useState(0);
+    
     return (
-            <div className="text-center">
+        <>
+        {/* <div><hr className="sortPost"></hr><text className="sortText">Sort</text></div> */}
                 {posts.map(post => (
-                    <div>
-
-                    <Jumbotron className="feed" fluid >
-
-                            <strong className="username">
-                            User Name{post.user}
+                    <div className="postBox">
+                        <CardText>
+                            <div className="feedPadding">
+                            <strong>
+                            {post.user}@Test
                             </strong>
-                        <CardText className="post-content">
-                        <img id="feed-image" src="https://via.placeholder.com/100" alt="Profile"></img>
-
+                            <hr className="feedHr"></hr>
+                            <h3>{post.title}</h3>
+                            {post.body}
                             <br></br>
-                            <strong className="post-title">
-                            {post.title}
-                            </strong>
-                            
                             <br></br>
-                            <p className="post-body">
-                            {post.body}</p>
-                            <br></br>
+                            <small class="text-muted likeCount">{count} Like(s)</small><small class="text-muted commentCount">0 Comments</small>
+                            <div className="postInteraction border-top">
+                                <div onClick={() => setCount(1)} className="btn btn-link likes"><i class="far fa-thumbs-up"></i> Like</div>
+                                <div className="btn btn-link comments"><i class="far fa-comment"></i> Comment(s)</div>
+                            </div>
+                            </div>
                         </CardText>
-                        </Jumbotron >
+                        {/* <Button>comment</Button>
+                        <input></input> */}
                     </div>
                 )
                 )}
-            </div>
+
+        </>
     )
 }
-
-
-
 export default Feed

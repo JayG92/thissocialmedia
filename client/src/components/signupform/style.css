@@ -9,30 +9,85 @@ body{
     border-color: rgb(81, 165, 196);
 }
 
-#signuplogo {
-    width: 500px;
-    height: 500px;
-    background: rgb(81, 165, 196)
+.signupContainer {
+    height: 70px;
+}
+
+.marginSignup {
+    left: 10%;
 }
 
 
 
-#userEmail {
+#signuplogo {
+    width: 200px;
+    height: 200px;
+    background: rgb(81, 165, 196);
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+.logoTitle {
+    color: white;
+    margin-bottom: 5%;
+}
+
+.logoSubIcons {
+    margin-right: 5%;
+    width: 20px;
+}
+
+.logoSubText {
+    margin-top: 5%;
+    color: white;
+}
+
+.marginForm {
+    margin-bottom: 3.5%;
+}
+
+
+
+/* #userEmail {
     border-color: rgb(81, 165, 196)
 }
 #userPassword {
     border-color: rgb(81, 165, 196)
-}
-#userPhoneNumber {
+} */
+/* #userPhoneNumber {
     border-color: rgb(81, 165, 196)
 }
 #userBday {
     border-color: rgb(81, 165, 196)
+} */
+
+#signupEmail:active, #signupEmail:focus, #signupPassword:active, #signupPassword:focus, #signupPhone:active, #signupPhone:focus, #signupBirthday:active, #signupBirthday:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: rgb(81, 165, 196)
 }
 
+.signupBtn {
+    width: 50%;
+    margin-left: 25%;
+}
 
+.signupTitle {
+    margin-left: 23.5%;
+    margin-bottom: 5%;
+}
 
 .signupform{
-    width: 70%;
+    width: 80%;
+}
 
+.logoBg {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: rgb(81, 165, 196);
+    height: 100%;
+    width: 50%;
 }
