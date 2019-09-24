@@ -46,3 +46,7 @@
  .inputIcon:focus, .fa-pencil-alt {
     color: rgb(67, 144, 172);
  }
+
+.project-title{
+    margin-top:10px;
+}

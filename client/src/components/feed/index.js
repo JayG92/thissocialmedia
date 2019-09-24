@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./style.css"
-import { Button, CardText, Jumbotron, } from 'reactstrap';
+import { Button, CardText, Jumbotron, Collapse,CardBody, } from 'reactstrap';
 
 // function Feed(props) {
 //     const posts = props.posts;

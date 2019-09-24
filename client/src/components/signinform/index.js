@@ -2,13 +2,18 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import "./style.css"
-
+import API from "../../utils/API";
 
 class SigninForm extends React.Component {
+  constructor() {
+    super()
+
   // Setting the component's initial state
-  state = {
+  this.state = {
     email: "",
-    password: ""
+    password: "",
+   redirectTo: null
+  }
   };
 
   handleInputChange = event => {
@@ -23,6 +28,14 @@ class SigninForm extends React.Component {
     this.setState({
       [name]: value
     });
+  };
+  loadUser = (id) => {
+    API.getUser(id)
+      .then(res =>
+        //_id? 
+        this.setState({ user: res.data })
+      )
+      .catch(err => console.log(err));
   };
 
   handleFormSubmit = event => {
@@ -69,8 +82,12 @@ class SigninForm extends React.Component {
           <Button className="submit-button" onClick={this.handleFormSubmit}>Submit</Button>
         </Form>
       </div>
+  
     );
+      
   }
+  
 }
+
 
 export default SigninForm;

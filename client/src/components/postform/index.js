@@ -17,8 +17,10 @@ class PostForm extends React.Component {
             body: "",
             date: "",
             time: "",
-            eventTitle: "",
-            eventBody: "",
+            eventTitle:"",
+            eventBody:"",
+            projectLink:"",
+            likes: 0,
         };
     }
 
@@ -32,10 +34,11 @@ class PostForm extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state);
-        if (this.state.title || this.state.body) {
+        if (this.state.title || this.state.body||this.state.projectLink) {
             API.savePost({
                 title: this.state.title,
-                body: this.state.body
+                body: this.state.body,
+                likes: this.state.likes
 
             })
                 .then(res => this.props.loadPosts())
@@ -172,7 +175,7 @@ class PostForm extends React.Component {
                             />
                         </FormGroup>
                         <div className="text-center">
-                            <Button className="formPostBtn" onClick={this.handleFormSubmit}>Post Event</Button>
+                            <Button className="formPostBtn" onClick={this.handleEventSubmit}>Post Event</Button>
                         </div>
                     </TabPane>
                     <TabPane tabId="3">
@@ -185,6 +188,14 @@ class PostForm extends React.Component {
                                     onChange={this.handleInputChange}
                                     name="title"
                                     placeholder="Project title"
+                                    bsSize="sm"
+                                />
+
+                                <Input className="project-title"
+                                    value={this.state.projectLink}
+                                    onChange={this.handleInputChange}
+                                    name="projectLink"
+                                    placeholder="Project Link..."
                                     bsSize="sm"
                                 />
 
