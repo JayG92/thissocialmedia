@@ -13,7 +13,8 @@ class Profile extends React.Component {
     posts: [
     ],
     events: [
-    ]
+    ],
+    likes: 0
   }
 
   componentDidMount() {
@@ -86,7 +87,7 @@ class Profile extends React.Component {
               <PostForm
                 loadPosts={this.loadPosts}
                 loadEvents={this.loadEvents} />
-              <Feed posts={this.state.posts} />
+              <Feed posts={this.state.posts}/>
             </Col>
             <Col xs="3">
               <EventCard events={this.state.events} />

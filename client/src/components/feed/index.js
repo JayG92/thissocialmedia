@@ -1,15 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./style.css"
 import { Button, CardText, Jumbotron, } from 'reactstrap';
 
-test() {
-    console.log("hi")
-}
-
-
 // function Feed(props) {
 //     const posts = props.posts;
-function Feed({ posts }) {
+ function Feed({ posts }) {
+    const [count, setCount] = useState(0);
+    
     return (
         <>
         {/* <div><hr className="sortPost"></hr><text className="sortText">Sort</text></div> */}
@@ -25,10 +22,10 @@ function Feed({ posts }) {
                             {post.body}
                             <br></br>
                             <br></br>
-                            <small class="text-muted likeCount">0 Likes</small><small class="text-muted commentCount">0 Comments</small>
+                            <small class="text-muted likeCount">{count} Like(s)</small><small class="text-muted commentCount">0 Comments</small>
                             <div className="postInteraction border-top">
-                                <div onClick={test} className="btn btn-link likes"><i class="far fa-thumbs-up"></i> Like</div>
-                                <div className="btn btn-link comments"><i class="far fa-comment"></i> Comments</div>
+                                <div onClick={() => setCount(1)} className="btn btn-link likes"><i class="far fa-thumbs-up"></i> Like</div>
+                                <div className="btn btn-link comments"><i class="far fa-comment"></i> Comment(s)</div>
                             </div>
                             </div>
                         </CardText>
@@ -41,7 +38,4 @@ function Feed({ posts }) {
         </>
     )
 }
-
-
-
 export default Feed
