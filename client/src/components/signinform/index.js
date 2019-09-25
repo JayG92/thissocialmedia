@@ -85,7 +85,7 @@ class SigninForm extends React.Component {
             type="password"
             placeholder="Password"
           />
-          <Button className="submit-button" onClick={this.handleFormSubmit}>Submit</Button>
+          <Button className="submit-button" onClick={this.handleFormSubmit}>Sign In</Button>
         </Form>
       </div>
     );

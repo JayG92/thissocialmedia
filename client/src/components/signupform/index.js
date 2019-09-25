@@ -2,8 +2,13 @@ import React from 'react';
 import { Container, Row, Col, Form, Button, Label, Input } from 'reactstrap';
 import logo from "../../imgs/whitelogo.png";
 import "./style.css"
-import axios from 'axios';
+import Axios from 'axios';
 import API from "../../utils/API";
+
+
+
+
+
 
 export default class Signupform extends React.Component {
   constructor(props) {
@@ -126,7 +131,7 @@ handleFormSubmit=event=>{
               />
               <br>
               </br>
-              <Button className="submit-button signupBtn" onClick={this.handleFormSubmit}>Submit</Button>
+              <Button className="submit-button signupBtn" onClick={this.handleFormSubmit}>Sign Up</Button>
               
             </Form>
 
