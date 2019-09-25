@@ -52,7 +52,6 @@ class PostForm extends React.Component {
                 date: this.state.date,
                 time: this.state.time,
 
-
             })
                 .then(res => this.props.loadEvents())
                 .catch(err => console.log(err));

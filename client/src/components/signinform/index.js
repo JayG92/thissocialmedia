@@ -1,66 +1,35 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { Link } from 'react-router-dom'
+import { Button, Form, Input } from 'reactstrap';
 import "./style.css"
 import API from '../../utils/API';
-import Axios from 'axios';
+import { withContext } from "../../context/"
 
 class SigninForm extends React.Component {
   // Setting the component's initial state
   state = {
     email: "",
     password: "",
-    redirectTo:null,
-    loggedIn:""
   };
+
 
   handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
-
-    if (name === "password") {
-      value = value.substring(0, 15);
-    }
-    // Updating the input's state
+    const { name, value } = event.target;
     this.setState({
-      [name]: value
+        [name]: value
     });
-  };
+};
 
-  handleFormSubmit = (event) => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
-    event.preventDefault();
-    console.log("handle-submit")
-    API.getUser({
-      email:this.state.email,
-      password:this.state.password
-    })
-    .then(response => {
-      console.log("loginresponse")
-      console.log(response)
-    if(response.status===200){
-      localStorage.setItem("token", response.data.token);
-      API.updateUser({
-        loggedIn:true,
-        email:response.data.email
+
+  login = () => {
+    API.login(this.state).then(res => {
+      this.props.updateUser({
+        token:res.data.token,
+        email:res.data.email 
       })
-      this.setState({
-        redirectTo:"/profile"
-      })
-    
-    }
-  
+      this.props.history.push("/profile")
     })
-    .catch(error => {
-      console.log("login-error")
-      console.log(error)
-    })
-    
-  
-    
   }
-
+ 
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
@@ -85,11 +54,11 @@ class SigninForm extends React.Component {
             type="password"
             placeholder="Password"
           />
-          <Button className="submit-button" onClick={this.handleFormSubmit}>Sign In</Button>
+          <Button className="submit-button" onClick={this.login}>Submit</Button>
         </Form>
       </div>
     );
   }
 }
 
-export default SigninForm;
+export default withContext(SigninForm);
