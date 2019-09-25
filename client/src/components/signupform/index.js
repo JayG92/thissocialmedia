@@ -2,10 +2,11 @@ import React from 'react';
 import { Container, Row, Col, Form, Button, Label, Input } from 'reactstrap';
 import logo from "../../imgs/whitelogo.png";
 import "./style.css"
-import axios from 'axios';
 import API from "../../utils/API";
+import { withContext } from "../../context/"
 
-export default class Signupform extends React.Component {
+
+class Signupform extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,29 +17,32 @@ export default class Signupform extends React.Component {
     };
   }
 
+
   handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
-    const value = event.target.value;
-    const name = event.target.name;
-
-    // Updating the input's state
+    const { name, value } = event.target;
     this.setState({
-      [name]: value
+        [name]: value
     });
-  };
+};
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    API.saveUser({
-      email: this.state.email,
-      password: this.state.password,
-      phonenumber: this.state.phonenumber,
-      birthday: this.state.birthday
-    })
-      .then(res => this.props.loadUser())
-      .catch(err => console.log(err))
+signup = () => {
+  API.signup(this.state).then(res => {
+    console.log(res.data);
+  });
+};
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   API.saveUser({
+  //     email: this.state.email,
+  //     password: this.state.password,
+  //     phonenumber: this.state.phonenumber,
+  //     birthday: this.state.birthday
+  //   })
+  //     .then(() => this.login())
+  //     .catch(err => console.log(err))
 
-  }
+  // }
+
 
 
   //   API.saveUser("/users",{
@@ -134,7 +138,7 @@ export default class Signupform extends React.Component {
               />
               <br>
               </br>
-              <Button className="submit-button signupBtn" onClick={this.handleFormSubmit}>Submit</Button>
+              <Button className="submit-button signupBtn" onClick={this.signup}>Submit</Button>
 
             </Form>
 
@@ -148,3 +152,4 @@ export default class Signupform extends React.Component {
   }
 }
 
+export default withContext(Signupform);

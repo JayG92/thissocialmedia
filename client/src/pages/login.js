@@ -1,17 +1,19 @@
 import React from "react";
 import Signupform from "../components/signupform";
 import SigninForm from "../components/signinform";
+import { withContext } from "../context/"
+
 
 class LoginPage extends React.Component {
 
     render() {
         return (
             <div>
-                <SigninForm updateUser={this.updateUser} />
-                <Signupform saveUsers={this.saveUser} />
+                <SigninForm {...this.props} />
+                <Signupform {...this.props} />
             </div>
         )
     }
 }
 
-export default LoginPage;
+export default withContext(LoginPage)

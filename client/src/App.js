@@ -8,27 +8,51 @@ import Members from "./pages/members";
 import Messages from "./pages/messages";
 import Profile from "./pages/profile";
 import Login from "./pages/login";
+import ProtectedRoute from "./utils/protectedRoute"
+
+import { UserContext } from "./context";
 
 //  CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <Switch>
+class App extends React.Component {
 
-          <Route exact path="/userprofile" component={UserProfile} />
-          <Route exact path="/members" component={Members} />
-          <Route exact path="/messages" component={Messages} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/" component={Login} />
-        </Switch>
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {
+        token: ""
+      },
+      updateUser: this.updateUser
+    };
+  }
 
-      </div>
-    </Router>
-  );
+  updateUser = user => {
+
+    this.setState({ user })
+  }
+
+  render() {
+    return (
+      <Router>
+        <UserContext.Provider value={this.state}>
+        <div>
+
+          <Switch>
+
+            <Route exact path="/userprofile" component={UserProfile} />
+            <Route exact path="/members" component={Members} />
+            <Route exact path="/messages" component={Messages} />
+            <ProtectedRoute exact path="/profile" component={Profile} />
+            <Route exact path="/" component={Login} />
+          </Switch>
+
+        </div>
+        </UserContext.Provider>
+      </Router>
+    );
+  }
 }
 
 export default App;
