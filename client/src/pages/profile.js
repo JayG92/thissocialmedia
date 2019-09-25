@@ -3,6 +3,8 @@ import API from "../utils/API";
 import Footer from "../components/footer/index";
 import PostForm from "../components/postform/index";
 import Feed from "../components/feed/index";
+import { withContext } from "../context/"
+
 import EventCard from "../components/eventcard/index";
 import ThisNavbar from "../components/navbar/index";
 import ProfileCard from "../components/profileCard/index"
@@ -113,4 +115,4 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+export default withContext (Profile);

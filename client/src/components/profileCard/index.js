@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaCode } from 'react-icons/fa';
+import { withContext } from "../../context/"
+
 import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
   Card, CardText, CardBody,
@@ -64,7 +66,7 @@ class ProfileCard extends React.Component {
             <div className="border-bottom" id="pBgColor"></div>
             <div className="text-center">
               <img id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
-              <CardTitle id="pUsername">@{this.state.username}</CardTitle>
+              <CardTitle id="pUsername">@{this.props.user.email}</CardTitle>
             </div>
 
             <CardText>{this.state.bio}
@@ -95,7 +97,8 @@ class ProfileCard extends React.Component {
                     <hr></hr>
                     <div>
                       <h5>Add/Remove skills</h5>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("HTML ")} active={this.state.skills.includes(1)}>HTML</Button>
+                      <Button
+                        className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("HTML ")} active={this.state.skills.includes(1)}>HTML</Button>
                       <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("CSS ")} active={this.state.skills.includes(2)}>CSS</Button>
                       <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Javascript ")} active={this.state.skills.includes(3)}>Javascript</Button>
                       <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("jQuery ")} active={this.state.skills.includes(4)}>jQuery</Button>
@@ -137,4 +140,5 @@ class ProfileCard extends React.Component {
   };
 }
 
-export default ProfileCard;
+export default withContext(ProfileCard);
+
