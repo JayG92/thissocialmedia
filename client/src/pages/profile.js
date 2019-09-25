@@ -14,7 +14,10 @@ class Profile extends React.Component {
     ],
     events: [
     ],
-    likes: 0
+    projectLink: [
+    ],
+    likes: 0,
+    isProject: false,
   }
 
   componentDidMount() {
@@ -32,13 +35,22 @@ class Profile extends React.Component {
   loadPosts = () => {
     API.getPosts()
       .then(res =>
-        this.setState({ posts: res.data })
+        this.setState({ posts: res.data }),
       )
       .catch(err => console.log(err));
   };
+
+  // loadProject = () => {
+  //   API.getPosts()
+  //     .then(res =>
+  //       this.setState({ posts: res.data }),
+  //     )
+  //     .catch(err => console.log(err));
+  // };
+
   loadEvents = () => {
     API.getEvents()
-      .then(res =>
+      .then(res => 
         this.setState({ events: res.data })
       )
       .catch(err => console.log(err));
@@ -67,6 +79,7 @@ class Profile extends React.Component {
       API.savePost({
         title: this.state.title,
         body: this.state.body,
+        projectLink: this.state.projectLink,
 
       })
         .then(res => this.loadPosts())

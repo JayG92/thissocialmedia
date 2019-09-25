@@ -9,43 +9,6 @@ import Axios from "axios";
 class UserProfile extends React.Component {
   state = {
     users: [
-      {
-        "skills": [],
-        "posts": [],
-        "events": [],
-        "_id": "5d88fd44ad000b63cf5f096a",
-        "email": "brent@b.com",
-        "password": "123",
-        "phonenumber": "1",
-        "birthday": "",
-        "date": "2019-09-23T17:13:40.126Z",
-        "__v": 0
-      },
-      {
-        "skills": [],
-        "posts": [],
-        "events": [],
-        "_id": "5d885c233cac095daa020631",
-        "email": "brent@brent.com",
-        "password": "123456!",
-        "phonenumber": "1",
-        "birthday": "",
-        "date": "2019-09-23T05:46:11.633Z",
-        "__v": 0
-      },
-      {
-        "skills": [],
-        "posts": [],
-        "events": [],
-        "_id": "5d885c0a3cac095daa020630",
-        "email": "brent@brent.com",
-        "password": "123",
-        "phonenumber": "1",
-        "birthday": "",
-        "date": "2019-09-23T05:45:46.076Z",
-        "__v": 0
-      }
-
     ],
     email: [
     ],
@@ -58,7 +21,6 @@ class UserProfile extends React.Component {
 
 
   loadUser = () => {
-    //API.getUsers()
     Axios.get("/user").then(res => {
       console.log(res.data)
       if (res.data) {
@@ -67,7 +29,7 @@ class UserProfile extends React.Component {
         })
       }
     });
-    // catch(err => console.log(err));
+    //catch(err => console.log(err));
 
   };
 

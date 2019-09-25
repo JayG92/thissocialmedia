@@ -15,10 +15,13 @@ class PostForm extends React.Component {
             activeTab: '1',
             title: "",
             body: "",
+            projectLink: "",
             date: "",
             time: "",
             eventTitle: "",
             eventBody: "",
+            likes: 0,
+            isProject: false
         };
     }
 
@@ -32,16 +35,33 @@ class PostForm extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state);
-        if (this.state.title || this.state.body) {
+        if (this.state.title || this.state.body || this.state.projectLink) {
             API.savePost({
                 title: this.state.title,
-                body: this.state.body
-
+                body: this.state.body,
+                projectLink: this.state.projectLink,
+                likes: this.state.likes,
             })
                 .then(res => this.props.loadPosts())
                 .catch(err => console.log(err));
         }
     };
+
+    // handleProjectSubmit = event => {
+    //     event.preventDefault();
+    //     console.log(this.state);
+    //     this.setState({ isProject: true});
+    //     if (this.state.title && this.state.body && this.state.isProject === true) {
+    //         API.savePost({
+    //             title: this.state.title,
+    //             body: this.state.body,
+    //             isProject: this.state.isProject,
+    //             likes: this.state.likes,
+    //         })
+    //             .then(res => this.props.loadProject())
+    //             .catch(err => console.log(err));
+    //     }
+    // };
 
     handleEventSubmit = event => {
         event.preventDefault();
@@ -200,6 +220,14 @@ class PostForm extends React.Component {
                                         id="exampleText"
                                     />
                                 </FormGroup>
+                                    <Input 
+                                    className="formBox"
+                                    value={this.state.projectLink}
+                                    onChange={this.handleInputChange}
+                                    placeholder="Link to your project"
+                                    name="projectLink"
+                                    />
+
                                 <div className="text-center">
                                     <Button className="formPostBtn" onClick={this.handleFormSubmit}>Post Project</Button>
                                 </div>

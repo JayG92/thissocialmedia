@@ -68,3 +68,16 @@ text-align:center;
         line-height: -10px;
 }
         */
+
+
+.projectTag {
+        background-color: rgb(238, 238, 238);
+        padding-left: 10px;
+        padding-right: 10px;
+        float: right;
+        margin-right: 5%;
+}
+
+.Interactions {
+        margin-bottom: 0%;
+}
