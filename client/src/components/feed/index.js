@@ -31,7 +31,7 @@ function Feed({ posts }) {
                                     <i class="far fa-thumbs-up">
                                     </i> Like
                                 </div>
-                                
+
                                 <div
                                     className="btn btn-link comments">
                                     <i class="far fa-comment">
