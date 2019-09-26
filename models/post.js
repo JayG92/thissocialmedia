@@ -5,6 +5,10 @@ var PostSchema = new Schema({
     title: String,
     body: String,
     category: String,
+    created_at: {
+        type: Date,
+        default: Date.now
+    }
 
 });
 

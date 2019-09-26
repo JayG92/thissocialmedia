@@ -47,7 +47,7 @@ class ThisNavbar extends React.Component {
                 <NavLink href="/profile">Profile</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/login">Log Out</NavLink>
+                <NavLink href="/">Log Out</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
