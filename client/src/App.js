@@ -22,7 +22,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       user: {
-        token: ""
+        token: "",
       },
       updateUser: this.updateUser
     };

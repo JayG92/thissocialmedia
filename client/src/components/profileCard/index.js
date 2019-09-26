@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCode } from 'react-icons/fa';
+import API from "../../utils/API";
 import { withContext } from "../../context/"
 
 import {
@@ -16,8 +17,7 @@ class ProfileCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "BrentHaskins",
-      bio: "Welcome to This. Social Media for developers! Edit this bio, and tell us about yourself!",
+      bio: "Welcome to This. Social Media for developers! Edit your bio, and tell us about yourself!",
       charCount: "",
       skills: [],
 
@@ -27,6 +27,13 @@ class ProfileCard extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
   }
+
+//   handleInputChange = event => {
+//     const { name, value } = event.target;
+//     this.setState({
+//         [name]: value
+//     });
+// };
 
   toggle() {
     this.setState(prevState => ({
@@ -39,6 +46,24 @@ class ProfileCard extends React.Component {
       bio: e.target.value
     })
   }
+
+  handleFormSubmit = event => {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+    event.preventDefault();
+    if (this.state.bio.length >= 0) {
+      console.log(this.state.bio);
+      console.log(this.state.skills);
+        API.saveUser({
+            bio: this.state.bio,
+            skills: this.state.skills
+        })
+            .catch(err => console.log(err));
+            console.log(this.props.skills)
+    }
+};
+
 
   onCheckboxBtnClick(selected) {
     const index = this.state.skills.indexOf(selected);
@@ -120,7 +145,7 @@ class ProfileCard extends React.Component {
                     <Label for="exampleText"><h6 className="text-muted pMaxLength"><small>Characters Left: {this.state.bio.length}/155</small></h6></Label>
                     <Label for="exampleText"><h6 className="text-muted pMaxSkills"><small>Top Skills Limit: {this.state.skills.length}/5</small></h6></Label>
 
-                    <Button color="primary" onClick={this.toggle}>Save</Button>{' '}
+                    <Button color="primary" onClick={this.handleFormSubmit}>Save</Button>
                     <Button color="light" onClick={() => this.setState({ skills: [] })}>Clear Skills</Button>
                     <Button color="danger" onClick={this.toggle}>Cancel</Button>
 
