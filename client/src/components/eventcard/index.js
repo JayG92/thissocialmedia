@@ -1,6 +1,6 @@
 import React from 'react';
-import "./style.css"
 import { Card, CardBody, CardText } from 'reactstrap';
+import "./style.css"
 
 
 function EventCard({ events }) {

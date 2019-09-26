@@ -1,35 +1,39 @@
 import axios from "axios";
 
 export default {
-  getUsers: function() {
-    return axios.get("/api/user");
+  getUsers: function () {
+    return axios.get("/user");
   },
-  getUser: function(id) {
-    return axios.get("/api/user/" + id);
+  getUser: function (id) {
+    return axios.get("/user/" + id);
   },
-  deleteUser: function(id) {
-    return axios.delete("/api/user/" + id);
+  deleteUser: function (id) {
+    return axios.delete("/user/" + id);
   },
-  saveUser: function(userData) {
-    return axios.post("/api/user", userData);
+  saveUser: function (userData) {
+    return axios.post("/user", userData);
   },
-  updateUser:function(id){
-    return axios.patch("/api/user"+id)
+  updateUser: function (email, params) {
+    return axios.put("/user/" + email, params)
   },
-  getPosts: function(){
-    return axios.get("/api/posts");
+  login({ email, password }) {
+    return axios.post("/user/signin", { email, password })
   },
-  savePost: function(postData){
-    return axios.post("/api/posts", postData)
+  signup({ email, password }) {
+    return axios.post("/user/signup", { email, password })
   },
-  getEvents: function(){
-    return axios.get("/api/events");
+  getPosts: function () {
+    return axios.get("/posts");
   },
-  saveEvent: function(eventData){
-    return axios.post("/api/events", eventData)
+  savePost: function (postData) {
+    return axios.post("/posts", postData)
   },
-
-
+  getEvents: function () {
+    return axios.get("/events");
+  },
+  saveEvent: function (eventData) {
+    return axios.post("/events", eventData)
+  },
 
 
 };

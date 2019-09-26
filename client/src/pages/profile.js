@@ -3,6 +3,8 @@ import API from "../utils/API";
 import Footer from "../components/footer/index";
 import PostForm from "../components/postform/index";
 import Feed from "../components/feed/index";
+import { withContext } from "../context/"
+
 import EventCard from "../components/eventcard/index";
 import ThisNavbar from "../components/navbar/index";
 import ProfileCard from "../components/profileCard/index"
@@ -10,15 +12,19 @@ import { Row, Col, Container } from 'reactstrap';
 
 class Profile extends React.Component {
   state = {
-    posts: [
-    ],
-    events: [
-    ]
+    posts: [],
+    events: [],
+    bio: "",
+    skills: [],
+    projectLink: [],
+    likes: 0,
+    isProject: false,
   }
 
   componentDidMount() {
     this.loadPosts();
     this.loadEvents();
+    this.getUserInfo();
   }
 
   handleInputChange = event => {
@@ -31,10 +37,19 @@ class Profile extends React.Component {
   loadPosts = () => {
     API.getPosts()
       .then(res =>
-        this.setState({ posts: res.data })
+        this.setState({ posts: res.data }),
       )
       .catch(err => console.log(err));
   };
+
+  // loadProject = () => {
+  //   API.getPosts()
+  //     .then(res =>
+  //       this.setState({ posts: res.data }),
+  //     )
+  //     .catch(err => console.log(err));
+  // };
+
   loadEvents = () => {
     API.getEvents()
       .then(res =>
@@ -62,16 +77,28 @@ class Profile extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title || this.state.body || this.state.date || this.state.time) {
+    if (this.state.title || this.state.body || this.state.date || this.state.time || this.state.projectLink) {
       API.savePost({
         title: this.state.title,
         body: this.state.body,
+        projectLink: this.state.projectLink,
 
       })
         .then(res => this.loadPosts())
         .catch(err => console.log(err));
     }
   };
+
+  getUserInfo = () => {
+    let email = this.props.user.email
+
+    API.getUser(email)
+      .then(res =>
+        this.setState(res.data)
+      )
+      .catch(err => console.log(err));
+  };
+
 
 
   render() {
@@ -81,7 +108,13 @@ class Profile extends React.Component {
         <Container>
           <div className="topContainer"></div>
           <Row>
-            <Col xs="3"><ProfileCard /><Footer /></Col>
+            <Col xs="3">
+              <ProfileCard
+                skills={this.state.skills}
+                bio={this.state.bio}
+              />
+              <Footer />
+            </Col>
             <Col xs="6">
               <PostForm
                 loadPosts={this.loadPosts}
@@ -99,4 +132,4 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+export default withContext(Profile);
