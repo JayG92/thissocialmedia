@@ -9,8 +9,8 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div>
-                <SigninForm {...this.props} />
-                <Signupform {...this.props} />
+                <SigninForm {...this.props}  />
+                <Signupform {...this.props}/>
             </div>
         )
     }

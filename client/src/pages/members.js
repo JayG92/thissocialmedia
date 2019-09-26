@@ -16,9 +16,18 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     this.loadUser();
+    // this.loadSpecificUser();
   }
 
-
+  // loadSpecificUser=() => {
+  //   Axios.get("/user/").then(res =>{
+  //     if (res.data) {
+  //       this.setState({
+  //         redirectTo: "/userprofile"+userId
+  //       })
+  //     }
+  //   })
+  // }
 
   loadUser = () => {
     Axios.get("/user").then(res => {
@@ -35,6 +44,7 @@ class UserProfile extends React.Component {
 
 
   render() {
+    console.log(this.state.users)
     const { users } = this.state;
     return (
       <div>
@@ -47,7 +57,8 @@ class UserProfile extends React.Component {
               {users.length !== 0 && users.map(user => (
                 <Member_userBox
                   key={user.id}
-                  email={user.email} />
+                  email={user.email}
+                  userId={user._id} />
               ))}
 
             </Col>

@@ -97,12 +97,12 @@ class Profile extends React.Component {
         <Container>
           <div className="topContainer"></div>
           <Row>
-            <Col xs="3"><ProfileCard /><Footer /></Col>
+            <Col xs="3"><ProfileCard  /><Footer /></Col>
             <Col xs="6">
               <PostForm
                 loadPosts={this.loadPosts}
                 loadEvents={this.loadEvents} />
-              <Feed posts={this.state.posts}/>
+              <Feed posts={this.state.posts} />
             </Col>
             <Col xs="3">
               <EventCard events={this.state.events} />

@@ -16,8 +16,8 @@ class ProfileCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "BrentHaskins",
-      bio: "Welcome to This. Social Media for developers! Edit this bio, and tell us about yourself!",
+      name: "",
+      bio:"",
       charCount: "",
       skills: [],
 
@@ -51,7 +51,7 @@ class ProfileCard extends React.Component {
       this.setState({ skills: [...this.state.skills] });
     }
   }
-
+ 
 
   render() {
     const TopSkill1 = this.state.skills.length > 0 ? <p><FaCode /> {this.state.skills[0]}</p> : <p className="text-center">Add your top 5 skills here!</p>

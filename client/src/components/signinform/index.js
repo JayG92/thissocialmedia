@@ -10,6 +10,7 @@ class SigninForm extends React.Component {
   state = {
     email: "",
     password: "",
+    bio:""
   };
 
 
@@ -25,7 +26,8 @@ class SigninForm extends React.Component {
     API.login(this.state).then(res => {
       this.props.updateUser({
         token:res.data.token,
-        email:res.data.email 
+        email:res.data.email,
+        bio:res.data.bio
       })
       this.props.history.push("/profile")
     })
@@ -55,7 +57,7 @@ class SigninForm extends React.Component {
             type="password"
             placeholder="Password"
           />
-          <Button className="submit-button" onClick={this.login}>Submit</Button>
+          <Button className="submit-button" value={this.state.bio} name="bio" onClick={this.login}>Submit</Button>
         </Form>
       </div>
     );
