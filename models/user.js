@@ -11,6 +11,7 @@ const UserSchema = new Schema({
     posts: [{
         type: Schema.Types.ObjectId,
         ref: "Post"
+        
     }
     ],
     email:{type:String, unique: true},

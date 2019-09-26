@@ -7,6 +7,10 @@ var PostSchema = new Schema({
     likes: Number,
     projectLink: String,
     category: String,
+    created_at: {
+        type: Date,
+        default: Date.now
+    }
 
 });
 

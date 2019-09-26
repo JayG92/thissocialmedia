@@ -164,7 +164,8 @@ class ProfileCard extends React.Component {
       <div className="pCard">
         <Card>
           <CardBody>
-            <div className="border-bottom" id="pBgColor"></div>
+            <div className="border-bottom" id="pBgColor">
+            </div>
             <div className="text-center">
               <img id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
               <CardTitle id="pUsername">@{this.props.user.email}</CardTitle>
@@ -190,33 +191,101 @@ class ProfileCard extends React.Component {
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                   <ModalHeader data-id={this.props.user._id} toggle={this.toggle}>Edit bio</ModalHeader>
                   <ModalBody>
-                    {/* <FormGroup>
-                      <Label for="exampleText">Text Area</Label>
-                      <Input type="textarea" name="text" id="exampleText" value={this.state.bio} />
-                      <textarea type="textarea" class="form-control noresize" name="text" id="exampleText" value={this.state.bio} ></textarea>
-                    </FormGroup> */}
+
                     <FormGroup>
                       {/* <Input type="textarea" name="text" id="exampleText" value={this.state.bio} onChange={this.onChangeBio} /> */}
                       <textarea type="textarea" name="text" id="exampleText" className="noresize" maxLength={155} defaultValue={this.props.user.bio} onChange={this.onChangeBio}></textarea>
                     </FormGroup>
+
+
+
                     <hr></hr>
                     <div>
                       <h5>Add/Remove skills</h5>
                       <Button
-                        className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("HTML ")} active={this.state.skills.includes(1)}>HTML</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("CSS ")} active={this.state.skills.includes(2)}>CSS</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Javascript ")} active={this.state.skills.includes(3)}>Javascript</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("jQuery ")} active={this.state.skills.includes(4)}>jQuery</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("React.js ")} active={this.state.skills.includes(5)}>React.js</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Node.js ")} active={this.state.skills.includes(6)}>Node.js</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("PHP ")} active={this.state.skills.includes(7)}>PHP</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Ruby ")} active={this.state.skills.includes(8)}>Ruby</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Python ")} active={this.state.skills.includes(9)}>Python</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Golang ")} active={this.state.skills.includes(10)}>Golang</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("ASP.NET ")} active={this.state.skills.includes(11)}>ASP.NET</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("C# ")} active={this.state.skills.includes(12)}>C#</Button>
-                      <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Java ")} active={this.state.skills.includes(13)}>Java</Button>
-                      {/* <p>Selected: {(this.state.skills)}</p> */}
+                        className="skillBtn1"
+                        color="primary"
+                        onClick={() => this.onCheckboxBtnClick("HTML ")}
+                        active={this.state.skills.includes(1)}>HTML
+                      </Button>
+
+
+                      <Button className="skillBtn1" 
+                              color="primary" 
+                              onClick={() => this.onCheckboxBtnClick("CSS ")} active={this.state.skills.includes(2)}>CSS
+                      </Button>
+
+                      <Button 
+                      className="skillBtn1" 
+                      color="primary" 
+                      onClick={() => this.onCheckboxBtnClick("Javascript ")} active={this.state.skills.includes(3)}>Javascript
+                      </Button>
+
+                      <Button 
+                      className="skillBtn1" 
+                      color="primary" 
+                      onClick={() => this.onCheckboxBtnClick("jQuery ")} active={this.state.skills.includes(4)}>jQuery
+                      </Button>
+
+                      <Button 
+                      className="skillBtn1" 
+                      color="primary" 
+                      onClick={() => this.onCheckboxBtnClick("React.js ")} active={this.state.skills.includes(5)}>React.js
+                      
+                      </Button>
+                      <Button 
+                      className="skillBtn1" 
+                      color="primary" 
+                      onClick={() => this.onCheckboxBtnClick("Node.js ")} active={this.state.skills.includes(6)}>Node.js
+                      </Button>
+
+
+                      <Button 
+                      className="skillBtn1" 
+                      color="primary" 
+                      onClick={() => this.onCheckboxBtnClick("PHP ")} 
+                      active={this.state.skills.includes(7)}>PHP
+                      </Button>
+
+                      <Button 
+                      className="skillBtn1" 
+                      color="primary" 
+                      onClick={() => this.onCheckboxBtnClick("Ruby ")} 
+                      active={this.state.skills.includes(8)}>Ruby
+                      </Button>
+
+                      <Button 
+                      className="skillBtn1" 
+                      color="primary" 
+                      onClick={() => this.onCheckboxBtnClick("Python ")} active={this.state.skills.includes(9)}>Python
+                      </Button>
+
+                      <Button 
+                      className="skillBtn1" 
+                      color="primary" 
+                      onClick={() => this.onCheckboxBtnClick("Golang ")} active={this.state.skills.includes(10)}>Golang
+                      </Button>
+
+                      <Button 
+                      className="skillBtn1" 
+                      color="primary" 
+                      onClick={() => this.onCheckboxBtnClick("ASP.NET ")} active={this.state.skills.includes(11)}>ASP.NET
+                      </Button>
+
+                      <Button 
+                      className="skillBtn1" 
+                      color="primary" 
+                      onClick={() => this.onCheckboxBtnClick("C# ")} 
+                      active={this.state.skills.includes(12)}>C#
+                      </Button>
+
+                      <Button 
+                      className="skillBtn1" 
+                      color="primary" 
+                      onClick={() => this.onCheckboxBtnClick("Java ")} 
+                      active={this.state.skills.includes(13)}>Java
+                      </Button>
+                      
                     </div>
                     <br></br>
                     <hr></hr>

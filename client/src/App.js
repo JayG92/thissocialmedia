@@ -17,21 +17,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
+    const user = JSON.parse(window.localStorage.getItem("user")) || {
+      token: ""
+    };
     this.state = {
-      user: {
-        token: "",
-      },
+      user,
       updateUser: this.updateUser
     };
   }
-
-  updateUser = user => {
-
-    this.setState({ user })
+  componentDidMount() {
+    window.addEventListener("beforeunload", () => {
+      const user = JSON.stringify(this.state.user);
+      window.localStorage.setItem("user", user);
+    });
   }
+  updateUser = user => {
+    this.setState({ user });
+  };
 
   render() {
     return (

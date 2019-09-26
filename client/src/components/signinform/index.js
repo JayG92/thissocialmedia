@@ -4,7 +4,6 @@ import "./style.css"
 import API from '../../utils/API';
 import { withContext } from "../../context/"
 
-
 class SigninForm extends React.Component {
   // Setting the component's initial state
   state = {
