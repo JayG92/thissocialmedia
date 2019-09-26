@@ -13,8 +13,8 @@ export default {
   saveUser: function (userData) {
     return axios.post("/user", userData);
   },
-  updateUser: function (id) {
-    return axios.patch("/user" + id)
+  updateUser: function (email, params) {
+    return axios.put("/user/" + email, params)
   },
   login({ email, password }) {
     return axios.post("/user/signin", { email, password })

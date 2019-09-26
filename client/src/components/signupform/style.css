@@ -47,7 +47,19 @@ body{
     margin-bottom: 3.5%;
 }
 
+.logoSubIcons {
+    margin-right: 5%;
+    width: 20px;
+}
 
+.logoSubText {
+    margin-top: 5%;
+    color: white;
+}
+
+.marginForm {
+    margin-bottom: 3.5%;
+}
 
 /* #userEmail {
     border-color: rgb(81, 165, 196)
@@ -81,6 +93,7 @@ body{
 
 .signupform{
     width: 80%;
+    
 }
 
 .logoBg {

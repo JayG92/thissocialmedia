@@ -7,12 +7,10 @@ var PostSchema = new Schema({
     likes: Number,
     projectLink: String,
     category: String,
-    user: [{
-        type: Schema.Types.ObjectId,
-        ref: "User",
+    created_at: {
+        type: Date,
+        default: Date.now
     }
-    ],
-
 
 });
 

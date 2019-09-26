@@ -4,13 +4,12 @@ import "./style.css"
 import API from '../../utils/API';
 import { withContext } from "../../context/"
 
-
 class SigninForm extends React.Component {
   // Setting the component's initial state
   state = {
     email: "",
     password: "",
-    bio:""
+    bio: ""
   };
 
 
@@ -27,7 +26,8 @@ class SigninForm extends React.Component {
       this.props.updateUser({
         token:res.data.token,
         email:res.data.email,
-        bio:res.data.bio
+        bio:res.data.bio,
+        skills:res.data.skills
       })
       this.props.history.push("/profile")
     })
