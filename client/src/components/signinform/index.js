@@ -10,6 +10,7 @@ class SigninForm extends React.Component {
   state = {
     email: "",
     password: "",
+    bio: ""
   };
 
 
@@ -25,7 +26,9 @@ class SigninForm extends React.Component {
     API.login(this.state).then(res => {
       this.props.updateUser({
         token:res.data.token,
-        email:res.data.email 
+        email:res.data.email,
+        bio:res.data.bio,
+        skills:res.data.skills
       })
       this.props.history.push("/profile")
     })

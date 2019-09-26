@@ -13,7 +13,8 @@ class Signupform extends React.Component {
       email: "",
       password: "",
       phonenumber: "",
-      birthday: ""
+      birthday: "",
+      bio:""
     };
   }
 

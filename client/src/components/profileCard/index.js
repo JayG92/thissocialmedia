@@ -17,9 +17,10 @@ class ProfileCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bio: "Welcome to This. Social Media for developers! Edit your bio, and tell us about yourself!",
+      bio: "",
       charCount: "",
       skills: [],
+      repoLink: "https://github.com/",
 
       modal: false
     };
@@ -28,12 +29,19 @@ class ProfileCard extends React.Component {
     this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
   }
 
-//   handleInputChange = event => {
-//     const { name, value } = event.target;
-//     this.setState({
-//         [name]: value
-//     });
-// };
+  componentWillReceiveProps(props) {
+    this.setState({
+      bio: props.bio,
+      skills: props.skills
+    })
+  }
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
   toggle() {
     this.setState(prevState => ({
@@ -47,22 +55,87 @@ class ProfileCard extends React.Component {
     })
   }
 
-  handleFormSubmit = event => {
+  onChangeRepo(e) {
+    this.setState({
+      repoLink: e.target.value
+    })
+  }
+
+  // loadUser = (email) => {
+  //   API.getUser(email,{
+
+  //   }).then(res => {
+  //     console.log(res.data)
+  //     if (res.data) {
+  //       this.setState({
+  //         users: res.data,
+  //       })
+  //     }
+  //   });
+  //   //catch(err => console.log(err));
+
+  // };
+
+
+
+  //   handleFormSubmit = event => {
+  //     this.setState(prevState => ({
+  //       modal: !prevState.modal
+  //     }));
+  //     event.preventDefault();
+  //     if (this.state.bio.length >= 0) {
+  //       console.log(this.state.bio);
+  //       console.log(this.state.skills);
+  //         API.updateUser({
+  //             bio: this.state.bio,
+  //             skills: this.state.skills
+  //         })
+  //             .catch(err => console.log(err));
+  //             // console.log(this.props.skills)
+  //     }
+  // };
+
+  handleFormSubmit = (event) => {
+
+    let email = this.props.user.email
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
     event.preventDefault();
+
     if (this.state.bio.length >= 0) {
       console.log(this.state.bio);
       console.log(this.state.skills);
-        API.saveUser({
-            bio: this.state.bio,
-            skills: this.state.skills
-        })
-            .catch(err => console.log(err));
-            console.log(this.props.skills)
+      console.log(email)
+      console.log(this.props.user)
+      API.updateUser(email, {
+        bio: this.state.bio,
+        skills: this.state.skills
+      })
+        .catch(err => console.log(err));
     }
-};
+  };
+
+  // loadUser = (event) => {
+  //   let email = this.props.user.email
+
+  //   API.getUser(email)
+  //     .then(res =>
+  //       this.setState(email,{ bio: res.data })
+  //     )
+  //     .catch(err => console.log(err));
+  // };
+
+
+
+  // user = (id) => {
+  //   API.updateUser(this.state.id).then(res => {
+  //     console.log(res.data)
+  //   })
+  // }
+
+
+
 
 
   onCheckboxBtnClick(selected) {
@@ -79,11 +152,14 @@ class ProfileCard extends React.Component {
 
 
   render() {
+    console.log(this.state);
+    console.log(this.props);
     const TopSkill1 = this.state.skills.length > 0 ? <p><FaCode /> {this.state.skills[0]}</p> : <p className="text-center">Add your top 5 skills here!</p>
     const TopSkill2 = this.state.skills.length > 1 ? <p><FaCode /> {this.state.skills[1]}</p> : <p></p>
     const TopSkill3 = this.state.skills.length > 2 ? <p><FaCode /> {this.state.skills[2]}</p> : <p></p>
     const TopSkill4 = this.state.skills.length > 3 ? <p><FaCode /> {this.state.skills[3]}</p> : <p></p>
     const TopSkill5 = this.state.skills.length > 4 ? <p><FaCode /> {this.state.skills[4]}</p> : <p></p>
+
     return (
       <div className="pCard">
         <Card>
@@ -94,8 +170,10 @@ class ProfileCard extends React.Component {
               <CardTitle id="pUsername">@{this.props.user.email}</CardTitle>
             </div>
 
-            <CardText>{this.state.bio}
+            <CardText>
+              {this.state.bio}
             </CardText>
+
             <hr></hr>
             <h5 className="text-center">Top Skills</h5>
             <p className="topSkill1">{TopSkill1}</p>
@@ -103,12 +181,14 @@ class ProfileCard extends React.Component {
             <p className="topSkill3">{TopSkill3}</p>
             <p className="topSkill4">{TopSkill4}</p>
             <p className="topSkill5">{TopSkill5}</p>
-
+            <hr></hr>
+            <h5 className="text-center">Github</h5>
+            <h6>{this.state.repoLink}</h6>
             <hr></hr>
             <div className="buttons">
               <a href="/profile"><Button className="view-profile">View Profile</Button></a><div><Button className="modal-button pEdit" onClick={this.toggle}>{this.props.buttonLabel}<i className="far fa-edit"></i> </Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                  <ModalHeader toggle={this.toggle}>Edit bio</ModalHeader>
+                  <ModalHeader data-id={this.props.user._id} toggle={this.toggle}>Edit bio</ModalHeader>
                   <ModalBody>
                     {/* <FormGroup>
                       <Label for="exampleText">Text Area</Label>
@@ -117,7 +197,7 @@ class ProfileCard extends React.Component {
                     </FormGroup> */}
                     <FormGroup>
                       {/* <Input type="textarea" name="text" id="exampleText" value={this.state.bio} onChange={this.onChangeBio} /> */}
-                      <textarea type="textarea" name="text" id="exampleText" className="noresize" maxLength={155} value={this.state.bio} onChange={this.onChangeBio}></textarea>
+                      <textarea type="textarea" name="text" id="exampleText" className="noresize" maxLength={155} defaultValue={this.props.user.bio} onChange={this.onChangeBio}></textarea>
                     </FormGroup>
                     <hr></hr>
                     <div>
@@ -138,6 +218,10 @@ class ProfileCard extends React.Component {
                       <Button className="skillBtn1" color="primary" onClick={() => this.onCheckboxBtnClick("Java ")} active={this.state.skills.includes(13)}>Java</Button>
                       {/* <p>Selected: {(this.state.skills)}</p> */}
                     </div>
+                    <br></br>
+                    <hr></hr>
+                    <h5>Github Repo</h5>
+                    <textarea type="input" name="text" className="repoLink" maxLength={155} value={this.state.repoLink} onChange={this.onChangeRepo}></textarea>
                   </ModalBody>
                   <br></br>
                   <ModalFooter>
@@ -159,11 +243,12 @@ class ProfileCard extends React.Component {
 
       </div>
 
-
     );
 
   };
 }
+
+
 
 export default withContext(ProfileCard);
 

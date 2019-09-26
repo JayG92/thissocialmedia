@@ -77,14 +77,14 @@ body {
 
 .pMaxLength {
     position: absolute;
-    top: 40%;
+    top: 33%;
     left: 5%;  
     width: 200px;
 }
 
 .pMaxSkills {
     position: absolute;
-    top: 83%;
+    top: 67.5%;
     left: 5%;
     width: 200px;
 }
@@ -93,3 +93,10 @@ body {
     margin-top: 10px;
     margin-right: 10px;
 }
+
+.repoLink {
+    height: 30px;
+    width: 465px;
+    border: none;
+    resize: none; 
+  }

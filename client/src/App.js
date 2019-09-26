@@ -41,7 +41,7 @@ class App extends React.Component {
 
           <Switch>
 
-            <Route exact path="/userprofile" component={UserProfile} />
+            <Route exact path="/userprofile/:id" component={UserProfile} />
             <Route exact path="/members" component={Members} />
             <Route exact path="/messages" component={Messages} />
             <ProtectedRoute exact path="/profile" component={Profile} />

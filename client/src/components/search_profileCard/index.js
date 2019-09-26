@@ -39,7 +39,7 @@ class Search_profileCard extends React.Component {
         <div className="border-bottom" id="pBgColor"></div>
         <div className="text-center">
           <img id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
-          <CardTitle id="pUsername">@{this.state.username}</CardTitle>
+          <CardTitle id="pUsername">@{this.state.email}</CardTitle>
           </div>
 
           <CardText>When you click on a users profile, it will bring you to their page and change the profile card! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</CardText>

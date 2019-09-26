@@ -12,12 +12,11 @@ import { Row, Col, Container } from 'reactstrap';
 
 class Profile extends React.Component {
   state = {
-    posts: [
-    ],
-    events: [
-    ],
-    projectLink: [
-    ],
+    posts: [],
+    events: [],
+    bio: "",
+    skills: [],
+    projectLink: [],
     likes: 0,
     isProject: false,
   }
@@ -25,6 +24,7 @@ class Profile extends React.Component {
   componentDidMount() {
     this.loadPosts();
     this.loadEvents();
+    this.getUserInfo();
   }
 
   handleInputChange = event => {
@@ -52,7 +52,7 @@ class Profile extends React.Component {
 
   loadEvents = () => {
     API.getEvents()
-      .then(res => 
+      .then(res =>
         this.setState({ events: res.data })
       )
       .catch(err => console.log(err));
@@ -77,7 +77,7 @@ class Profile extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title || this.state.body || this.state.date || this.state.time ||this.state.projectLink) {
+    if (this.state.title || this.state.body || this.state.date || this.state.time || this.state.projectLink) {
       API.savePost({
         title: this.state.title,
         body: this.state.body,
@@ -89,6 +89,17 @@ class Profile extends React.Component {
     }
   };
 
+  getUserInfo = () => {
+    let email = this.props.user.email
+
+    API.getUser(email)
+      .then(res =>
+        this.setState(res.data)
+      )
+      .catch(err => console.log(err));
+  };
+
+
 
   render() {
     return (
@@ -97,12 +108,18 @@ class Profile extends React.Component {
         <Container>
           <div className="topContainer"></div>
           <Row>
-            <Col xs="3"><ProfileCard /><Footer /></Col>
+            <Col xs="3">
+              <ProfileCard
+                skills={this.state.skills}
+                bio={this.state.bio}
+              />
+              <Footer />
+            </Col>
             <Col xs="6">
               <PostForm
                 loadPosts={this.loadPosts}
                 loadEvents={this.loadEvents} />
-              <Feed posts={this.state.posts}/>
+              <Feed posts={this.state.posts} />
             </Col>
             <Col xs="3">
               <EventCard events={this.state.events} />
@@ -115,4 +132,4 @@ class Profile extends React.Component {
   }
 }
 
-export default withContext (Profile);
+export default withContext(Profile);
