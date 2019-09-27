@@ -1,8 +1,10 @@
 const express = require("express");
+
 require("dotenv").config();
 const logger = require("morgan");
 
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 
 require('./services/passport');
@@ -21,13 +23,6 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(require("./routes/api"));
-
-
-
-
-
-
-
 
 // Start the API server
 app.listen(PORT, function () {

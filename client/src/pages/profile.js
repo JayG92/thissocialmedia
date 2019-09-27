@@ -15,6 +15,7 @@ class Profile extends React.Component {
     posts: [],
     events: [],
     bio: "",
+    profilepic:"",
     skills: [],
     projectLink: [],
     likes: 0,
@@ -112,6 +113,7 @@ class Profile extends React.Component {
               <ProfileCard
                 skills={this.state.skills}
                 bio={this.state.bio}
+                profilepic={this.state.profilepic}
               />
               <Footer />
             </Col>

@@ -22,7 +22,8 @@ module.exports = {
       .then(dbUser => {
         res.json({
           bio: dbUser.bio,
-          skills: dbUser.skills
+          skills: dbUser.skills,
+          profilepic:dbUser.profilepic
         })
       })
       .catch(err => res.status(422).json(err));

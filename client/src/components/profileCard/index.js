@@ -17,6 +17,7 @@ class ProfileCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      profilepic:"",
       bio: "",
       charCount: "",
       skills: [],
@@ -32,7 +33,8 @@ class ProfileCard extends React.Component {
   componentWillReceiveProps(props) {
     this.setState({
       bio: props.bio,
-      skills: props.skills
+      skills: props.skills,
+      profilepic:props.profilepic
     })
   }
 
@@ -110,7 +112,8 @@ class ProfileCard extends React.Component {
       console.log(this.props.user)
       API.updateUser(email, {
         bio: this.state.bio,
-        skills: this.state.skills
+        skills: this.state.skills,
+        profilepic:this.state.profilepic
       })
         .catch(err => console.log(err));
     }
@@ -167,7 +170,7 @@ class ProfileCard extends React.Component {
             <div className="border-bottom" id="pBgColor">
             </div>
             <div className="text-center">
-              <img id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
+              <img id="pImage" src={this.state.profilepic}alt="Profile"></img>
               <CardTitle id="pUsername">@{this.props.user.email}</CardTitle>
             </div>
 
