@@ -12,39 +12,39 @@ class Signupform extends React.Component {
       password: "",
       phonenumber: "",
       birthday: "",
-      bio:"",
+      bio: "",
       invalid: true,
       success: false,
     };
     this.onDismiss = this.onDismiss.bind(this);
   }
-​
+
   onDismiss() {
     this.setState({ visible: false });
   }
-​
-​
+
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-        [name]: value
+      [name]: value
     });
-};
-​
-signup = () => {
-  API.signup(this.state).then(res => {
-    console.log(res.data);
-    this.setState({ success: true })
-​
-  })
-  .catch(err => {
-    console.log("help" + err);
-    this.setState({ invalid: false })
-    console.log(this.state.signedUp)
-  }) 
-};
-​
-​
+  };
+
+  signup = () => {
+    API.signup(this.state).then(res => {
+      console.log(res.data);
+      this.setState({ success: true })
+
+    })
+      .catch(err => {
+        console.log("help" + err);
+        this.setState({ invalid: false })
+        console.log(this.state.signedUp)
+      })
+  };
+
+
   render() {
     return (
       <Container>
@@ -68,9 +68,9 @@ signup = () => {
               Join the conversation.
             </h4>
           </Col>
-​
-​
-​
+
+
+
           {/* SignupSheet */}
           <Col className="marginSignup" xs="6">
             <h3 className="signupTitle">Join today!</h3>
@@ -118,17 +118,17 @@ signup = () => {
               <br>
               </br>
               <Button className="submit-button signupBtn" onClick={this.signup}>Submit</Button>
-​
+
             </Form>
-​
-​
-​
+
+
+
           </Col>
         </Row>
       </Container>
-​
+
     );
   }
 }
-​
+
 export default withContext(Signupform);
