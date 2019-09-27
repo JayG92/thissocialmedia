@@ -5,7 +5,6 @@ import {
   CardTitle, Button
 } from 'reactstrap';
 import "./style.css"
-import { userInfo } from 'os';
 
 class Search_profileCard extends React.Component {
 

@@ -6,7 +6,8 @@ import Search_profileCard from "../components/search_profileCard";
 import EventCard from "../components/eventcard";
 import Feed from "../components/feed/index";
 import Axios from "axios";
-import "./userProfile.css"
+import "./userProfile.css";
+import { withContext } from "../context";
 
 
 class UserProfile extends React.Component {
@@ -92,6 +93,7 @@ class UserProfile extends React.Component {
 
   render() {
     const { users } = this.state;
+    console.log(window.location.pathname)
     return (
       <div>
         <ThisNavbar />
@@ -120,4 +122,4 @@ class UserProfile extends React.Component {
   }
 }
 
-export default UserProfile;
+export default withContext (UserProfile)
