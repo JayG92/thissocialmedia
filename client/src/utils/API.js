@@ -25,6 +25,9 @@ export default {
   getPosts: function () {
     return axios.get("/posts");
   },
+  updatePosts: function () {
+    return axios.put("/posts");
+  },
   savePost: function (postData) {
     return axios.post("/posts", postData)
   },

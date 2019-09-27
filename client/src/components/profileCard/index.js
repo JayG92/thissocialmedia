@@ -185,7 +185,7 @@ class ProfileCard extends React.Component {
             <p className="topSkill5">{TopSkill5}</p>
             <hr></hr>
             <h5 className="text-center">Github</h5>
-            <a href={"https://github.com/"+this.state.repoLink}><h6>https://github.com/{this.state.repoLink}</h6></a>
+            <a target="_blank" href={"https://github.com/"+this.state.repoLink}><h6>https://github.com/{this.state.repoLink}</h6></a>
             <hr></hr>
             <div className="buttons">
               <a href="/profile"><Button className="view-profile">View Profile</Button></a><div><Button className="modal-button pEdit" onClick={this.toggle}>{this.props.buttonLabel}<i className="far fa-edit"></i> </Button>

@@ -43,13 +43,13 @@ class Profile extends React.Component {
       .catch(err => console.log(err));
   };
 
-  // loadProjects = () => {
-  //   API.getPosts()
-  //     .then(res =>
-  //       this.setState({ posts: res.data })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
+loadProject = () => {
+  API.getPosts()
+    .then(res =>
+      this.setState({ posts: res.data }),
+    )
+    .catch(err => console.log(err));
+};
 
   loadEvents = () => {
     API.getEvents()
@@ -120,7 +120,9 @@ class Profile extends React.Component {
               <PostForm
                 loadPosts={this.loadPosts}
                 loadEvents={this.loadEvents} />
-              <Feed posts={this.state.posts} />
+              <Feed 
+              posts={this.state.posts} 
+              />
             </Col>
             <Col xs="3">
               <EventCard events={this.state.events} />

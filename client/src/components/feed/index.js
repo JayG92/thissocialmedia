@@ -6,7 +6,7 @@ import { CardText } from 'reactstrap';
 //     const posts = props.posts;
 function Feed({ posts }) {
     const [count, setCount] = useState(0);
-    var isProject = true
+    // var isProject = true
 
     return (
         <>
@@ -15,13 +15,14 @@ function Feed({ posts }) {
                 <div className="postBox">
                     <CardText>
                         <div className="feedPadding">
-                        <div> { isProject ? <div className="projectTag"><i class="far fa-star"></i> Project</div> : ''}</div>
+                            
+                        {/* <div> { isProject ? <div className="projectTag"><i class="far fa-star"></i> Project</div> : ''}</div> */}
                             <strong>
                                 {post.user}@test
                             </strong>
                             <hr className="feedHr"></hr>
-                            <h3>{post.title}</h3>
-                            {post.body}
+                            <div><h3 id="projectIcon" className="projectTag">{post.title}</h3></div>
+                            <div>{post.body}</div>
                             <br></br>
                             <br></br>
                             <small className="projectLink"><a target="_blank" href={"https://" + post.projectLink}>{post.projectLink}</a></small>
