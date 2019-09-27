@@ -180,7 +180,7 @@ class ProfileCard extends React.Component {
             <div className="text-center">
               <div>{this.state.profilepic.length >= 1 ? <img id="pImage" src={this.state.profilepic} alt="Profile"></img> : <img id="pImage" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" alt="Profile"></img>}</div>
               
-              <CardTitle id="pUsername">@{this.props.user.email}</CardTitle>
+              <CardTitle id="pUsername">{this.props.user.email}</CardTitle>
             </div>
 
             <CardText>

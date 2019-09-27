@@ -25,6 +25,19 @@ class PostForm extends React.Component {
         };
     }
 
+    clearInputs =() =>{
+        this.setState({
+          title:"",
+          body:"",
+          projectLink:"",
+          date:"",
+          time:"",
+          eventTitle:"",
+          eventBody:""
+
+        })
+        }
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -42,7 +55,7 @@ class PostForm extends React.Component {
                 projectLink: this.state.projectLink,
                 likes: this.state.likes,
             })
-                .then(res => this.props.loadPosts())
+                .then(res => this.props.loadPosts(), this.clearInputs())
                 .catch(err => console.log(err));
         }
     };
