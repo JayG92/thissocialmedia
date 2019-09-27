@@ -23,6 +23,12 @@
     margin-top: 10%;
     margin-right: 2%;
     background-color: rgb(81, 165, 196);
+    border-color: rgb(69, 148, 177);
+}
+
+.memberViewProfile:hover {
+    background-color: rgb(67, 144, 172);
+    border-color: rgb(56, 128, 155);
 }
 
 .view-profile{
@@ -30,6 +36,18 @@
     border-color: rgb(81, 165, 196);
 }
 
+.btn-secondary {
+    background-color: none;
+}
+
 .memberFollow {
     margin-top: 25px;
+    background-color: rgb(81, 165, 196);
+    border-color: rgb(69, 148, 177);
 }
+
+.memberFollow:hover {
+    background-color: rgb(67, 144, 172);
+    border-color: rgb(56, 128, 155);
+}
+

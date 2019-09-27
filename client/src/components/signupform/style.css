@@ -104,3 +104,7 @@ body{
     height: 100%;
     width: 50%;
 }
+
+.popup {
+    width: 80%;
+}
