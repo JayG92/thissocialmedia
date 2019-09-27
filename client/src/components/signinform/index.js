@@ -34,17 +34,16 @@ class SigninForm extends React.Component {
         profilepic:res.data.profilepic
       })
       this.props.history.push("/profile")
-    }).catch(err => 
-      console.log("Wrong email or password" + err)
-    );
+    })
   }
-  
  
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
-      
+        {/* <p>
+          Login {this.state.email}
+        </p> */}
         <Form inline className="signinform">
           <Input
             id="userEmail"
