@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { requireAuth, requireSignin } = require("../auth");
 
-const userController = require("../../controllers/userController");
+const userController = require("../../controllers/usercontroller");
 
 router.route("/")
   .get(userController.findAll)
