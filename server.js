@@ -21,7 +21,7 @@ app.use(logger("dev"));
 app.use(express.static("client/build"));
 // Add routes, both API and view
 app.use(require("./routes/api"));
-s
+
 app.get("*", function(req, res){
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 })
