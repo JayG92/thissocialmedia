@@ -109,6 +109,7 @@ class UserProfile extends React.Component {
               bio={user.bio}
               skills={user.skills}
               repoLink={user.repoLink}
+              profilepic={user.profilepic}
               
               />
               ))}

@@ -42,7 +42,7 @@ class Search_profileCard extends React.Component {
         <CardBody>
         <div className="border-bottom" id="pBgColor"></div>
         <div className="text-center">
-          <img id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
+          <img id="pImage" src={this.props.profilepic} alt="Profile"></img>
           <CardTitle id="pUsername">@{this.props.email}</CardTitle>
           </div>
 
