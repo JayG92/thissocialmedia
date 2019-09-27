@@ -18,8 +18,9 @@ class Profile extends React.Component {
     profilepic:"",
     skills: [],
     projectLink: [],
+    repoLink: "",
     likes: 0,
-    isProject: false,
+    profilepic: ""
   }
 
   componentDidMount() {
@@ -114,6 +115,11 @@ loadProject = () => {
               <ProfileCard
                 skills={this.state.skills}
                 bio={this.state.bio}
+<<<<<<< HEAD
+=======
+                repoLink={this.state.repoLink}
+                likes={this.state.likes}
+>>>>>>> 8601ae8993bacdcbda1e418fc575f1fac6cc5aec
                 profilepic={this.state.profilepic}
               />
               <Footer />

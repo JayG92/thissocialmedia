@@ -56,7 +56,7 @@ class Search_profileCard extends React.Component {
             <p className="topSkill5">{TopSkill5}</p>
             <hr></hr>
             <h5 className="text-center">Github</h5>
-            <a href={"https://github.com/"+this.state.repoLink}><h6>https://github.com/{this.state.repoLink}</h6></a>
+            <a href={"https://github.com/"+this.props.repoLink}><h6>https://github.com/{this.props.repoLink}</h6></a>
             <hr></hr>
           <div className="text-center">
           <Button onClick={() => this.setState({ isFollowing: !this.state.isFollowing })} className="modal-button memberUnfollow"><span id="searchFollow">{this.state.isFollowing ? <t>Unfollow</t> : <t>Follow</t>}</span>{this.state.isFollowing ? <i class="fas fa-user-minus"></i> : <i class="fas fa-user-plus"></i>}</Button>

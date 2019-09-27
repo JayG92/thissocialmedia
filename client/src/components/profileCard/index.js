@@ -21,21 +21,29 @@ class ProfileCard extends React.Component {
       bio: "",
       charCount: "",
       skills: [],
-      repoLink: "BrentFM",
+      repoLink: "",
+      profilepic: "",
 
       modal: false
     };
     this.onChangeBio = this.onChangeBio.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.onChangeRepo = this.onChangeRepo.bind(this);
     this.toggle = this.toggle.bind(this);
     this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
+    this.onChangePic = this.onChangePic.bind(this);
   }
 
   componentWillReceiveProps(props) {
     this.setState({
       bio: props.bio,
       skills: props.skills,
+<<<<<<< HEAD
       profilepic:props.profilepic
+=======
+      repoLink: props.repoLink,
+      profilepic: props.profilepic
+>>>>>>> 8601ae8993bacdcbda1e418fc575f1fac6cc5aec
     })
   }
 
@@ -61,6 +69,12 @@ class ProfileCard extends React.Component {
   onChangeRepo(e) {
     this.setState({
       repoLink: e.target.value
+    })
+  }
+
+  onChangePic(e) {
+    this.setState({
+      profilepic: e.target.value
     })
   }
 
@@ -107,14 +121,16 @@ class ProfileCard extends React.Component {
     event.preventDefault();
 
     if (this.state.bio.length >= 0) {
-      console.log(this.state.bio);
-      console.log(this.state.skills);
-      console.log(email)
-      console.log(this.props.user)
       API.updateUser(email, {
         bio: this.state.bio,
         skills: this.state.skills,
+<<<<<<< HEAD
         profilepic:this.state.profilepic
+=======
+        repoLink: this.state.repoLink,
+        likes: this.state.likes,
+        profilepic: this.state.profilepic
+>>>>>>> 8601ae8993bacdcbda1e418fc575f1fac6cc5aec
       })
         .catch(err => console.log(err));
     }
@@ -171,7 +187,12 @@ class ProfileCard extends React.Component {
             <div className="border-bottom" id="pBgColor">
             </div>
             <div className="text-center">
+<<<<<<< HEAD
               <img id="pImage" src={this.state.profilepic}alt="Profile"></img>
+=======
+              <div>{this.state.profilepic.length >= 1 ? <img id="pImage" src={this.state.profilepic} alt="Profile"></img> : <img id="pImage" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" alt="Profile"></img>}</div>
+              
+>>>>>>> 8601ae8993bacdcbda1e418fc575f1fac6cc5aec
               <CardTitle id="pUsername">@{this.props.user.email}</CardTitle>
             </div>
 
@@ -193,11 +214,12 @@ class ProfileCard extends React.Component {
             <div className="buttons">
               <a href="/profile"><Button className="view-profile">View Profile</Button></a><div><Button className="modal-button pEdit" onClick={this.toggle}>{this.props.buttonLabel}<i className="far fa-edit"></i> </Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                  <ModalHeader data-id={this.props.user._id} toggle={this.toggle}>Edit bio</ModalHeader>
+                  <ModalHeader data-id={this.props.user._id} toggle={this.toggle}>Edit Profile</ModalHeader>
                   <ModalBody>
 
                     <FormGroup>
                       {/* <Input type="textarea" name="text" id="exampleText" value={this.state.bio} onChange={this.onChangeBio} /> */}
+                      <h5>Edit Bio</h5>
                       <textarea type="textarea" name="text" id="exampleText" className="noresize" maxLength={155} placeholder="Tell us about yourself!" defaultValue={this.state.bio} onChange={this.onChangeBio}></textarea>
                     </FormGroup>
 
@@ -294,8 +316,12 @@ class ProfileCard extends React.Component {
                     <hr></hr>
                     <h5>Github Username</h5>
                     <textarea type="input" name="text" className="repoLink" maxLength={155} placeholder="Username for Github!" defaultValue={this.state.repoLink} onChange={this.onChangeRepo}></textarea>
+                  <br></br><br></br>
+                  <h5>Upload Profile Picture</h5>
+                  <textarea type="input" name="text" className="repoLink" maxLength={255} placeholder="Upload a picture!" defaultValue={this.state.profilepic} onChange={this.onChangePic}></textarea>
+
                   </ModalBody>
-                  <br></br>
+
                   <ModalFooter>
 
                     <Label for="exampleText"><h6 className="text-muted pMaxLength"><small>Characters Left: {this.state.bio.length}/155</small></h6></Label>

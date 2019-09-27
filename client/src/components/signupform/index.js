@@ -4,6 +4,7 @@ import logo from "../../imgs/whitelogo.png";
 import "./style.css"
 import API from "../../utils/API";
 import { withContext } from "../../context/"
+import { Alert } from 'reactstrap';
 
 
 class Signupform extends React.Component {
@@ -14,10 +15,18 @@ class Signupform extends React.Component {
       password: "",
       phonenumber: "",
       birthday: "",
-      bio: "",
-      visible: false
-
+      bio:"",
+      invalid: true,
+      success: false,
+      visible: true
     };
+
+    this.onDismiss = this.onDismiss.bind(this);
+  }
+
+  onDismiss() {
+    this.setState({ visible: false });
+  }
 
   }
   clearInputs = () => {
@@ -48,40 +57,6 @@ class Signupform extends React.Component {
 
     })
   };
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   API.saveUser({
-  //     email: this.state.email,
-  //     password: this.state.password,
-  //     phonenumber: this.state.phonenumber,
-  //     birthday: this.state.birthday
-  //   })
-  //     .then(() => this.login())
-  //     .catch(err => console.log(err))
-
-  // }
-
-
-
-  //   API.saveUser("/users",{
-  //     email: this.state.email,
-  //     password: this.state.password,
-  //     phonenumber: this.state.phonenumber
-  //   }).then(response => {
-  //     console.log(response)
-  //     if (response.data){
-  //       console.log("successful sign up")
-  //       this.setState({
-  //         redirectTo:"/login"
-  //       })
-  //     } else {
-  //       console.log("signup Error")
-  //     }
-  //   }).catch(error =>{
-  //     console.log("sign up server error: ")
-  //     console.log(error)
-  //   })
-  // }
 
 
   render() {
@@ -111,9 +86,9 @@ class Signupform extends React.Component {
 
 
           {/* SignupSheet */}
-
           <Col className="marginSignup" xs="6">
             <h3 className="signupTitle">Join today!</h3>
+            <div>{this.state.invalid === false ? <Alert className="popup" isOpen={this.state.visible} toggle={this.onDismiss} color="danger">This is a YOU SUCK alert — check it out!</Alert> : ""}</div><div>{this.state.success === true ? <Alert className="popup" isOpen={this.state.visible} toggle={this.onDismiss} color="success">This is a YOU AIGHT alert — check it out!</Alert> : ""}</div>
             <Form className="signupform">
               <Label>Email</Label>
               <Input
@@ -172,7 +147,6 @@ class Signupform extends React.Component {
       </Container>
 
     );
-  }
-}
+    }
 
 export default withContext(Signupform);
