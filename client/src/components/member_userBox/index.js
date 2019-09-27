@@ -14,7 +14,7 @@ render() {
     <div className="text-center">
       <Card className="memberBox memberFloat">
           <div className="text-center">
-      <img className="memberImg" id="pImage" src="https://via.placeholder.com/100" alt="Profile"></img>
+      <img className="memberImg" id="pImage" src={this.props.profilepic} alt="Profile"></img>
            <CardTitle className="memberName">{this.props.email}</CardTitle> 
           <a href={"/userprofile/"+this.props.id}><Button className="memberViewProfile view-profile">View Profile</Button></a><Button className="memberFollow"><i class="fas fa-user-plus"></i></Button>
             </div>

@@ -46,6 +46,7 @@ class UserProfile extends React.Component {
             <Col>
               {users.length !== 0 && users.map(user => (
                 <Member_userBox
+                  profilepic={user.profilepic}
                   key={user.id}
                   email={user.email}
                   id={user._id} />
