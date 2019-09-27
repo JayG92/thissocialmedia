@@ -5,22 +5,38 @@ import ThisNavbar from "../components/navbar/index";
 import Search_profileCard from "../components/search_profileCard";
 import EventCard from "../components/eventcard";
 import Feed from "../components/feed/index";
+import Axios from "axios";
 import "./userProfile.css"
 
 
 class UserProfile extends React.Component {
   state = {
-    posts: [
-    ],
-    events: [
-    ],
-    likes: 0
+    posts: [],
+    events: [],
+    likes: 0,
+    users: [],
+    email: [],
   }
 
   componentDidMount() {
     this.loadPosts();
     this.loadEvents();
+    this.loadUser();
   }
+
+  loadUser = () => {
+    Axios.get("/user").then(res => {
+      console.log(res.data)
+      if (res.data) {
+        this.setState({
+          users: res.data,
+        })
+      }
+    });
+    //catch(err => console.log(err));
+
+  };
+
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -63,7 +79,7 @@ class UserProfile extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title || this.state.body || this.state.date || this.state.time ||this.state.projectLink) {
+    if (this.state.title || this.state.body || this.state.date || this.state.time || this.state.projectLink) {
       API.savePost({
         title: this.state.title,
         body: this.state.body,
@@ -75,15 +91,28 @@ class UserProfile extends React.Component {
   };
 
   render() {
+    const { users } = this.state;
     return (
       <div>
         <ThisNavbar />
         <Container>
-        <div className="topContainer"></div>
+          <div className="topContainer"></div>
           <Row>
-            <Col xs="3"><Search_profileCard /></Col>
-            <Col className="SearchContainer" xs="6"><Feed posts={this.state.posts}/></Col>
-            <Col xs="3"><EventCard events={this.state.events}/></Col>
+            <Col xs="3">
+            {users.map(user => (
+              <Search_profileCard
+              key={user.id}
+              email={user.email}
+              id={user._id}
+              bio={user.bio}
+              skills={user.skills}
+              repoLink={user.repoLink}
+              
+              />
+              ))}
+            </Col>
+            <Col className="SearchContainer" xs="6"><Feed posts={this.state.posts} /></Col>
+            <Col xs="3"><EventCard events={this.state.events} /></Col>
           </Row>
         </Container>
       </div>
@@ -91,4 +120,4 @@ class UserProfile extends React.Component {
   }
 }
 
-  export default UserProfile;
+export default UserProfile;

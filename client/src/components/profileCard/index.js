@@ -20,11 +20,12 @@ class ProfileCard extends React.Component {
       bio: "",
       charCount: "",
       skills: [],
-      repoLink: "https://github.com/",
+      repoLink: "BrentFM",
 
       modal: false
     };
     this.onChangeBio = this.onChangeBio.bind(this);
+    this.onChangeRepo = this.onChangeRepo.bind(this);
     this.toggle = this.toggle.bind(this);
     this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
   }
@@ -184,7 +185,7 @@ class ProfileCard extends React.Component {
             <p className="topSkill5">{TopSkill5}</p>
             <hr></hr>
             <h5 className="text-center">Github</h5>
-            <h6>{this.state.repoLink}</h6>
+            <a href={"https://github.com/"+this.state.repoLink}><h6>https://github.com/{this.state.repoLink}</h6></a>
             <hr></hr>
             <div className="buttons">
               <a href="/profile"><Button className="view-profile">View Profile</Button></a><div><Button className="modal-button pEdit" onClick={this.toggle}>{this.props.buttonLabel}<i className="far fa-edit"></i> </Button>
@@ -194,7 +195,7 @@ class ProfileCard extends React.Component {
 
                     <FormGroup>
                       {/* <Input type="textarea" name="text" id="exampleText" value={this.state.bio} onChange={this.onChangeBio} /> */}
-                      <textarea type="textarea" name="text" id="exampleText" className="noresize" maxLength={155} defaultValue={this.props.user.bio} onChange={this.onChangeBio}></textarea>
+                      <textarea type="textarea" name="text" id="exampleText" className="noresize" maxLength={155} placeholder="Tell us about yourself!" defaultValue={this.state.bio} onChange={this.onChangeBio}></textarea>
                     </FormGroup>
 
 
@@ -205,8 +206,7 @@ class ProfileCard extends React.Component {
                       <Button
                         className="skillBtn1"
                         color="primary"
-                        onClick={() => this.onCheckboxBtnClick("HTML ")}
-                        active={this.state.skills.includes(1)}>HTML
+                        onClick={() => this.onCheckboxBtnClick("HTML ")} active={this.state.skills.includes(1)}>HTML
                       </Button>
 
 
@@ -289,8 +289,8 @@ class ProfileCard extends React.Component {
                     </div>
                     <br></br>
                     <hr></hr>
-                    <h5>Github Repo</h5>
-                    <textarea type="input" name="text" className="repoLink" maxLength={155} value={this.state.repoLink} onChange={this.onChangeRepo}></textarea>
+                    <h5>Github Username</h5>
+                    <textarea type="input" name="text" className="repoLink" maxLength={155} placeholder="Username for Github!" defaultValue={this.state.repoLink} onChange={this.onChangeRepo}></textarea>
                   </ModalBody>
                   <br></br>
                   <ModalFooter>

@@ -24,6 +24,7 @@ class Profile extends React.Component {
   componentDidMount() {
     this.loadPosts();
     this.loadEvents();
+    // this.loadProjects();
     this.getUserInfo();
   }
 
@@ -42,10 +43,10 @@ class Profile extends React.Component {
       .catch(err => console.log(err));
   };
 
-  // loadProject = () => {
+  // loadProjects = () => {
   //   API.getPosts()
   //     .then(res =>
-  //       this.setState({ posts: res.data }),
+  //       this.setState({ posts: res.data })
   //     )
   //     .catch(err => console.log(err));
   // };
