@@ -20,7 +20,7 @@ class ProfileCard extends React.Component {
       bio: "",
       charCount: "",
       skills: [],
-      repoLink: "BrentFM",
+      repoLink: "",
 
       modal: false
     };
@@ -33,7 +33,10 @@ class ProfileCard extends React.Component {
   componentWillReceiveProps(props) {
     this.setState({
       bio: props.bio,
-      skills: props.skills
+      skills: props.skills,
+      repoLink: props.repoLink,
+      likes: props.likes,
+      profilepic: props.profilepic
     })
   }
 
@@ -105,13 +108,12 @@ class ProfileCard extends React.Component {
     event.preventDefault();
 
     if (this.state.bio.length >= 0) {
-      console.log(this.state.bio);
-      console.log(this.state.skills);
-      console.log(email)
-      console.log(this.props.user)
       API.updateUser(email, {
         bio: this.state.bio,
-        skills: this.state.skills
+        skills: this.state.skills,
+        repoLink: this.state.repoLink,
+        likes: this.state.likes,
+        profilepic: this.state.profilepic
       })
         .catch(err => console.log(err));
     }

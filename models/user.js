@@ -5,8 +5,11 @@ mongoose.promise = Promise;
 
 const UserSchema = new Schema({
     name: { type: String },
-    bio: { type: String, defaultValue:"THIS IS THE BIO" },
+    bio: { type: String },
     skills: { type: Array },
+    repoLink: { type: String },
+    likes: { type: Number },
+    profilepic: { type: String },
     date: { type: Date, default: Date.now },
     posts: [{
         type: Schema.Types.ObjectId,

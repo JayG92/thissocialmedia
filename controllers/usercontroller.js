@@ -22,7 +22,10 @@ module.exports = {
       .then(dbUser => {
         res.json({
           bio: dbUser.bio,
-          skills: dbUser.skills
+          skills: dbUser.skills,
+          repoLink: dbUser.repoLink,
+          likes: dbUser.repoLink,
+          profilepic: dbUser.profilepic
         })
       })
       .catch(err => res.status(422).json(err));

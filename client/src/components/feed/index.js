@@ -26,7 +26,7 @@ function Feed({ posts }) {
                             <h3>{post.title}</h3>
                             <div className="postBody">{post.body}</div>
                         
-                            <div> { post.projectLink.length >= 1 ? <div><br></br><br></br><small className="projectLink"><a target="_blank" href={"https://" + post.projectLink}>{post.projectLink}</a></small></div> : ""} </div>
+                            <div> { post.projectLink.length >= 1 ? <div><br></br><br></br><small className="projectLink">Project Link: <a target="_blank" href={"https://" + post.projectLink}>{post.projectLink}</a></small></div> : ""} </div>
                             {/* <hr className="feedHr"></hr> */}
                             <br></br>
                             <div className="Interactions"></div>

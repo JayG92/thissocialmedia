@@ -9,7 +9,7 @@ class SigninForm extends React.Component {
   state = {
     email: "",
     password: "",
-    bio: ""
+    bio: "",
   };
 
 
@@ -27,7 +27,10 @@ class SigninForm extends React.Component {
         token:res.data.token,
         email:res.data.email,
         bio:res.data.bio,
-        skills:res.data.skills
+        skills:res.data.skills,
+        repoLink:res.data.repoLink,
+        likes:res.data.likes,
+        profilepic:res.data.profilepic
       })
       this.props.history.push("/profile")
     })
