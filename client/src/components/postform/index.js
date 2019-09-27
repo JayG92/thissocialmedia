@@ -1,6 +1,8 @@
 import React from 'react';
 import API from "../../utils/API";
 import "./style.css"
+import { withContext } from '../../context';
+
 
 import { Jumbotron, FormGroup, Label, Input, TabContent, TabPane, Nav, NavItem, NavLink, Button, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
@@ -21,7 +23,6 @@ class PostForm extends React.Component {
             eventTitle: "",
             eventBody: "",
             likes: 0,
-            isProject: false
         };
     }
 
@@ -83,7 +84,6 @@ class PostForm extends React.Component {
                 eventBody: this.state.eventBody,
                 date: this.state.date,
                 time: this.state.time,
-
             })
                 .then(res => this.props.loadEvents())
                 .catch(err => console.log(err));
@@ -259,4 +259,4 @@ class PostForm extends React.Component {
 
 }
 
-export default PostForm
+export default withContext(PostForm)

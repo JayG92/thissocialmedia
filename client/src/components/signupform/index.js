@@ -43,8 +43,6 @@ this.setState({
   phonenumber:"",
   birthday:""
 })
-
-
 }
 
 signup = () => {
@@ -97,6 +95,7 @@ signup = () => {
                 id="signupEmail"
                 className="marginForm"
                 value={this.state.email}
+                maxLength="25"
                 name="email"
                 onChange={this.handleInputChange}
                 type="text"

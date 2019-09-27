@@ -48,7 +48,10 @@ class UserProfile extends React.Component {
                 <Member_userBox
                   key={user.id}
                   email={user.email}
-                  id={user._id} />
+                  id={user._id}
+                  profilepic={user.profilepic}
+                  
+                  />
               ))}
 
             </Col>

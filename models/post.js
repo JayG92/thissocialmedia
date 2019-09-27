@@ -10,10 +10,14 @@ var PostSchema = new Schema({
     created_at: {
         type: Date,
         default: Date.now
+    },
+    user: {
+        type:Schema.Types.ObjectId,
+        ref:"User",
     }
 
 });
 
-var Post = mongoose.model("Post", PostSchema);
+var Post = mongoose.model("Post", PostSchema, "posts");
 
 module.exports = Post;
