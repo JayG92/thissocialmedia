@@ -4,30 +4,29 @@ const bcrypt = require("bcryptjs");
 mongoose.promise = Promise;
 
 const UserSchema = new Schema({
-    name: { type: String },
-    bio: { type: String },
-    skills: { type: Array },
-    repoLink: { type: String },
-    likes: { type: Number },
-    profilepic: { type: String },
-    date: { type: Date, default: Date.now },
-    posts: [{
-        type: Schema.Types.ObjectId,
-        ref: "Post"
-        
-    }
-    ],
-    email:{type:String, unique: true},
-    phonenumber:{type:String},
-    projectLink:{type:String},
-    birthday:{type:String},
-    password:{type:String},
-    profilepic:{type:String},
-    events:[{
-        type:Schema.Types.ObjectId,
-        ref:"Event"
-    }],
-    loggedIn:{type:Boolean, default:false}
+  name: { type: String },
+  bio: { type: String },
+  skills: { type: Array },
+  repoLink: { type: String },
+  likes: { type: Number },
+  date: { type: Date, default: Date.now },
+  posts: [{
+    type: Schema.Types.ObjectId,
+    ref: "Post"
+
+  }
+  ],
+  email: { type: String, unique: true },
+  phonenumber: { type: String },
+  projectLink: { type: String },
+  birthday: { type: String },
+  password: { type: String },
+  profilepic: { type: String },
+  events: [{
+    type: Schema.Types.ObjectId,
+    ref: "Event"
+  }],
+  loggedIn: { type: Boolean, default: false }
 
 
 });
@@ -35,29 +34,29 @@ const UserSchema = new Schema({
 
 // On save hook, encrypt password
 UserSchema.pre("save", function (next) {
-    bcrypt.genSalt(10, (err, salt) => {
+  bcrypt.genSalt(10, (err, salt) => {
+    if (err) {
+      return next(err);
+    }
+    bcrypt.hash(this.password, salt, (err, hash) => {
       if (err) {
         return next(err);
       }
-      bcrypt.hash(this.password, salt, (err, hash) => {
-        if (err) {
-          return next(err);
-        }
-        this.password = hash;
-        next();
-      });
+      this.password = hash;
+      next();
     });
   });
-  // create a method to check a users password
-  UserSchema.methods.comparePassword = function (candidatePassword, callback) {
-    bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
-      if (err) {
-        return callback(err);
-      }
-      callback(null, isMatch);
-    });
-  };
-  
+});
+// create a method to check a users password
+UserSchema.methods.comparePassword = function (candidatePassword, callback) {
+  bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
+    if (err) {
+      return callback(err);
+    }
+    callback(null, isMatch);
+  });
+};
+
 
 
 
@@ -80,7 +79,7 @@ UserSchema.pre("save", function (next) {
 // 		next()
 // 	} else {
 // 		console.log('models/user.js hashPassword in pre save');
-		
+
 // 		this.password = this.hashPassword(this.password)
 // 		next()
 // 	}

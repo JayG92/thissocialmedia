@@ -10,6 +10,7 @@ class SigninForm extends React.Component {
     email: "",
     password: "",
     bio: "",
+    profilepic: ""
   };
 
 

@@ -21,6 +21,8 @@ body {
 }
 
 #pImage {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     margin-bottom: 2%;
 }
@@ -81,7 +83,7 @@ body {
 }
   
 .noresize {
-    min-height:140px;
+    min-height: 120px;
     width: 465px;
     border: none;
     resize: none; 
@@ -89,14 +91,14 @@ body {
 
 .pMaxLength {
     position: absolute;
-    top: 33%;
+    top: 31%;
     left: 5%;  
     width: 200px;
 }
 
 .pMaxSkills {
     position: absolute;
-    top: 67.5%;
+    top: 62%;
     left: 5%;
     width: 200px;
 }
@@ -111,4 +113,16 @@ body {
     width: 465px;
     border: none;
     resize: none; 
+    font-size: 15px;
+    border:0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom:1px solid rgb(214, 214, 214);
+    border-color: rgb(81, 165, 196)
   }
+
+  .repoLink:focus, .repoLink:active {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+ }
