@@ -205,12 +205,14 @@ class PostForm extends React.Component {
                                         id="exampleText"
                                     />
                                 </FormGroup>
-                                    <Input 
-                                    className="formBox"
+                                <p className="https">https://</p>
+                                <Input 
+                                    className="formBox pLink"
                                     value={this.state.projectLink}
                                     onChange={this.handleInputChange}
                                     placeholder="Link to your project"
                                     name="projectLink"
+                                    
                                     />
 
                                 <div className="text-center">

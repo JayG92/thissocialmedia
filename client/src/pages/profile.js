@@ -17,13 +17,15 @@ class Profile extends React.Component {
     bio: "",
     skills: [],
     projectLink: [],
+    repoLink: "",
     likes: 0,
-    isProject: false,
+    profilepic: ""
   }
 
   componentDidMount() {
     this.loadPosts();
     this.loadEvents();
+    // this.loadProjects();
     this.getUserInfo();
   }
 
@@ -42,6 +44,13 @@ class Profile extends React.Component {
       .catch(err => console.log(err));
   };
 
+loadProject = () => {
+  API.getPosts()
+    .then(res =>
+      this.setState({ posts: res.data }),
+    )
+    .catch(err => console.log(err));
+};
 
   loadEvents = () => {
     API.getEvents()
@@ -105,6 +114,9 @@ class Profile extends React.Component {
               <ProfileCard
                 skills={this.state.skills}
                 bio={this.state.bio}
+                repoLink={this.state.repoLink}
+                likes={this.state.likes}
+                profilepic={this.state.profilepic}
               />
               <Footer />
             </Col>
@@ -112,7 +124,9 @@ class Profile extends React.Component {
               <PostForm
                 loadPosts={this.loadPosts}
                 loadEvents={this.loadEvents} />
-              <Feed posts={this.state.posts} />
+              <Feed 
+              posts={this.state.posts} 
+              />
             </Col>
             <Col xs="3">
               <EventCard events={this.state.events} />

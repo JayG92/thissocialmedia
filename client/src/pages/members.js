@@ -47,7 +47,8 @@ class UserProfile extends React.Component {
               {users.length !== 0 && users.map(user => (
                 <Member_userBox
                   key={user.id}
-                  email={user.email} />
+                  email={user.email}
+                  id={user._id} />
               ))}
 
             </Col>
