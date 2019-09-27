@@ -38,12 +38,8 @@ class ProfileCard extends React.Component {
     this.setState({
       bio: props.bio,
       skills: props.skills,
-<<<<<<< HEAD
-      profilepic:props.profilepic
-=======
       repoLink: props.repoLink,
       profilepic: props.profilepic
->>>>>>> 8601ae8993bacdcbda1e418fc575f1fac6cc5aec
     })
   }
 
@@ -124,13 +120,9 @@ class ProfileCard extends React.Component {
       API.updateUser(email, {
         bio: this.state.bio,
         skills: this.state.skills,
-<<<<<<< HEAD
-        profilepic:this.state.profilepic
-=======
         repoLink: this.state.repoLink,
         likes: this.state.likes,
         profilepic: this.state.profilepic
->>>>>>> 8601ae8993bacdcbda1e418fc575f1fac6cc5aec
       })
         .catch(err => console.log(err));
     }
@@ -187,12 +179,8 @@ class ProfileCard extends React.Component {
             <div className="border-bottom" id="pBgColor">
             </div>
             <div className="text-center">
-<<<<<<< HEAD
-              <img id="pImage" src={this.state.profilepic}alt="Profile"></img>
-=======
               <div>{this.state.profilepic.length >= 1 ? <img id="pImage" src={this.state.profilepic} alt="Profile"></img> : <img id="pImage" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" alt="Profile"></img>}</div>
               
->>>>>>> 8601ae8993bacdcbda1e418fc575f1fac6cc5aec
               <CardTitle id="pUsername">@{this.props.user.email}</CardTitle>
             </div>
 

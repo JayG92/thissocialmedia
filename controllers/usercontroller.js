@@ -23,13 +23,9 @@ module.exports = {
         res.json({
           bio: dbUser.bio,
           skills: dbUser.skills,
-<<<<<<< HEAD
-          profilepic:dbUser.profilepic
-=======
           repoLink: dbUser.repoLink,
           likes: dbUser.repoLink,
           profilepic: dbUser.profilepic
->>>>>>> 8601ae8993bacdcbda1e418fc575f1fac6cc5aec
         })
       })
       .catch(err => res.status(422).json(err));

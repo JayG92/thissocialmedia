@@ -1,12 +1,9 @@
 import React from 'react';
-import { Alert,Container, Row, Col, Form, Button, Label, Input } from 'reactstrap';
+import { Alert, Container, Row, Col, Form, Button, Label, Input } from 'reactstrap';
 import logo from "../../imgs/whitelogo.png";
 import "./style.css"
 import API from "../../utils/API";
 import { withContext } from "../../context/"
-import { Alert } from 'reactstrap';
-
-
 class Signupform extends React.Component {
   constructor(props) {
     super(props);
@@ -18,47 +15,36 @@ class Signupform extends React.Component {
       bio:"",
       invalid: true,
       success: false,
-      visible: true
     };
-
     this.onDismiss = this.onDismiss.bind(this);
   }
-
+​
   onDismiss() {
     this.setState({ visible: false });
   }
-
-  }
-  clearInputs = () => {
-    this.setState({
-      email: "",
-      password: "",
-      phonenumber: "",
-      birthday: ""
-    })
-  }
-
+​
+​
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+        [name]: value
     });
-  };
-
-  signup = () => {
-    API.signup(this.state).then(res => {
-      console.log(res.data)
-      this.setState({
-        visible:true
-      })
-
-      this.clearInputs();
-  
-
-    })
-  };
-
-
+};
+​
+signup = () => {
+  API.signup(this.state).then(res => {
+    console.log(res.data);
+    this.setState({ success: true })
+​
+  })
+  .catch(err => {
+    console.log("help" + err);
+    this.setState({ invalid: false })
+    console.log(this.state.signedUp)
+  }) 
+};
+​
+​
   render() {
     return (
       <Container>
@@ -82,9 +68,9 @@ class Signupform extends React.Component {
               Join the conversation.
             </h4>
           </Col>
-
-
-
+​
+​
+​
           {/* SignupSheet */}
           <Col className="marginSignup" xs="6">
             <h3 className="signupTitle">Join today!</h3>
@@ -124,29 +110,25 @@ class Signupform extends React.Component {
               <Input
                 id="signupBirthday"
                 className="marginForm"
-                value={this.state.birthday}
                 type="date"
-                onChange={this.handleInputChange}
-                name="birthday"
+                name="bithday"
                 id="birthday"
                 placeholder="date placeholder"
               />
               <br>
               </br>
-              <Button className="submit-button signupBtn" onClick={this.signup}> Submit</Button>
-              <Alert className="success-alert" color="primary" isOpen={this.state.visible} toggle={this.onDismiss} fade={false}>
-         Sign Up Successful!
-        </Alert>
-
+              <Button className="submit-button signupBtn" onClick={this.signup}>Submit</Button>
+​
             </Form>
-
-
-
+​
+​
+​
           </Col>
         </Row>
       </Container>
-
+​
     );
-    }
-
+  }
+}
+​
 export default withContext(Signupform);
