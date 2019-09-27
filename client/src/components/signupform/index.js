@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button, Label, Input } from 'reactstrap';
+import { Alert,Container, Row, Col, Form, Button, Label, Input } from 'reactstrap';
 import logo from "../../imgs/whitelogo.png";
 import "./style.css"
 import API from "../../utils/API";
@@ -14,23 +14,40 @@ class Signupform extends React.Component {
       password: "",
       phonenumber: "",
       birthday: "",
-      bio:""
-    };
-  }
+      bio: "",
+      visible: false
 
+    };
+
+  }
+  clearInputs = () => {
+    this.setState({
+      email: "",
+      password: "",
+      phonenumber: "",
+      birthday: ""
+    })
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-        [name]: value
+      [name]: value
     });
-};
+  };
 
-signup = () => {
-  API.signup(this.state).then(res => {
-    console.log(res.data);
-  });
-};
+  signup = () => {
+    API.signup(this.state).then(res => {
+      console.log(res.data)
+      this.setState({
+        visible:true
+      })
+
+      this.clearInputs();
+  
+
+    })
+  };
   // handleFormSubmit = event => {
   //   event.preventDefault();
   //   API.saveUser({
@@ -132,14 +149,19 @@ signup = () => {
               <Input
                 id="signupBirthday"
                 className="marginForm"
+                value={this.state.birthday}
                 type="date"
-                name="bithday"
+                onChange={this.handleInputChange}
+                name="birthday"
                 id="birthday"
                 placeholder="date placeholder"
               />
               <br>
               </br>
-              <Button className="submit-button signupBtn" onClick={this.signup}>Submit</Button>
+              <Button className="submit-button signupBtn" onClick={this.signup}> Submit</Button>
+              <Alert className="success-alert" color="primary" isOpen={this.state.visible} toggle={this.onDismiss} fade={false}>
+         Sign Up Successful!
+        </Alert>
 
             </Form>
 

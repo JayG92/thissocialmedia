@@ -27,7 +27,8 @@ text-align:center;
 
 .feedPadding {
         padding-left: 5%;
-        padding-top: 2%
+        padding-top: 2%;
+        position: relative;
 }
 
 .feedHr {
@@ -69,15 +70,28 @@ text-align:center;
 }
         */
 
-
 .projectTag {
         background-color: rgb(238, 238, 238);
         padding-left: 10px;
         padding-right: 10px;
-        float: right;
-        margin-right: 5%;
+        font-size: 18px;
+        position: absolute;
+        top: 5%;
+        right: 5%;
 }
 
 .Interactions {
         margin-bottom: 0%;
 }
+
+.postBody {
+        margin-right: 5%;
+}
+
+
+
+/* .likes {
+        font-weight: 400;
+        text-decoration: none;
+        color: #51a5c4
+} */

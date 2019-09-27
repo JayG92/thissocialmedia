@@ -57,11 +57,23 @@ body {
 
 .view-profile{
     background-color: rgb(81, 165, 196);
-    border-color: rgb(81, 165, 196);
+    border-color: rgb(69, 148, 177);
+}
+
+
+.view-profile:hover {
+    background-color: rgb(67, 144, 172);
+    border-color: rgb(56, 128, 155);
 }
 
 .pEdit {
     margin-left: 5%;
+    border-color: rgb(69, 148, 177);
+}
+
+.pEdit:hover {
+    background-color: rgb(67, 144, 172);
+    border-color: rgb(56, 128, 155);
 }
 
 .pBio {

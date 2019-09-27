@@ -50,15 +50,14 @@ class PostForm extends React.Component {
     // handleProjectSubmit = event => {
     //     event.preventDefault();
     //     console.log(this.state);
-    //     this.setState({ isProject: true});
-    //     if (this.state.title && this.state.body && this.state.isProject === true) {
+    //     if (this.state.title || this.state.body || this.state.projectLink) {
     //         API.savePost({
     //             title: this.state.title,
     //             body: this.state.body,
-    //             isProject: this.state.isProject,
+    //             projectLink: this.state.projectLink,
     //             likes: this.state.likes,
     //         })
-    //             .then(res => this.props.loadProject())
+    //             .then(res => this.props.loadPosts())
     //             .catch(err => console.log(err));
     //     }
     // };
@@ -220,12 +219,14 @@ class PostForm extends React.Component {
                                         id="exampleText"
                                     />
                                 </FormGroup>
-                                    <Input 
-                                    className="formBox"
+                                <p className="https">https://</p>
+                                <Input 
+                                    className="formBox pLink"
                                     value={this.state.projectLink}
                                     onChange={this.handleInputChange}
                                     placeholder="Link to your project"
                                     name="projectLink"
+                                    
                                     />
 
                                 <div className="text-center">
