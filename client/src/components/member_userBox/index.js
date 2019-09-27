@@ -7,10 +7,6 @@ import "./style.css";
 
 class Member_userBox extends React.Component {
 
-  // state = {
-  //   user: [
-  //   ],
-  // }
 
 
 render() {
