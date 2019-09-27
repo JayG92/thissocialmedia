@@ -47,21 +47,6 @@ class PostForm extends React.Component {
         }
     };
 
-    // handleProjectSubmit = event => {
-    //     event.preventDefault();
-    //     console.log(this.state);
-    //     this.setState({ isProject: true});
-    //     if (this.state.title && this.state.body && this.state.isProject === true) {
-    //         API.savePost({
-    //             title: this.state.title,
-    //             body: this.state.body,
-    //             isProject: this.state.isProject,
-    //             likes: this.state.likes,
-    //         })
-    //             .then(res => this.props.loadProject())
-    //             .catch(err => console.log(err));
-    //     }
-    // };
 
     handleEventSubmit = event => {
         event.preventDefault();

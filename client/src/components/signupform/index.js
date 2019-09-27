@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button, Label, Input } from 'reactstrap';
+import { Alert, Container, Row, Col, Form, Button, Label, Input } from 'reactstrap';
 import logo from "../../imgs/whitelogo.png";
 import "./style.css"
 import API from "../../utils/API";
@@ -28,43 +28,11 @@ class Signupform extends React.Component {
 
 signup = () => {
   API.signup(this.state).then(res => {
-    console.log(res.data);
-  });
+    console.log("sign up successful" + res.data);
+  }) .catch(err => 
+    console.log("Sign up error" + err)
+  );
 };
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   API.saveUser({
-  //     email: this.state.email,
-  //     password: this.state.password,
-  //     phonenumber: this.state.phonenumber,
-  //     birthday: this.state.birthday
-  //   })
-  //     .then(() => this.login())
-  //     .catch(err => console.log(err))
-
-  // }
-
-
-
-  //   API.saveUser("/users",{
-  //     email: this.state.email,
-  //     password: this.state.password,
-  //     phonenumber: this.state.phonenumber
-  //   }).then(response => {
-  //     console.log(response)
-  //     if (response.data){
-  //       console.log("successful sign up")
-  //       this.setState({
-  //         redirectTo:"/login"
-  //       })
-  //     } else {
-  //       console.log("signup Error")
-  //     }
-  //   }).catch(error =>{
-  //     console.log("sign up server error: ")
-  //     console.log(error)
-  //   })
-  // }
 
 
   render() {

@@ -42,13 +42,6 @@ class Profile extends React.Component {
       .catch(err => console.log(err));
   };
 
-  // loadProject = () => {
-  //   API.getPosts()
-  //     .then(res =>
-  //       this.setState({ posts: res.data }),
-  //     )
-  //     .catch(err => console.log(err));
-  // };
 
   loadEvents = () => {
     API.getEvents()

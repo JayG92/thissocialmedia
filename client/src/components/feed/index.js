@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./style.css"
 import { CardText } from 'reactstrap';
+import { withContext } from "../../context/"
 
 // function Feed(props) {
 //     const posts = props.posts;
@@ -14,7 +15,7 @@ function Feed({ posts }) {
                 <div className="postBox">
                     <CardText>
                         <div className="feedPadding">
-                        {/* <div className={show === true ? <div className="projectTag"><i class="far fa-star"></i> Project</div> : 'Not'}></div> */}
+
                             <strong>
                                 {post.user}@test
                             </strong>
