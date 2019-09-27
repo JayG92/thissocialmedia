@@ -9,7 +9,6 @@
     "server:start": "node server.js",
     "server:dev": "nodemon server.js",
     "dev": "concurrently \"npm run client:dev\" \"npm run server:dev\"",
-    "prestart": "npm run client:build",
     "start": "node server.js",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
