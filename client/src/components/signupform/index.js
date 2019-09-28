@@ -29,20 +29,31 @@ class Signupform extends React.Component {
     this.setState({
       [name]: value
     });
-  };
+};
 
-  signup = () => {
-    API.signup(this.state).then(res => {
-      console.log(res.data);
-      this.setState({ success: true })
+clearInputs =() =>{
+this.setState({
+  email:"",
+  password:"",
+  phonenumber:"",
+  birthday:""
+})
 
-    })
-      .catch(err => {
-        console.log("help" + err);
-        this.setState({ invalid: false })
-        console.log(this.state.signedUp)
-      })
-  };
+
+}
+
+signup = () => {
+  API.signup(this.state).then(res => {
+    console.log(res.data);
+    this.setState({ success: true });
+    this.clearInputs();
+  })
+  .catch(err => {
+    console.log("help" + err);
+    this.setState({ invalid: false })
+    console.log(this.state.signedUp)
+  }) 
+};
 
 
   render() {
@@ -109,9 +120,13 @@ class Signupform extends React.Component {
               <Label>Birthday</Label>
               <Input
                 id="signupBirthday"
+                value={this.state.birthday}
+
                 className="marginForm"
                 type="date"
-                name="bithday"
+                name="birthday"
+                onChange={this.handleInputChange}
+
                 id="birthday"
                 placeholder="date placeholder"
               />

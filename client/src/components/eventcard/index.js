@@ -8,7 +8,7 @@ function EventCard({ events }) {
     <Card className="event-card">
       <CardBody>
         <div className="border-bottom" id="pBgColor"></div>
-        <div className="text-center"><strong>Events</strong>
+        <div className="text-center"><i className="fas fa-calendar-day fa-lg"></i>
         </div>
         {events.map(event => (
           <div className="text-center">

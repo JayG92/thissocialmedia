@@ -119,7 +119,6 @@ loadProject = () => {
                 likes={this.state.likes}
                 profilepic={this.state.profilepic}
               />
-              <Footer />
             </Col>
             <Col xs="6">
               <PostForm
@@ -131,6 +130,8 @@ loadProject = () => {
             </Col>
             <Col xs="3">
               <EventCard events={this.state.events} />
+              <Footer />
+
             </Col>
           </Row>
         </Container>

@@ -5,14 +5,20 @@ body {
 .card {
     border-radius: 0rem;
     z-index: 0;
+
 }
 
 .pCard {
+    top: -2px;
+    position: fixed;
+
     margin-left: -50px;
     width: 300px;
     margin-top: 7.5%;
     height: auto;
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+    position: fixed;
+    
 }
 
 #pUsername {

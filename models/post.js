@@ -10,7 +10,9 @@ var PostSchema = new Schema({
     created_at: {
         type: Date,
         default: Date.now
-    }
+    },
+    postPic: {type:String},
+    picTitle:{type:String}
 
 });
 
