@@ -11,8 +11,6 @@ class Search_profileCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bio: "",
-      skills: [],
       isFollowing: false,
  
       modal: false
@@ -27,8 +25,6 @@ class Search_profileCard extends React.Component {
     }));
   }
 
-  
-
     
   render () {
     const TopSkill1 = this.props.skills.length > 0 ? <p><FaCode /> {this.props.skills[0]}</p> : <p className="text-center">User hasnt added any skills yet!</p>
@@ -36,6 +32,8 @@ class Search_profileCard extends React.Component {
     const TopSkill3 = this.props.skills.length > 2 ? <p><FaCode /> {this.props.skills[2]}</p> : <p></p>
     const TopSkill4 = this.props.skills.length > 3 ? <p><FaCode /> {this.props.skills[3]}</p> : <p></p>
     const TopSkill5 = this.props.skills.length > 4 ? <p><FaCode /> {this.props.skills[4]}</p> : <p></p>
+
+    if (window.location.pathname === "/userprofile/"+this.props.id) {
     return (
     <div className="pCard">
       <Card>
@@ -65,7 +63,10 @@ class Search_profileCard extends React.Component {
       </Card>
     </div>
 
-);
+)
+    } else {
+      return null
+    }
 };
 }
 
