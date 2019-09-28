@@ -35,7 +35,7 @@ class ThisNavbar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem id="navLinks">
-                <NavLink id="Active" href="/">Home</NavLink>
+                <NavLink id="Active" href="/profile">Home</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/members">Members</NavLink>
