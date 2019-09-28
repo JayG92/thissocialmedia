@@ -64,9 +64,7 @@ module.exports = {
         return next(err);
       });
 
-
   },
-
 
   create: function (req, res) {
     db.User

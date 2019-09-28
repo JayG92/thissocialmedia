@@ -7,11 +7,17 @@ import Axios from "axios";
 
 
 class UserProfile extends React.Component {
-  state = {
-    users: [
-    ],
-    email: [
-    ],
+    state = {
+      users: [],
+      email: [],
+      posts: [],
+      events: [],
+      bio: "",
+      skills: [],
+      projectLink: [],
+      repoLink: "",
+      likes: 0,
+      profilepic: ""
   }
 
   componentDidMount() {

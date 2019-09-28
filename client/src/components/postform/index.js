@@ -259,4 +259,4 @@ class PostForm extends React.Component {
 
 }
 
-export default withContext(PostForm)
+export default PostForm

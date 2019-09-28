@@ -7,7 +7,7 @@ import EventCard from "../components/eventcard";
 import Feed from "../components/feed/index";
 import Axios from "axios";
 import "./userProfile.css";
-import { withContext } from "../context";
+
 
 
 class UserProfile extends React.Component {
@@ -93,7 +93,6 @@ class UserProfile extends React.Component {
 
   render() {
     const { users } = this.state;
-    console.log(window.location.pathname)
     return (
       <div>
         <ThisNavbar />
@@ -101,7 +100,7 @@ class UserProfile extends React.Component {
           <div className="topContainer"></div>
           <Row>
             <Col xs="3">
-            {users.map(user => (
+            {users[0] && users.map(user => (
               <Search_profileCard
               key={user.id}
               email={user.email}
@@ -109,6 +108,7 @@ class UserProfile extends React.Component {
               bio={user.bio}
               skills={user.skills}
               repoLink={user.repoLink}
+              profilepic={user.profilepic}
               
               />
               ))}
@@ -122,4 +122,4 @@ class UserProfile extends React.Component {
   }
 }
 
-export default withContext (UserProfile)
+export default UserProfile

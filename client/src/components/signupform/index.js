@@ -1,10 +1,10 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button, Label, Input } from 'reactstrap';
+import { Alert, Container, Row, Col, Form, Button, Label, Input } from 'reactstrap';
 import logo from "../../imgs/whitelogo.png";
 import "./style.css"
 import API from "../../utils/API";
 import { withContext } from "../../context/"
-import { Alert } from 'reactstrap';
+
 
 
 class Signupform extends React.Component {
