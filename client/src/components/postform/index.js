@@ -23,6 +23,8 @@ class PostForm extends React.Component {
             eventTitle: "",
             eventBody: "",
             likes: 0,
+            email: "",
+            user: ""
         };
     }
 
@@ -48,13 +50,13 @@ class PostForm extends React.Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state);
         if (this.state.title || this.state.body || this.state.projectLink) {
             API.savePost({
                 title: this.state.title,
                 body: this.state.body,
                 projectLink: this.state.projectLink,
                 likes: this.state.likes,
+                email: this.props.user.email,
             })
                 .then(res => this.props.loadPosts(), this.clearInputs())
                 .catch(err => console.log(err));
@@ -99,6 +101,7 @@ class PostForm extends React.Component {
         }
     }
     render() {
+        console.log(this.props.user.email)
         return (
             <Jumbotron className="postcard" fluid>
                 <Nav tabs>
@@ -259,4 +262,4 @@ class PostForm extends React.Component {
 
 }
 
-export default PostForm
+export default withContext (PostForm)

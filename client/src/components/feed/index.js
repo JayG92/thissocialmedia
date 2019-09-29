@@ -19,7 +19,7 @@ function Feed({ posts }) {
                         <div className="feedPadding">
                             
                             <strong>
-                                {post.user}@test
+                                @{post.email}
                             </strong>
                             <div> { post.title.length >= 1 ? <div className="projectTag"><i className="far fa-star"></i> Project</div> : ""} </div>
                             <hr className="feedHr"></hr>

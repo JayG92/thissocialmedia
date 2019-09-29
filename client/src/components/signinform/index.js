@@ -31,9 +31,13 @@ class SigninForm extends React.Component {
         skills:res.data.skills,
         repoLink:res.data.repoLink,
         likes:res.data.likes,
-        profilepic:res.data.profilepic
+        profilepic:res.data.profilepic,
+        _id:res.data._id
       })
-      this.props.history.push("/profile")
+      this.props.history.push("/home")
+    })
+    .catch(err => {
+      console.log("Signin error: " + err)
     })
   }
  

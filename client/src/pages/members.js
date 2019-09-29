@@ -1,9 +1,10 @@
 import React from "react";
-// import API from "../utils/API";
+import API from "../utils/API";
 import { Container, Row, Col } from 'reactstrap';
 import ThisNavbar from "../components/navbar/index";
 import Member_userBox from "../components/member_userBox/index";
 import Axios from "axios";
+import { withContext } from "../context";
 
 
 class UserProfile extends React.Component {
@@ -17,11 +18,14 @@ class UserProfile extends React.Component {
       projectLink: [],
       repoLink: "",
       likes: 0,
-      profilepic: ""
+      profilepic: "",
+      _id: "",
+
   }
 
   componentDidMount() {
     this.loadUser();
+    this.getUserInfo();
   }
 
 
@@ -36,15 +40,30 @@ class UserProfile extends React.Component {
       }
     });
     //catch(err => console.log(err));
+  };
 
+  getUserInfo = () => {
+    let email = this.props.user.email
+
+    API.getUser(email)
+      .then(res => {
+        this.setState(res.data);
+        console.log(res.data);
+
+      }
+      )
+      .catch(err => console.log(err));
   };
 
 
   render() {
     const { users } = this.state;
+    console.log("NewID: " + this.state._id)
     return (
       <div>
-        <ThisNavbar />
+        <ThisNavbar 
+        _id={this.state._id}
+        />
         <Container>
           <div className="topContainer"></div>
           <Row>
@@ -68,4 +87,4 @@ class UserProfile extends React.Component {
   }
 }
 
-export default UserProfile;
+export default withContext (UserProfile)

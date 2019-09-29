@@ -10,6 +10,7 @@ import ThisNavbar from "../components/navbar/index";
 import ProfileCard from "../components/profileCard/index"
 import { Row, Col, Container } from 'reactstrap';
 
+
 class Profile extends React.Component {
   state = {
     posts: [],
@@ -19,13 +20,13 @@ class Profile extends React.Component {
     projectLink: [],
     repoLink: "",
     likes: 0,
-    profilepic: ""
+    profilepic: "",
+    _id: ""
   }
 
   componentDidMount() {
     this.loadPosts();
     this.loadEvents();
-    // this.loadProjects();
     this.getUserInfo();
   }
 
@@ -95,18 +96,21 @@ loadProject = () => {
     let email = this.props.user.email
 
     API.getUser(email)
-      .then(res =>
-        this.setState(res.data)
+      .then(res => {
+        this.setState(res.data);
+
+      }
       )
       .catch(err => console.log(err));
   };
 
 
-
   render() {
     return (
       <div>
-        <ThisNavbar />
+        <ThisNavbar
+                _id={this.state._id}
+        />
         <Container>
           <div className="topContainer"></div>
           <Row>
@@ -117,13 +121,17 @@ loadProject = () => {
                 repoLink={this.state.repoLink}
                 likes={this.state.likes}
                 profilepic={this.state.profilepic}
+                _id={this.state._id}
               />
               <Footer />
             </Col>
             <Col xs="6">
               <PostForm
                 loadPosts={this.loadPosts}
-                loadEvents={this.loadEvents} />
+                loadEvents={this.loadEvents}
+                getUserInfo={this.getUserInfo}
+                
+                />
               <Feed 
               posts={this.state.posts} 
               />
