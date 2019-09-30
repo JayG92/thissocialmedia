@@ -134,6 +134,7 @@ loadProject = () => {
                 />
               <Feed 
               posts={this.state.posts} 
+              _id={this.state._id}
               />
             </Col>
             <Col xs="3">
