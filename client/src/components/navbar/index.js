@@ -46,9 +46,9 @@ class ThisNavbar extends React.Component {
               <NavItem>
                 <NavLink href="/members">Members</NavLink>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink href="/messages">Messages</NavLink>
-              </NavItem>
+              </NavItem> */}
               <NavItem>
                 <NavLink href="/profile">Profile</NavLink>
               </NavItem>
