@@ -4,6 +4,7 @@ import logo from "../../imgs/whitelogo.png";
 import "./style.css"
 import API from "../../utils/API";
 import { withContext } from "../../context/"
+
 class Signupform extends React.Component {
   constructor(props) {
     super(props);
@@ -29,31 +30,31 @@ class Signupform extends React.Component {
     this.setState({
       [name]: value
     });
-};
+  };
 
-clearInputs =() =>{
-this.setState({
-  email:"",
-  password:"",
-  phonenumber:"",
-  birthday:""
-})
+  clearInputs = () => {
+    this.setState({
+      email: "",
+      password: "",
+      phonenumber: "",
+      birthday: ""
+    })
 
 
-}
+  }
 
-signup = () => {
-  API.signup(this.state).then(res => {
-    console.log(res.data);
-    this.setState({ success: true });
-    this.clearInputs();
-  })
-  .catch(err => {
-    console.log("help" + err);
-    this.setState({ invalid: false })
-    console.log(this.state.signedUp)
-  }) 
-};
+  signup = () => {
+    API.signup(this.state).then(res => {
+      console.log(res.data);
+      this.setState({ success: true });
+      this.clearInputs();
+    })
+      .catch(err => {
+        console.log("help" + err);
+        this.setState({ invalid: false })
+        console.log(this.state.signedUp)
+      })
+  };
 
 
   render() {
@@ -85,9 +86,30 @@ signup = () => {
           {/* SignupSheet */}
           <Col className="marginSignup" xs="6">
             <h3 className="signupTitle">Join today!</h3>
-            <div>{this.state.invalid === false ? <Alert className="popup" isOpen={this.state.visible} toggle={this.onDismiss} color="danger">This is a YOU SUCK alert — check it out!</Alert> : ""}</div><div>{this.state.success === true ? <Alert className="popup" isOpen={this.state.visible} toggle={this.onDismiss} color="success">This is a YOU AIGHT alert — check it out!</Alert> : ""}</div>
+
+            <div>{this.state.invalid === false ?
+              <Alert
+                className="popup"
+                isOpen={this.state.visible}
+                toggle={this.onDismiss}
+                color="danger">Password is required
+                  </Alert> : ""}
+            </div>
+
+            <div>{this.state.success === true ?
+              <Alert
+                className="popup"
+                isOpen={this.state.visible}
+                toggle={this.onDismiss}
+                color="success">This is a YOU AIGHT alert — check it out!
+            </Alert> : ""}
+
+            </div>
+
+
+
             <Form className="signupform">
-              <Label>Email</Label>
+              <Label>Username</Label>
               <Input
                 id="signupEmail"
                 className="marginForm"
@@ -95,7 +117,7 @@ signup = () => {
                 name="email"
                 onChange={this.handleInputChange}
                 type="text"
-                placeholder="Email"
+                placeholder="Username"
               />
               <Label>Password</Label>
               <Input

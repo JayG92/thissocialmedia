@@ -9,8 +9,10 @@
     "server:start": "node server.js",
     "server:dev": "nodemon server.js",
     "dev": "concurrently \"npm run client:dev\" \"npm run server:dev\"",
-    "prestart": "npm run client:build",
-    "start": "npm run server:start"
+    "start": "node server.js",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",

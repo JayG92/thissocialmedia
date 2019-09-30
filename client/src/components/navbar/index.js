@@ -1,6 +1,7 @@
 import React from 'react';
 import "./style.css"
 import logo from "../../imgs/whitelogo.png";
+import { withContext } from "../../context";
 
 import {
   Collapse,
@@ -26,6 +27,11 @@ class ThisNavbar extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
+ 
+
+
+
   render() {
     return (
       <div>
@@ -35,7 +41,7 @@ class ThisNavbar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem id="navLinks">
-                <NavLink id="Active" href="/">Home</NavLink>
+                <NavLink id="Active" href="/profile">Home</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/members">Members</NavLink>
@@ -57,4 +63,4 @@ class ThisNavbar extends React.Component {
   }
 }
 
-export default ThisNavbar;
+export default withContext (ThisNavbar);

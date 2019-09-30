@@ -19,13 +19,15 @@ module.exports = {
   findOne: function (req, res) {
     db.User
       .findOne({ email: req.params.id })
+
       .then(dbUser => {
         res.json({
           bio: dbUser.bio,
           skills: dbUser.skills,
           repoLink: dbUser.repoLink,
           likes: dbUser.repoLink,
-          profilepic: dbUser.profilepic
+          profilepic: dbUser.profilepic,
+          posts:dbUser.posts
         })
       })
       .catch(err => res.status(422).json(err));
@@ -64,9 +66,7 @@ module.exports = {
         return next(err);
       });
 
-
   },
-
 
   create: function (req, res) {
     db.User
@@ -93,5 +93,6 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
-};
+  },
+
+}
