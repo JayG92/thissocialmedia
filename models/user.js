@@ -9,6 +9,8 @@ const UserSchema = new Schema({
   skills: { type: Array },
   repoLink: { type: String },
   likes: { type: Number },
+  Following: { type: Array },
+  Followers: { type: Array },
   date: { type: Date, default: Date.now },
   posts: [{
     type: mongoose.Schema.Types.ObjectId,

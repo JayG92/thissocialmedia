@@ -6,7 +6,7 @@ import { withContext } from "../../context/"
 import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
   Card, CardText, CardBody,
-  CardTitle, FormGroup, Label
+  CardTitle, FormGroup, Label, Input, FormText
 } from 'reactstrap';
 import "./style.css"
 
@@ -306,6 +306,12 @@ class ProfileCard extends React.Component {
                   <br></br><br></br>
                   <h5>Upload Profile Picture</h5>
                   <textarea type="input" name="text" className="repoLink" maxLength={255} placeholder="Upload a picture!" defaultValue={this.state.profilepic} onChange={this.onChangePic}></textarea>
+                  
+                  <Input type="file" name="text" id="exampleFile" onChange={this.onChangePic} />
+          <FormText color="muted">
+            This is some placeholder block-level help text for the above input.
+            It's a bit lighter and easily wraps to a new line.
+          </FormText>
 
                   </ModalBody>
 

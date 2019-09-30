@@ -46,19 +46,19 @@ class ThisNavbar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem id="navLinks">
-                <NavLink href="/home">Home</NavLink>
+                <NavLink className="navTextHome text-center" href="/home">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/members">Members</NavLink>
+                <NavLink className="navText" href="/members">Members</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/messages">Messages</NavLink>
+                <NavLink className="navText" href="/messages">Messages</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href={"/userprofile/"+this.state._id}>Profile</NavLink>
+                <NavLink className="navText" href={"/userprofile/"+this.state._id}>Profile</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/">Log Out</NavLink>
+                <NavLink className="navText" href="/">Log Out</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

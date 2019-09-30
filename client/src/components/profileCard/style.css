@@ -126,3 +126,46 @@ body {
     -webkit-box-shadow: none;
     box-shadow: none;
  }
+
+
+
+
+ @media all and (max-width: 550px) and (min-width: 300px) {
+
+    .pCard {
+        display: none;
+    }
+
+    .event-card {
+        display: none;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .postcard {
+        margin-left: -60%;
+        width: 350px;
+    }
+
+    .postBox {
+        margin-left: -60%;
+        width: 350px;
+    }
+
+    .postInteraction {
+        width: 350px;
+    }
+
+    .likes {
+        margin-left: 7.5%;
+    }
+
+    .comments {
+        display: contents;
+        margin-left: 60%;
+    }
+
+
+ }

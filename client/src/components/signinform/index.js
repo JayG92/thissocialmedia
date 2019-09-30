@@ -32,7 +32,9 @@ class SigninForm extends React.Component {
         repoLink:res.data.repoLink,
         likes:res.data.likes,
         profilepic:res.data.profilepic,
-        _id:res.data._id
+        _id:res.data._id,
+        Following:res.data.Following,
+        Followers:res.data.Followers,
       })
       this.props.history.push("/home")
     })
@@ -65,7 +67,7 @@ class SigninForm extends React.Component {
             type="password"
             placeholder="Password"
           />
-          <Button className="submit-button" onClick={this.login}>Submit</Button>
+          <Button className="submit-button signinBtn" onClick={this.login}>Submit</Button>
         </Form>
       </div>
     );
