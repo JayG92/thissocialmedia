@@ -47,17 +47,21 @@ class SigninForm extends React.Component {
   login = () => {
     API.login(this.state).then(res => {
       this.props.updateUser({
-        token: res.data.token,
-        email: res.data.email,
-        bio: res.data.bio,
-        skills: res.data.skills,
-        repoLink: res.data.repoLink,
-        likes: res.data.likes,
-        profilepic: res.data.profilepic
+        token:res.data.token,
+        email:res.data.email,
+        bio:res.data.bio,
+        skills:res.data.skills,
+        repoLink:res.data.repoLink,
+        likes:res.data.likes,
+        profilepic:res.data.profilepic,
+        _id:res.data._id,
+        Following:res.data.Following,
+        Followers:res.data.Followers,
       })
-      this.props.history.push("/profile")
-      this.setState({ success: true })
-      this.clearInputs()
+      this.props.history.push("/home")
+    })
+    .catch(err => {
+      console.log("Signin error: " + err)
     })
       .catch(err => {
         console.log("Wrong username or password" + err);
@@ -104,7 +108,7 @@ class SigninForm extends React.Component {
             type="password"
             placeholder="Password"
           />
-          <Button className="submit-button" onClick={this.login}>Submit</Button>
+          <Button className="submit-button signinBtn" onClick={this.login}>Submit</Button>
         </Form>
 
 

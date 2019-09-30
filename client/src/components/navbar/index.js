@@ -19,20 +19,26 @@ class ThisNavbar extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      _id: ""
     };
   }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      _id: props._id
+    })
+  }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
 
- 
-
-
-
   render() {
+    console.log(this.state)
+
     return (
       <div>
         <Navbar color="#51CAF5" expand="md">
@@ -41,19 +47,19 @@ class ThisNavbar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem id="navLinks">
-                <NavLink id="Active" href="/profile">Home</NavLink>
+                <NavLink className="navTextHome text-center" href="/home">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/members">Members</NavLink>
-              </NavItem>
-              {/* <NavItem>
-                <NavLink href="/messages">Messages</NavLink>
-              </NavItem> */}
-              <NavItem>
-                <NavLink href="/profile">Profile</NavLink>
+                <NavLink className="navText" href="/members">Members</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/">Log Out</NavLink>
+                <NavLink className="navText" href="/messages">Messages</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="navText" href={"/userprofile/"+this.state._id}>Profile</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="navText" href="/">Log Out</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

@@ -10,6 +10,7 @@ import "./userProfile.css";
 
 
 
+
 class UserProfile extends React.Component {
   state = {
     posts: [],
@@ -17,6 +18,7 @@ class UserProfile extends React.Component {
     likes: 0,
     users: [],
     email: [],
+    _id: "",
   }
 
   componentDidMount() {
@@ -27,7 +29,6 @@ class UserProfile extends React.Component {
 
   loadUser = () => {
     Axios.get("/user").then(res => {
-      console.log(res.data)
       if (res.data) {
         this.setState({
           users: res.data,
@@ -46,13 +47,25 @@ class UserProfile extends React.Component {
     });
   };
 
-  loadPosts = () => {
-    API.getPosts()
-      .then(res =>
-        this.setState({ posts: res.data })
-      )
-      .catch(err => console.log(err));
-  };
+  findArrayElementByTitle(posts, title) {
+    posts.find((email) => {
+    return email.title === title;
+  })
+}
+
+loadPosts = () => {
+      let email = this.props.user.email
+
+  API.getPosts(email)
+    .then(res => {
+      let test = res.data
+      console.log(test)
+      this.setState({ posts: test })
+    }
+    )
+    .catch(err => console.log(err));
+};
+
   loadEvents = () => {
     API.getEvents()
       .then(res =>
@@ -91,6 +104,30 @@ class UserProfile extends React.Component {
     }
   };
 
+
+  // loadPosts = () => {
+  //   let email = this.props.user.email
+
+  //   API.getPosts(email)
+  //     .then(res => {
+  //       res.data.map(email => {
+  //         // console.log(res.data)
+  //         console.log(email.email)
+  //         // console.log(this.props)
+  //         // console.log(this.props.match.params.id)
+  //         // console.log(window.location.pathname === "/userprofile/"+this.props.match.params.id)
+
+  //         if (this.props.match.params.id === res.data[1]._id){
+  //           console.log("AYYYYYYY it worked")
+  //         }
+  //       })
+  //       console.log(email);
+  //       this.setState({ posts: res.data })
+  //     }
+  //     )
+  //     .catch(err => console.log(err));
+  // };
+
   render() {
     const { users } = this.state;
     return (
@@ -113,7 +150,14 @@ class UserProfile extends React.Component {
               />
               ))}
             </Col>
-            <Col className="SearchContainer" xs="6"><Feed posts={this.state.posts} /></Col>
+            <Col className="SearchContainer" xs="6">
+              <Feed 
+              posts={this.state.posts}
+              _id={this.state._id}
+
+             />
+             
+             </Col>
             <Col xs="3"><EventCard events={this.state.events} /></Col>
           </Row>
         </Container>

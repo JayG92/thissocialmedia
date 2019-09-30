@@ -25,7 +25,8 @@ module.exports = {
           skills: dbUser.skills,
           repoLink: dbUser.repoLink,
           likes: dbUser.repoLink,
-          profilepic: dbUser.profilepic
+          profilepic: dbUser.profilepic,
+          _id: dbUser._id
         })
       })
       .catch(err => res.status(422).json(err));

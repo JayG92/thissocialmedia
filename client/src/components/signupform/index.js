@@ -36,16 +36,14 @@ class Signupform extends React.Component {
     });
   };
 
-  clearInputs = () => {
-    this.setState({
-      email: "",
-      password: "",
-      phonenumber: "",
-      birthday: ""
-    })
-
-
-  }
+clearInputs =() =>{
+this.setState({
+  email:"",
+  password:"",
+  phonenumber:"",
+  birthday:""
+})
+}
 
   signup = () => {
     API.signup(this.state).then(res => {
@@ -69,17 +67,20 @@ class Signupform extends React.Component {
         <Row>
           {/* Logo */}
           <Col xs="6">
+            <div className="d-none d-xs-block">
+              <div className="signupBackground">Text</div>
+            </div>
             <h1 className="logoTitle">THIS.SOCIAL.MEDIA</h1>
             <img id="signuplogo" src={logo} alt="Logo" />
-            <h4 className="logoSubText">
+            <h4 className="logoSubText sub1">
               <i className="fas fa-search logoSubIcons" />
               Follow your interests.
             </h4>
-            <h4 className="logoSubText">
+            <h4 className="logoSubText sub2">
               <i className="fas fa-user-friends logoSubIcons" />
               Hear what people are talking about.
             </h4>
-            <h4 className="logoSubText">
+            <h4 className="logoSubText sub3">
               <i className="far fa-comment logoSubIcons" />
               Join the conversation.
             </h4>
@@ -118,6 +119,7 @@ class Signupform extends React.Component {
                 id="signupEmail"
                 className="marginForm"
                 value={this.state.email}
+                maxLength="25"
                 name="email"
                 onChange={this.handleInputChange}
                 type="text"
@@ -133,7 +135,7 @@ class Signupform extends React.Component {
                 type="password"
                 placeholder="Password"
               />
-              <Label>Phone Number</Label>
+              {/* <Label>Phone Number</Label>
               <Input
                 id="signupPhone"
                 className="marginForm"
@@ -143,8 +145,8 @@ class Signupform extends React.Component {
                 type="number"
                 placeholder="Phone Number"
               />
-              <Label>Birthday</Label>
-              <Input
+              <Label>Birthday</Label> */}
+              {/* <Input
                 id="signupBirthday"
                 value={this.state.birthday}
 
@@ -155,10 +157,10 @@ class Signupform extends React.Component {
 
                 id="birthday"
                 placeholder="date placeholder"
-              />
+              /> */}
               <br>
               </br>
-              <Button className="submit-button signupBtn" onClick={this.signup}>Submit</Button>
+              <Button className="submit-button signupBtn" onClick={this.signup}>Signup</Button>
 
             </Form>
 

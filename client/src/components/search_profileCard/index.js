@@ -40,7 +40,7 @@ class Search_profileCard extends React.Component {
         <CardBody>
         <div className="border-bottom" id="pBgColor"></div>
         <div className="text-center">
-          <img id="pImage" src={this.props.profilepic} alt="Profile"></img>
+        <div>{this.props.profilepic.length >= 1 ? <img id="pImage" src={this.props.profilepic} alt="Profile"></img> : <img id="pImage" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" alt="Profile"></img>}</div>
           <CardTitle id="pUsername">@{this.props.email}</CardTitle>
           </div>
 
