@@ -27,7 +27,7 @@ module.exports = {
           repoLink: dbUser.repoLink,
           likes: dbUser.repoLink,
           profilepic: dbUser.profilepic,
-          posts:dbUser.posts
+          _id: dbUser._id
         })
       })
       .catch(err => res.status(422).json(err));

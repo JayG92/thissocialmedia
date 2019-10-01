@@ -6,20 +6,17 @@ import { withContext } from '../../context';
 // function Feed(props) {
 //     const posts = props.posts;
 function Feed({ posts }) {
-    const [count, setCount] = useState(0);
-    // var isProject = true
-
-
+    const [count, setCount] = useState(0);    
     return (
         <>
-
-            {posts.map(post => (
+                {posts.map(post => (
+                    // <div>{post.email}</div>
                 <div className="postBox">
                     <CardText>
                         <div className="feedPadding">
 
                             <strong>
-                                {post.user}@test
+                                @{post.email}
                             </strong>
 
                             <div> {post.title.length >= 1 ? <div className="projectTag"><i className="far fa-star"></i> Project</div> : ""} </div>

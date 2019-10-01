@@ -46,7 +46,6 @@ class Search_profileCard extends React.Component {
 
           <CardText>{this.props.bio}</CardText>
           <hr></hr>
-          {this.props.posts}
             <h5 className="text-center">Top Skills</h5>
             <p className="topSkill1">{TopSkill1}</p>
             <p className="topSkill2">{TopSkill2}</p>

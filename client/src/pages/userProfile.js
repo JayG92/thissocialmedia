@@ -109,7 +109,7 @@ class UserProfile extends React.Component {
               skills={user.skills}
               repoLink={user.repoLink}
               profilepic={user.profilepic}
-              posts={user.posts}
+              
               />
               ))}
             </Col>

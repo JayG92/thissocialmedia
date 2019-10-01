@@ -32,16 +32,14 @@ class Signupform extends React.Component {
     });
   };
 
-  clearInputs = () => {
-    this.setState({
-      email: "",
-      password: "",
-      phonenumber: "",
-      birthday: ""
-    })
-
-
-  }
+clearInputs =() =>{
+this.setState({
+  email:"",
+  password:"",
+  phonenumber:"",
+  birthday:""
+})
+}
 
   signup = () => {
     API.signup(this.state).then(res => {
@@ -114,6 +112,7 @@ class Signupform extends React.Component {
                 id="signupEmail"
                 className="marginForm"
                 value={this.state.email}
+                maxLength="25"
                 name="email"
                 onChange={this.handleInputChange}
                 type="text"

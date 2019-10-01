@@ -11,7 +11,7 @@ const UserSchema = new Schema({
   likes: { type: Number },
   date: { type: Date, default: Date.now },
   posts: [{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Post"
 
   }
@@ -23,13 +23,14 @@ const UserSchema = new Schema({
   password: { type: String },
   profilepic: { type: String },
   events: [{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Event"
   }],
   loggedIn: { type: Boolean, default: false }
 
 
 });
+
 
 
 // On save hook, encrypt password
@@ -64,6 +65,8 @@ UserSchema.methods.comparePassword = function (candidatePassword, callback) {
 
 
 
+
+
 // userSchema.methods = {
 // 	checkPassword: function (inputPassword) {
 // 		return bcrypt.compareSync(inputPassword, this.password)
@@ -86,6 +89,6 @@ UserSchema.methods.comparePassword = function (candidatePassword, callback) {
 // })
 
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema, "users");
 
 module.exports = User;

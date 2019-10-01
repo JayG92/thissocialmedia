@@ -7,15 +7,21 @@ var PostSchema = new Schema({
     likes: Number,
     projectLink: String,
     category: String,
+    email: String,
     created_at: {
         type: Date,
         default: Date.now
     },
-    postPic: {type:String},
-    picTitle:{type:String}
+    user: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
+    }
+
 
 });
 
-var Post = mongoose.model("Post", PostSchema);
+
+
+var Post = mongoose.model("Post", PostSchema, "posts");
 
 module.exports = Post;

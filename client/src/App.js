@@ -49,7 +49,7 @@ class App extends React.Component {
             <Route exact path="/userprofile/:id" component={UserProfile} />
             <Route exact path="/members" component={Members} />
             <Route exact path="/messages" component={Messages} />
-            <ProtectedRoute exact path="/profile" component={Profile} />
+            <ProtectedRoute exact path="/home" component={Profile} />
             <Route exact path="/" component={Login} />
           </Switch>
 
@@ -61,3 +61,4 @@ class App extends React.Component {
 }
 
 export default App;
+

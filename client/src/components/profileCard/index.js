@@ -22,6 +22,8 @@ class ProfileCard extends React.Component {
       charCount: "",
       skills: [],
       repoLink: "",
+      profilepic: "",
+      _id: "",
 
       modal: false
     };
@@ -38,7 +40,8 @@ class ProfileCard extends React.Component {
       bio: props.bio,
       skills: props.skills,
       repoLink: props.repoLink,
-      profilepic: props.profilepic
+      profilepic: props.profilepic,
+      _id: props._id
     })
   }
 
@@ -163,8 +166,6 @@ class ProfileCard extends React.Component {
 
 
   render() {
-    console.log(this.state);
-    console.log(this.props);
     const TopSkill1 = this.state.skills.length > 0 ? <p><FaCode /> {this.state.skills[0]}</p> : <p className="text-center">Add your top 5 skills here!</p>
     const TopSkill2 = this.state.skills.length > 1 ? <p><FaCode /> {this.state.skills[1]}</p> : <p></p>
     const TopSkill3 = this.state.skills.length > 2 ? <p><FaCode /> {this.state.skills[2]}</p> : <p></p>
@@ -199,7 +200,7 @@ class ProfileCard extends React.Component {
             <a target="_blank" href={"https://github.com/"+this.state.repoLink}><h6>https://github.com/{this.state.repoLink}</h6></a>
             <hr></hr>
             <div className="buttons">
-              <a href="/profile"><Button className="view-profile">View Profile</Button></a><div><Button className="modal-button pEdit" onClick={this.toggle}>{this.props.buttonLabel}<i className="far fa-edit"></i> </Button>
+              <a href={"/userprofile/"+this.state._id}><Button className="view-profile">View Profile</Button></a><div><Button className="modal-button pEdit" onClick={this.toggle}>{this.props.buttonLabel}<i className="far fa-edit"></i> </Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                   <ModalHeader data-id={this.props.user._id} toggle={this.toggle}>Edit Profile</ModalHeader>
                   <ModalBody>
