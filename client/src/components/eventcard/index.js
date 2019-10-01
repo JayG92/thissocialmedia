@@ -5,10 +5,11 @@ import "./style.css"
 
 function EventCard({ events }) {
   return (
+    <div className="eventContainer">
     <Card className="event-card">
       <CardBody>
         <div className="border-bottom" id="pBgColor"></div>
-        <div className="text-center"><strong>Events</strong>
+        <div className="text-center"><h5>Events</h5>
         </div>
         {events.map(event => (
           <div className="text-center">
@@ -31,6 +32,7 @@ function EventCard({ events }) {
         )}
       </CardBody>
     </Card>
+    </div>
   )
 }
 

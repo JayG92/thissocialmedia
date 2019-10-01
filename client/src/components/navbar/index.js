@@ -39,7 +39,7 @@ class ThisNavbar extends React.Component {
     console.log(this.state)
 
     return (
-      <div>
+      <div className="navbarContainer">
         <Navbar color="#51CAF5" expand="md">
           <NavbarBrand href="/"><img id="logo" src={logo} alt="Logo"></img><div id="logoText">THIS.</div></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />

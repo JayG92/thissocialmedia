@@ -16,6 +16,7 @@ class Profile extends React.Component {
     posts: [],
     events: [],
     bio: "",
+    profilepic:"",
     skills: [],
     projectLink: [],
     repoLink: "",
@@ -123,7 +124,7 @@ loadProject = () => {
                 profilepic={this.state.profilepic}
                 _id={this.state._id}
               />
-              <Footer />
+              
             </Col>
             <Col xs="6">
               <PostForm
@@ -139,6 +140,8 @@ loadProject = () => {
             </Col>
             <Col xs="3">
               <EventCard events={this.state.events} />
+              <Footer />
+
             </Col>
           </Row>
         </Container>

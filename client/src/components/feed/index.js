@@ -6,11 +6,14 @@ import { withContext } from '../../context';
 // function Feed(props) {
 //     const posts = props.posts;
 function Feed({ posts }) {
-    const [count, setCount] = useState(0);    
+    const [count, setCount] = useState(0);
+    // var isProject = true
+
+
     return (
         <>
-                {posts.map(post => (
-                    // <div>{post.email}</div>
+
+            {posts.map(post => (
                 <div className="postBox">
                     <CardText>
                         <div className="feedPadding">

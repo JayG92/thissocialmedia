@@ -15,12 +15,10 @@ class Signupform extends React.Component {
       password: "",
       phonenumber: "",
       birthday: "",
-      bio:"",
+      bio: "",
       invalid: true,
       success: false,
-      visible: true
     };
-
     this.onDismiss = this.onDismiss.bind(this);
   }
 
@@ -32,7 +30,7 @@ class Signupform extends React.Component {
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-        [name]: value
+      [name]: value
     });
 };
 

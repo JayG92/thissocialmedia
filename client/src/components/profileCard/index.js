@@ -17,6 +17,7 @@ class ProfileCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      profilepic:"",
       bio: "",
       charCount: "",
       skills: [],
@@ -32,6 +33,19 @@ class ProfileCard extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
     this.onChangePic = this.onChangePic.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll, { passive: true })
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll(event) {
+
+
   }
 
   componentWillReceiveProps(props) {
@@ -172,7 +186,7 @@ class ProfileCard extends React.Component {
     const TopSkill5 = this.state.skills.length > 4 ? <p><FaCode /> {this.state.skills[4]}</p> : <p></p>
 
     return (
-      <div className="pCard">
+      <div className="pCard" sticky="top">
         <Card>
           <CardBody>
             <div className="border-bottom" id="pBgColor">
@@ -306,12 +320,6 @@ class ProfileCard extends React.Component {
                   <br></br><br></br>
                   <h5>Upload Profile Picture</h5>
                   <textarea type="input" name="text" className="repoLink" maxLength={255} placeholder="Upload a picture!" defaultValue={this.state.profilepic} onChange={this.onChangePic}></textarea>
-                  
-                  <Input type="file" name="text" id="exampleFile" onChange={this.onChangePic} />
-          <FormText color="muted">
-            This is some placeholder block-level help text for the above input.
-            It's a bit lighter and easily wraps to a new line.
-          </FormText>
 
                   </ModalBody>
 

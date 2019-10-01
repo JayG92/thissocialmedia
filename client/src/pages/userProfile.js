@@ -47,12 +47,6 @@ class UserProfile extends React.Component {
     });
   };
 
-  findArrayElementByTitle(posts, title) {
-    posts.find((email) => {
-    return email.title === title;
-  })
-}
-
 loadPosts = () => {
       let email = this.props.user.email
 
@@ -133,7 +127,9 @@ loadPosts = () => {
 
     return (
       <div>
-        <ThisNavbar />
+        <ThisNavbar 
+           _id={this.state._id}
+                />
         <Container>
           <div className="topContainer"></div>
           <Row>
@@ -147,6 +143,7 @@ loadPosts = () => {
               skills={user.skills}
               repoLink={user.repoLink}
               profilepic={user.profilepic}
+              _id={user._id}
               
               />
               ))}

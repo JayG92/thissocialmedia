@@ -5,6 +5,7 @@ import {
   CardTitle, Button
 } from 'reactstrap';
 import "./style.css"
+import { withContext } from '../../context';
 
 class Search_profileCard extends React.Component {
 
@@ -12,11 +13,17 @@ class Search_profileCard extends React.Component {
     super(props);
     this.state = {
       isFollowing: false,
- 
-      modal: false
+      profilepic: "",
+      _id: "",
     };
 
     this.toggle = this.toggle.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      profilepic: props.profilepic,
+    })
   }
 
   toggle() {
@@ -70,4 +77,4 @@ class Search_profileCard extends React.Component {
 };
 }
 
-export default Search_profileCard;
+export default withContext (Search_profileCard)
