@@ -19,6 +19,7 @@ class UserProfile extends React.Component {
     users: [],
     email: [],
     _id: "",
+    rank: "",
   }
 
   componentDidMount() {
@@ -144,6 +145,7 @@ loadPosts = () => {
               repoLink={user.repoLink}
               profilepic={user.profilepic}
               _id={user._id}
+              rank={user.rank}
               
               />
               ))}

@@ -77,6 +77,7 @@ class UserProfile extends React.Component {
                   profilepic={user.profilepic}
                   _id={user._id}
                   repoLink={user.repoLink}
+                  rank={user.rank}
                   
                   />
               ))}

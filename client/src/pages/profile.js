@@ -20,9 +20,9 @@ class Profile extends React.Component {
     skills: [],
     projectLink: [],
     repoLink: "",
-    likes: 0,
     profilepic: "",
-    _id: ""
+    _id: "",
+    rank: "",
   }
 
   componentDidMount() {
@@ -120,9 +120,9 @@ loadProject = () => {
                 skills={this.state.skills}
                 bio={this.state.bio}
                 repoLink={this.state.repoLink}
-                likes={this.state.likes}
                 profilepic={this.state.profilepic}
                 _id={this.state._id}
+                rank={this.state.rank}
               />
               
             </Col>

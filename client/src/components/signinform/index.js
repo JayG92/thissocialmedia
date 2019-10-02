@@ -10,7 +10,8 @@ class SigninForm extends React.Component {
     email: "",
     password: "",
     bio: "",
-    profilepic: ""
+    profilepic: "",
+    rank: "",
   };
 
 
@@ -30,11 +31,9 @@ class SigninForm extends React.Component {
         bio:res.data.bio,
         skills:res.data.skills,
         repoLink:res.data.repoLink,
-        likes:res.data.likes,
         profilepic:res.data.profilepic,
         _id:res.data._id,
-        Following:res.data.Following,
-        Followers:res.data.Followers,
+        rank:res.data.rank,
       })
       this.props.history.push("/home")
     })
@@ -44,6 +43,7 @@ class SigninForm extends React.Component {
   }
  
   render() {
+
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>

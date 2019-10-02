@@ -6,7 +6,7 @@ import { withContext } from "../../context/"
 import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
   Card, CardText, CardBody,
-  CardTitle, FormGroup, Label, Input, FormText
+  CardTitle, FormGroup, Label, CustomInput,
 } from 'reactstrap';
 import "./style.css"
 
@@ -24,6 +24,7 @@ class ProfileCard extends React.Component {
       repoLink: "",
       profilepic: "",
       _id: "",
+      rank: "",
 
       modal: false
     };
@@ -35,26 +36,14 @@ class ProfileCard extends React.Component {
     this.onChangePic = this.onChangePic.bind(this);
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll, { passive: true })
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  handleScroll(event) {
-
-
-  }
-
   componentWillReceiveProps(props) {
     this.setState({
       bio: props.bio,
       skills: props.skills,
       repoLink: props.repoLink,
       profilepic: props.profilepic,
-      _id: props._id
+      _id: props._id,
+      rank: props.rank
     })
   }
 
@@ -136,8 +125,8 @@ class ProfileCard extends React.Component {
         bio: this.state.bio,
         skills: this.state.skills,
         repoLink: this.state.repoLink,
-        likes: this.state.likes,
-        profilepic: this.state.profilepic
+        profilepic: this.state.profilepic,
+        rank: this.props.rank
       })
         .catch(err => console.log(err));
     }
@@ -185,29 +174,64 @@ class ProfileCard extends React.Component {
     const TopSkill4 = this.state.skills.length > 3 ? <p><FaCode /> {this.state.skills[3]}</p> : <p></p>
     const TopSkill5 = this.state.skills.length > 4 ? <p><FaCode /> {this.state.skills[4]}</p> : <p></p>
 
+    if(this.state.rank === "") {
+      this.setState({ rank: "1"})
+    }
+
+    if (this.state.rank === "1") {
+      this.setState({ rank: <div className="badgePlacement"><span id="badgeNewUser"><span id="badgeTitle">New Member</span></span></div>})
+    }
+    if (this.state.rank === "2") {
+      this.setState({ rank: <div className="badgePlacement"><span id="badgeMember"><i class="fas fa-user"></i><span id="badgeTitle">Member</span></span></div>})
+    }
+    if (this.state.rank === "5") {
+      this.setState({ rank: <div className="badgePlacement"><span id="badgeModerator"><i class="fas fa-user-shield"></i><span id="badgeTitle">Moderator</span></span></div>
+    })
+    }
+    if (this.state.rank === "9") {
+      this.setState({ rank: <div className="badgePlacement"><span id="badgeAdmin"><i class="fas fa-star"></i><span id="badgeTitle">Admin</span></span></div>
+    })
+    }
+    if (this.state.rank === "10") {
+      this.setState({ rank: <div className="badgePlacement"><span id="badgeFounder"><i class="fas fa-crown"></i><span id="badgeTitle">Founder</span></span></div>
+    })
+    }
+
     return (
       <div className="pCard" sticky="top">
         <Card>
           <CardBody>
             <div className="border-bottom" id="pBgColor">
+              
             </div>
             <div className="text-center">
               <div>{this.state.profilepic.length >= 1 ? <img id="pImage" src={this.state.profilepic} alt="Profile"></img> : <img id="pImage" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" alt="Profile"></img>}</div>
-              
               <CardTitle id="pUsername">{this.props.user.email}</CardTitle>
+              <div className="text-center">
+              <div className="badgeContainer">
+                {this.state.rank}
+              </div>
             </div>
+              </div>
 
             <CardText>
+              <div className="bioContainer">
               {this.state.bio}
+              </div>
             </CardText>
+
+
+
 
             <hr></hr>
             <h5 className="text-center">Top Skills</h5>
+            <div className="skillsContainer">
             <p className="topSkill1">{TopSkill1}</p>
             <p className="topSkill2">{TopSkill2}</p>
             <p className="topSkill3">{TopSkill3}</p>
             <p className="topSkill4">{TopSkill4}</p>
             <p className="topSkill5">{TopSkill5}</p>
+            </div>
             <hr></hr>
             <h5 className="text-center">Github</h5>
             <a target="_blank" href={"https://github.com/"+this.state.repoLink}><h6>https://github.com/{this.state.repoLink}</h6></a>
@@ -327,6 +351,8 @@ class ProfileCard extends React.Component {
 
                     <Label for="exampleText"><h6 className="text-muted pMaxLength"><small>Characters Left: {this.state.bio.length}/155</small></h6></Label>
                     <Label for="exampleText"><h6 className="text-muted pMaxSkills"><small>Top Skills Limit: {this.state.skills.length}/5</small></h6></Label>
+
+                    <CustomInput type="radio" className="themeBtn" id="exampleCustomRadio" name="customRadio" label="" />
 
                     <Button color="primary" onClick={this.handleFormSubmit}>Save</Button>
                     <Button color="light" onClick={() => this.setState({ skills: [] })}>Clear Skills</Button>

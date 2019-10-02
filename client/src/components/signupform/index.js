@@ -13,9 +13,8 @@ class Signupform extends React.Component {
     this.state = {
       email: "",
       password: "",
-      phonenumber: "",
-      birthday: "",
       bio: "",
+      rank: "1",
       invalid: true,
       success: false,
     };
@@ -48,6 +47,7 @@ signup = () => {
     console.log(res.data);
     this.setState({ success: true });
     this.clearInputs();
+    this.setState({ rank: "1" })
   })
   .catch(err => {
     console.log("help" + err);
