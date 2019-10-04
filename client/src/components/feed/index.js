@@ -9,7 +9,6 @@ function Feed({ posts }) {
     const [count, setCount] = useState(0);
     // var isProject = true
 
-
     return (
         <>
 

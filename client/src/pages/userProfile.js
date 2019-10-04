@@ -48,18 +48,16 @@ class UserProfile extends React.Component {
     });
   };
 
-loadPosts = () => {
-      let email = this.props.user.email
-
-  API.getPosts(email)
-    .then(res => {
-      let test = res.data
-      console.log(test)
-      this.setState({ posts: test })
-    }
-    )
-    .catch(err => console.log(err));
-};
+    loadPosts = (email) => {
+      // let email = this.props.user.email
+      
+      API.getPosts(email)
+        .then(res => {
+          this.setState({ posts: res.data })
+        }
+        )
+        .catch(err => console.log(err));
+    };
 
   loadEvents = () => {
     API.getEvents()
@@ -100,6 +98,8 @@ loadPosts = () => {
   };
 
 
+
+
   // loadPosts = () => {
   //   let email = this.props.user.email
 
@@ -128,36 +128,38 @@ loadPosts = () => {
 
     return (
       <div>
-        <ThisNavbar 
-           _id={this.state._id}
-                />
+        {users[0] && users.map(user => (
+          <ThisNavbar
+            _id={user._id}
+          />
+        ))}
         <Container>
           <div className="topContainer"></div>
           <Row>
             <Col xs="3">
-            {users[0] && users.map(user => (
-              <Search_profileCard
-              key={user.id}
-              email={user.email}
-              id={user._id}
-              bio={user.bio}
-              skills={user.skills}
-              repoLink={user.repoLink}
-              profilepic={user.profilepic}
-              _id={user._id}
-              rank={user.rank}
-              
-              />
+              {users[0] && users.map(user => (
+                <Search_profileCard
+                  key={user.id}
+                  email={user.email}
+                  id={user._id}
+                  bio={user.bio}
+                  skills={user.skills}
+                  repoLink={user.repoLink}
+                  profilepic={user.profilepic}
+                  _id={user._id}
+                  rank={user.rank}
+
+                />
               ))}
             </Col>
             <Col className="SearchContainer" xs="6">
-              <Feed 
-              posts={this.state.posts}
-              _id={this.state._id}
+              <Feed
+                posts={this.state.posts}
+                _id={this.state._id}
 
-             />
-             
-             </Col>
+              />
+
+            </Col>
             <Col xs="3"><EventCard events={this.state.events} /></Col>
           </Row>
         </Container>
@@ -166,4 +168,4 @@ loadPosts = () => {
   }
 }
 
-export default withContext (UserProfile)
+export default withContext(UserProfile)

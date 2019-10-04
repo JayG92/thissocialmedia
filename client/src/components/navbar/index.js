@@ -38,6 +38,8 @@ class ThisNavbar extends React.Component {
   render() {
     console.log(this.state)
 
+    
+
     return (
       <div className="navbarContainer">
         <Navbar color="#51CAF5" expand="md">
@@ -55,7 +57,7 @@ class ThisNavbar extends React.Component {
                 <NavLink className="navText" href="/messages">Messages</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="navText" href={"/userprofile/"+this.state._id}>Profile</NavLink>
+                <NavLink className="navText" href={"/userprofile/"+this.props._id}>Profile</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink className="navText" href="/">Log Out</NavLink>

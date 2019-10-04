@@ -24,7 +24,40 @@ body {
     height: auto;
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
     position: fixed;
-    
+}
+.pCardEdit {
+    top: 0px;
+
+    margin-left: -50px;
+    width: 300px;
+    margin-top: 7.5%;
+    height: auto;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+    position: relative;
+}
+
+.isCardFixed {
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+    position: absolute;
+    right: 0%;
+}
+
+.isCardFixed:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: rgb(233, 229, 229);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.isCardFixed:focus, .isCardFixed:active {
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 #pUsername {
@@ -96,7 +129,7 @@ body {
 }
   
 .noresize {
-    min-height: 120px;
+    min-height: 110px;
     width: 465px;
     border: none;
     resize: none; 
@@ -104,14 +137,14 @@ body {
 
 .pMaxLength {
     position: absolute;
-    top: 31%;
+    top: 32.5%;
     left: 5%;  
     width: 200px;
 }
 
 .pMaxSkills {
     position: absolute;
-    top: 62%;
+    top: 58%;
     left: 5%;
     width: 200px;
 }
@@ -119,9 +152,13 @@ body {
 .skillBtn1 {
     margin-top: 10px;
     margin-right: 10px;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 14px;
 }
 
-.skillsContainer {
+.topSkill1, .topSkill2, .topSkill3, .topSkill4, .topSkill5 {
     line-height: .04;
 }
 
