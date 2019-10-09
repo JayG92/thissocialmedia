@@ -6,33 +6,13 @@ import { withContext } from "../../context/"
 
 class SigninForm extends React.Component {
   // Setting the component's initial state
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-      bio: "",
-      profilepic: "",
-      invalid: true,
-      success: false,
-      visible: true
-    };
-    this.onDismiss = this.onDismiss.bind(this);
-  }
-
-  onDismiss() {
-    this.setState({ visible: false });
-  }
-
-
-  clearInputs = () => {
-    this.setState({
-      email: "",
-      password: "",
-      phonenumber: "",
-      birthday: ""
-    })
-
+  state = {
+    email: "",
+    password: "",
+    bio: "",
+    profilepic: "",
+    rank: "",
+  };
 
   };
 
@@ -52,9 +32,9 @@ class SigninForm extends React.Component {
         bio:res.data.bio,
         skills:res.data.skills,
         repoLink:res.data.repoLink,
-        likes:res.data.likes,
         profilepic:res.data.profilepic,
-        _id:res.data._id
+        _id:res.data._id,
+        rank:res.data.rank,
       })
       this.props.history.push("/home")
     })
@@ -71,7 +51,9 @@ class SigninForm extends React.Component {
 
 
 
-  render() {
+  render() 
+   {
+
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
@@ -106,7 +88,7 @@ class SigninForm extends React.Component {
             type="password"
             placeholder="Password"
           />
-          <Button className="submit-button" onClick={this.login}>Submit</Button>
+          <Button className="submit-button signinBtn" onClick={this.login}>Submit</Button>
         </Form>
 
 
@@ -114,6 +96,6 @@ class SigninForm extends React.Component {
       </div>
     );
   }
-}
+
 
 export default withContext(SigninForm);

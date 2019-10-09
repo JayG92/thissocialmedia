@@ -8,7 +8,9 @@ const UserSchema = new Schema({
   bio: { type: String },
   skills: { type: Array },
   repoLink: { type: String },
-  likes: { type: Number },
+  rank: { type: String },
+  Following: { type: Array },
+  Followers: { type: Array },
   date: { type: Date, default: Date.now },
   posts: [{
     type: mongoose.Schema.Types.ObjectId,

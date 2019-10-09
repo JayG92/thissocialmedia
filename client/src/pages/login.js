@@ -5,12 +5,17 @@ import { withContext } from "../context/"
 
 
 class LoginPage extends React.Component {
+    state = {
+        rank: "",
+      }
 
     render() {
         return (
             <div>
-                <SigninForm {...this.props} />
-                <Signupform {...this.props} />
+                <SigninForm {...this.props}
+                 />
+                <Signupform {...this.props}
+                 />
             </div>
         )
     }

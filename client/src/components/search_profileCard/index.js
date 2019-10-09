@@ -5,6 +5,7 @@ import {
   CardTitle, Button
 } from 'reactstrap';
 import "./style.css"
+import { withContext } from '../../context';
 
 class Search_profileCard extends React.Component {
 
@@ -12,11 +13,19 @@ class Search_profileCard extends React.Component {
     super(props);
     this.state = {
       isFollowing: false,
- 
-      modal: false
+      profilepic: "",
+      _id: "",
+      rank: "",
     };
 
     this.toggle = this.toggle.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      profilepic: props.profilepic,
+      rank: props.rank,
+    })
   }
 
   toggle() {
@@ -33,6 +42,29 @@ class Search_profileCard extends React.Component {
     const TopSkill4 = this.props.skills.length > 3 ? <p><FaCode /> {this.props.skills[3]}</p> : <p></p>
     const TopSkill5 = this.props.skills.length > 4 ? <p><FaCode /> {this.props.skills[4]}</p> : <p></p>
 
+    if(this.state.rank === "") {
+      this.setState({ rank: "1"})
+    }
+
+    if (this.state.rank === "1") {
+      this.setState({ rank: <div className="badgePlacement"><span id="badgeNewUser"><span id="badgeTitle">New Member</span></span></div>})
+    }
+    if (this.state.rank === "2") {
+      this.setState({ rank: <div className="badgePlacement"><span id="badgeMember"><i class="fas fa-user"></i><span id="badgeTitle">Member</span></span></div>})
+    }
+    if (this.state.rank === "5") {
+      this.setState({ rank: <div className="badgePlacement"><span id="badgeModerator"><i class="fas fa-user-shield"></i><span id="badgeTitle">Moderator</span></span></div>
+    })
+    }
+    if (this.state.rank === "9") {
+      this.setState({ rank: <div className="badgePlacement"><span id="badgeAdmin"><i class="fas fa-star"></i><span id="badgeTitle">Admin</span></span></div>
+    })
+    }
+    if (this.state.rank === "10") {
+      this.setState({ rank: <div className="badgePlacement"><span id="badgeFounder"><i class="fas fa-crown"></i><span id="badgeTitle">Founder</span></span></div>
+    })
+    }
+
     if (window.location.pathname === "/userprofile/"+this.props.id) {
     return (
     <div className="pCard">
@@ -40,8 +72,19 @@ class Search_profileCard extends React.Component {
         <CardBody>
         <div className="border-bottom" id="pBgColor"></div>
         <div className="text-center">
-          <img id="pImage" src={this.props.profilepic} alt="Profile"></img>
+        <div>{this.props.profilepic ? <img className="memberImg" id="pImage" src={this.props.profilepic} alt="Profile"></img> : <img className="memberImg" id="pImage" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" alt="Profile"></img>}</div>
           <CardTitle id="pUsername">@{this.props.email}</CardTitle>
+          <div className="text-center">
+              <div className="badgeContainer">
+              <div>{this.props.rank === "" ? <div className="badgePlacement"><span id="badgeNewUser"><span id="badgeTitle">New Member</span></span></div> : ""}</div>
+              <div>{"1" === this.props.rank ? <div className="badgePlacement"><span id="badgeNewUser"><span id="badgeTitle">New Member</span></span></div> : ""}</div>
+              <div>{"2" === this.props.rank ? <div className="badgePlacement"><span id="badgeMember"><i class="fas fa-user"></i><span id="badgeTitle">Member</span></span></div> : ""}</div>
+              <div>{"5" === this.props.rank ? <div className="badgePlacement"><span id="badgeModerator"><i class="fas fa-user-shield"></i><span id="badgeTitle">Moderator</span></span></div> : ""}</div>
+              <div>{"9" === this.props.rank ? <div className="badgePlacement"><span id="badgeAdmin"><i class="fas fa-star"></i><span id="badgeTitle">Admin</span></span></div> : ""}</div>
+                <div>{"10" === this.props.rank ? <div className="badgePlacement"><span id="badgeFounder"><i class="fas fa-crown"></i><span id="badgeTitle">Founder</span></span></div> : ""}</div>
+              {/* {this.props.rank} */}
+              </div>
+            </div>
           </div>
 
           <CardText>{this.props.bio}</CardText>
@@ -70,4 +113,4 @@ class Search_profileCard extends React.Component {
 };
 }
 
-export default Search_profileCard;
+export default withContext (Search_profileCard)

@@ -2,15 +2,21 @@ body {
     background-color: rgb(243, 243, 243);
 }
 
+.col-6 {
+    margin-top: 9%;
+}
+
+.col-3 {
+    margin-top: 7.5%;
+}
+
 .card {
     border-radius: 0rem;
     z-index: 0;
-
 }
 
 .pCard {
-    top: -2px;
-    position: fixed;
+    top: 0px;
 
     margin-left: -50px;
     width: 300px;
@@ -18,12 +24,46 @@ body {
     height: auto;
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
     position: fixed;
-    
+}
+.pCardEdit {
+    top: 0px;
+
+    margin-left: -50px;
+    width: 300px;
+    margin-top: 7.5%;
+    height: auto;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+    position: relative;
+}
+
+.isCardFixed {
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+    position: absolute;
+    right: 0%;
+}
+
+.isCardFixed:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: rgb(233, 229, 229);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.isCardFixed:focus, .isCardFixed:active {
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 #pUsername {
     font-size: 20px;
     font-weight: 700;
+    margin-bottom: 0px;
 }
 
 #pImage {
@@ -89,7 +129,7 @@ body {
 }
   
 .noresize {
-    min-height: 120px;
+    min-height: 110px;
     width: 465px;
     border: none;
     resize: none; 
@@ -97,14 +137,14 @@ body {
 
 .pMaxLength {
     position: absolute;
-    top: 31%;
+    top: 32.5%;
     left: 5%;  
     width: 200px;
 }
 
 .pMaxSkills {
     position: absolute;
-    top: 62%;
+    top: 58%;
     left: 5%;
     width: 200px;
 }
@@ -112,6 +152,19 @@ body {
 .skillBtn1 {
     margin-top: 10px;
     margin-right: 10px;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 14px;
+}
+
+.topSkill1, .topSkill2, .topSkill3, .topSkill4, .topSkill5 {
+    line-height: .04;
+}
+
+.bioContainer {
+    line-height: 1.3;
+    margin-top: 5px;
 }
 
 .repoLink {
@@ -131,4 +184,137 @@ body {
     border-color: inherit;
     -webkit-box-shadow: none;
     box-shadow: none;
+ }
+
+
+ .themeBtn {
+     position: absolute;
+     left: 5%;
+ }
+
+ .custom-control-label::after {
+    background: blue;
+    border-radius: 50%;
+ }
+
+
+ .badgeContainer {
+     display: block;
+ }
+ .badgePlacement {
+    display: inline;
+}
+ #badgeTitle {
+     margin-left: 5px;
+ }
+
+
+#badgeFounder {
+    border-radius: 4px;
+    display: inline-block;
+
+   font-weight: 700;
+   margin-top: 4px;
+    margin-right: 4px;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white;
+    background-color: rgb(177, 52, 52);
+}
+ #badgeAdmin {
+     border-radius: 4px;
+     display: inline-block;
+
+    font-weight: 700;
+    margin-top: 4px;
+     margin-right: 4px;
+     font-size: 13px;
+     padding-left: 5px;
+     padding-right: 5px;
+     color: white;
+     background-color: rgb(81, 165, 196);
+ }
+ #badgeModerator {
+    border-radius: 4px;
+    display: inline-block;
+
+   font-weight: 700;
+   margin-top: 4px;
+    margin-right: 4px;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white;
+    background-color: rgb(41, 65, 117);
+ }
+ #badgeMember {
+    border-radius: 4px;
+    display: inline-block;
+
+   font-weight: 700;
+   margin-top: 4px;
+    margin-right: 4px;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white;
+    background-color: rgb(134, 199, 74);
+}
+ #badgeNewUser {
+    border-radius: 4px;
+    display: inline-block;
+
+   font-weight: 700;
+   margin-top: 4px;
+    margin-right: 4px;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white;
+    background-color: rgb(226, 193, 5);
+}
+
+
+
+
+
+ @media all and (max-width: 550px) and (min-width: 300px) {
+
+    .pCard {
+        display: none;
+    }
+
+    .event-card {
+        display: none;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .postcard {
+        margin-left: -60%;
+        width: 350px;
+    }
+
+    .postBox {
+        margin-left: -60%;
+        width: 350px;
+    }
+
+    .postInteraction {
+        width: 350px;
+    }
+
+    .likes {
+        margin-left: 7.5%;
+    }
+
+    .comments {
+        display: contents;
+        margin-left: 60%;
+    }
+
+
  }

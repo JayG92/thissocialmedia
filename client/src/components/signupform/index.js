@@ -5,15 +5,16 @@ import "./style.css"
 import API from "../../utils/API";
 import { withContext } from "../../context/"
 
+
+
 class Signupform extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
-      phonenumber: "",
-      birthday: "",
       bio: "",
+      rank: "1",
       invalid: true,
       success: false,
     };
@@ -41,18 +42,19 @@ this.setState({
 })
 }
 
-  signup = () => {
-    API.signup(this.state).then(res => {
-      console.log(res.data);
-      this.setState({ success: true });
-      this.clearInputs();
-    })
-      .catch(err => {
-        console.log("help" + err);
-        this.setState({ invalid: false })
-        console.log(this.state.signedUp)
-      })
-  };
+signup = () => {
+  API.signup(this.state).then(res => {
+    console.log(res.data);
+    this.setState({ success: true });
+    this.clearInputs();
+    this.setState({ rank: "1" })
+  })
+  .catch(err => {
+    console.log("help" + err);
+    this.setState({ invalid: false })
+    console.log(this.state.signedUp)
+  }) 
+};
 
 
   render() {
@@ -63,17 +65,20 @@ this.setState({
         <Row>
           {/* Logo */}
           <Col xs="6">
+            <div className="d-none d-xs-block">
+              <div className="signupBackground">Text</div>
+            </div>
             <h1 className="logoTitle">THIS.SOCIAL.MEDIA</h1>
             <img id="signuplogo" src={logo} alt="Logo" />
-            <h4 className="logoSubText">
+            <h4 className="logoSubText sub1">
               <i className="fas fa-search logoSubIcons" />
               Follow your interests.
             </h4>
-            <h4 className="logoSubText">
+            <h4 className="logoSubText sub2">
               <i className="fas fa-user-friends logoSubIcons" />
               Hear what people are talking about.
             </h4>
-            <h4 className="logoSubText">
+            <h4 className="logoSubText sub3">
               <i className="far fa-comment logoSubIcons" />
               Join the conversation.
             </h4>
@@ -128,7 +133,7 @@ this.setState({
                 type="password"
                 placeholder="Password"
               />
-              <Label>Phone Number</Label>
+              {/* <Label>Phone Number</Label>
               <Input
                 id="signupPhone"
                 className="marginForm"
@@ -138,8 +143,8 @@ this.setState({
                 type="number"
                 placeholder="Phone Number"
               />
-              <Label>Birthday</Label>
-              <Input
+              <Label>Birthday</Label> */}
+              {/* <Input
                 id="signupBirthday"
                 value={this.state.birthday}
 
@@ -150,10 +155,10 @@ this.setState({
 
                 id="birthday"
                 placeholder="date placeholder"
-              />
+              /> */}
               <br>
               </br>
-              <Button className="submit-button signupBtn" onClick={this.signup}>Submit</Button>
+              <Button className="submit-button signupBtn" onClick={this.signup}>Signup</Button>
 
             </Form>
 

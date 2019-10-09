@@ -6,6 +6,9 @@ import Search_profileCard from "../components/search_profileCard";
 import EventCard from "../components/eventcard";
 import Feed from "../components/feed/index";
 import Axios from "axios";
+import { withContext } from "../context/"
+
+
 import "./userProfile.css";
 
 
@@ -17,6 +20,8 @@ class UserProfile extends React.Component {
     likes: 0,
     users: [],
     email: [],
+    _id: "",
+    rank: "",
   }
 
   componentDidMount() {
@@ -46,13 +51,17 @@ class UserProfile extends React.Component {
     });
   };
 
-  loadPosts = () => {
-    API.getPosts()
-      .then(res =>
-        this.setState({ posts: res.data })
-      )
-      .catch(err => console.log(err));
-  };
+    loadPosts = (email) => {
+      // let email = this.props.user.email
+      
+      API.getPosts(email)
+        .then(res => {
+          this.setState({ posts: res.data })
+        }
+        )
+        .catch(err => console.log(err));
+    };
+
   loadEvents = () => {
     API.getEvents()
       .then(res =>
@@ -91,29 +100,68 @@ class UserProfile extends React.Component {
     }
   };
 
+
+
+
+  // loadPosts = () => {
+  //   let email = this.props.user.email
+
+  //   API.getPosts(email)
+  //     .then(res => {
+  //       res.data.map(email => {
+  //         // console.log(res.data)
+  //         console.log(email.email)
+  //         // console.log(this.props)
+  //         // console.log(this.props.match.params.id)
+  //         // console.log(window.location.pathname === "/userprofile/"+this.props.match.params.id)
+
+  //         if (this.props.match.params.id === res.data[1]._id){
+  //           console.log("AYYYYYYY it worked")
+  //         }
+  //       })
+  //       console.log(email);
+  //       this.setState({ posts: res.data })
+  //     }
+  //     )
+  //     .catch(err => console.log(err));
+  // };
+
   render() {
     const { users } = this.state;
     return (
       <div>
-        <ThisNavbar />
+        {users[0] && users.map(user => (
+          <ThisNavbar
+            _id={user._id}
+          />
+        ))}
         <Container>
           <div className="topContainer"></div>
           <Row>
             <Col xs="3">
-            {users[0] && users.map(user => (
-              <Search_profileCard
-              key={user.id}
-              email={user.email}
-              id={user._id}
-              bio={user.bio}
-              skills={user.skills}
-              repoLink={user.repoLink}
-              profilepic={user.profilepic}
-              
-              />
+              {users[0] && users.map(user => (
+                <Search_profileCard
+                  key={user.id}
+                  email={user.email}
+                  id={user._id}
+                  bio={user.bio}
+                  skills={user.skills}
+                  repoLink={user.repoLink}
+                  profilepic={user.profilepic}
+                  _id={user._id}
+                  rank={user.rank}
+
+                />
               ))}
             </Col>
-            <Col className="SearchContainer" xs="6"><Feed posts={this.state.posts} /></Col>
+            <Col className="SearchContainer" xs="6">
+              <Feed
+                posts={this.state.posts}
+                _id={this.state._id}
+
+              />
+
+            </Col>
             <Col xs="3"><EventCard events={this.state.events} /></Col>
           </Row>
         </Container>
@@ -122,4 +170,4 @@ class UserProfile extends React.Component {
   }
 }
 
-export default UserProfile
+export default withContext(UserProfile)

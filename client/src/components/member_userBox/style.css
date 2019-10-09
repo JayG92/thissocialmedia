@@ -1,5 +1,7 @@
+.memberContainer {
+    margin-top: 10%;
+}
 .memberBox {
-    margin-top: 3%;
     width: 22%;
     height: 240px;
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
@@ -7,8 +9,8 @@
 
 .memberFloat {
     float: left;
-    margin-top: 5%;
-    margin-right: 3%
+    margin-right: 3%;
+    margin-bottom: 3%;
 }
 
 .memberImg {

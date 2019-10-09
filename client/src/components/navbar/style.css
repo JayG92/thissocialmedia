@@ -8,6 +8,12 @@
     box-shadow: 0 4px 2px -2px gray;
 }
 
+.navbarContainer {
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+}
+
 .nav-item {
     margin-right: 5%;
 }
@@ -49,4 +55,23 @@
     letter-spacing: 3px;
     margin-left: 10%;
 }
-    
+
+
+@media all and (max-width: 550px) and (min-width: 300px) {
+    .navbar {
+        width: 100%;
+    }
+
+    .navTextHome {
+        margin-left: -180%;
+    }
+
+    .navText {
+        margin-left: -450%;
+    }
+
+
+
+
+
+}
