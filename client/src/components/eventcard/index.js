@@ -11,19 +11,17 @@ function EventCard({ events }) {
         <div className="border-bottom" id="pBgColor"></div>
         <div className="text-center"><h5>Events</h5>
         </div>
+        <br></br>
         {events.map(event => (
-          <div className="text-center">
-            <br></br>
-            <CardText>
-              <strong>{event.eventTitle}</strong>
+          <div className="text-center shadow-sm">
+            <CardText className="eventBox">
+              <strong className="eventTitle">{event.eventTitle}</strong>
               <br></br>
-              {event.eventBody}
+              <div className="eventBody">{event.eventBody}</div>
               <br></br>
-              {event.date}
+              <div className="eventTime">Time: {event.time}</div>
               <br></br>
-              {event.time}
-              <br></br>
-              <hr />
+              <div className="eventDate">Date: {event.date}</div>
 
 
             </CardText>

@@ -34,6 +34,9 @@ class SigninForm extends React.Component {
         profilepic:res.data.profilepic,
         _id:res.data._id,
         rank:res.data.rank,
+        followers:res.data.followers,
+        following:res.data.following,
+        userPosts:res.data.userPosts,
       })
       this.props.history.push("/home")
     })

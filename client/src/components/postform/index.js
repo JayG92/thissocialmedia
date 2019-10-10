@@ -24,9 +24,17 @@ class PostForm extends React.Component {
             eventBody: "",
             likes: 0,
             email: "",
-            user: ""
+            user: "",
+            _id: "",
+            userPosts: []
         };
     }
+
+    componentWillReceiveProps(props) {
+        this.setState({
+          _id: props._id,
+        })
+      }
 
     clearInputs = () => {
         this.setState({
@@ -54,6 +62,11 @@ class PostForm extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.title || this.state.body || this.state.projectLink) {
+            let email = this.props.user.email
+
+            let userPosts = this.state.userPosts.concat([{title: this.state.title, body: this.state.body, projectLink: this.state.projectLink}])
+            let test = this.props.userPosts.concat([{title: this.state.title, body: this.state.body, projectLink: this.state.projectLink, username: this.props.user.email}])
+            
             API.savePost({
                 title: this.state.title,
                 body: this.state.body,
@@ -61,6 +74,12 @@ class PostForm extends React.Component {
                 likes: this.state.likes,
                 email: this.props.user.email,
             })
+            API.updateUser(email, {
+                userPosts: test,
+            })
+
+
+
                 .then(res => this.props.loadPosts(), this.clearInputs())
                 .catch(err => console.log(err));
         }

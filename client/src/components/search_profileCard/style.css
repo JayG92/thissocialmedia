@@ -68,3 +68,12 @@ body {
 .test {
     display: none;
 }
+
+.githubNotAvailable {
+    font-size: 13px;
+}
+
+.skillsNotAvailable {
+    margin-top: 7%;
+    font-size: 13px;
+}

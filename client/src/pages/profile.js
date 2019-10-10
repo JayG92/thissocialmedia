@@ -9,6 +9,7 @@ import EventCard from "../components/eventcard/index";
 import ThisNavbar from "../components/navbar/index";
 import ProfileCard from "../components/profileCard/index"
 import { Row, Col, Container } from 'reactstrap';
+import { throws } from "assert";
 
 
 class Profile extends React.Component {
@@ -23,6 +24,7 @@ class Profile extends React.Component {
     profilepic: "",
     _id: "",
     rank: "",
+    userPosts: '',
   }
 
   componentDidMount() {
@@ -131,6 +133,9 @@ loadProject = () => {
                 loadPosts={this.loadPosts}
                 loadEvents={this.loadEvents}
                 getUserInfo={this.getUserInfo}
+                _id={this.state._id}
+                userPosts={this.state.userPosts}
+
                 
                 />
               <Feed 

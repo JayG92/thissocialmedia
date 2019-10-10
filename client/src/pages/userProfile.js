@@ -8,6 +8,7 @@ import Feed from "../components/feed/index";
 import Axios from "axios";
 import "./userProfile.css";
 import { withContext } from "../context";
+import UserPosts from "../components/userPosts";
 
 
 
@@ -48,16 +49,16 @@ class UserProfile extends React.Component {
     });
   };
 
-    loadPosts = (email) => {
-      // let email = this.props.user.email
-      
-      API.getPosts(email)
-        .then(res => {
-          this.setState({ posts: res.data })
-        }
-        )
-        .catch(err => console.log(err));
-    };
+  loadPosts = (email) => {
+    // let email = this.props.user.email
+
+    API.getPosts(email)
+      .then(res => {
+        this.setState({ posts: res.data })
+      }
+      )
+      .catch(err => console.log(err));
+  };
 
   loadEvents = () => {
     API.getEvents()
@@ -125,14 +126,12 @@ class UserProfile extends React.Component {
 
   render() {
     const { users } = this.state;
-
     return (
       <div>
-        {users[0] && users.map(user => (
-          <ThisNavbar
-            _id={user._id}
-          />
-        ))}
+        <ThisNavbar
+          _id={this.props.user._id}
+        />
+
         <Container>
           <div className="topContainer"></div>
           <Row>
@@ -153,12 +152,18 @@ class UserProfile extends React.Component {
               ))}
             </Col>
             <Col className="SearchContainer" xs="6">
-              <Feed
-                posts={this.state.posts}
-                _id={this.state._id}
-
-              />
-
+              {users[0] && users.map(user => (
+                <UserPosts
+                  key={user.id}
+                  email={user.email}
+                  id={user._id}
+                  profilepic={user.profilepic}
+                  _id={user._id}
+                  repoLink={user.repoLink}
+                  rank={user.rank}
+                  userPosts={user.userPosts}
+                />
+              ))}
             </Col>
             <Col xs="3"><EventCard events={this.state.events} /></Col>
           </Row>
