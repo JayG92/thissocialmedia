@@ -9,6 +9,7 @@ import Axios from "axios";
 import "./userProfile.css";
 import { withContext } from "../context";
 import UserPosts from "../components/userPosts";
+import Footer from "../components/footer";
 
 
 
@@ -165,7 +166,10 @@ class UserProfile extends React.Component {
                 />
               ))}
             </Col>
-            <Col xs="3"><EventCard events={this.state.events} /></Col>
+            <Col xs="3"><EventCard events={this.state.events} />
+            <Footer />
+            <br></br>
+            </Col>
           </Row>
         </Container>
       </div>

@@ -38,29 +38,58 @@ class Search_profileCard extends React.Component {
   }
 
   handleFollowingUser = (event) => {
-    if (this.state.following.indexOf(this.props.email) > -1) {
+    if (this.props.user.following.indexOf(this.props.email) > -1) {
       console.log("it worked")
     } else {
     let email = this.props.user.email
     this.setState({ isFollowing: !this.state.isFollowing })
-console.log(this.props.email)
-      API.updateUser(email, {
-        bio: this.state.bio,
-        following: this.props.email,
+    this.setState({ following: this.props.user.following})
+    this.setState({ followers: this.props.user.followers})
 
+      API.updateUser(email, {
+        following: this.props.email,
+      })
+      API.updateUser(this.props.email, {
+        followers: this.props.user.email,
       })
         .catch(err => console.log(err));
     }
     }
 
+    handleUnfollowing = (event) => {
+      let email = this.props.user.email
+
+      var toRemove = this.props.email;
+      var index = this.props.user.following.indexOf(toRemove);
+      if (this.props.user.following.indexOf(this.props.email) > -1) {
+        this.setState({ isFollowing: !this.state.isFollowing })
+        this.setState({ following: this.props.user.following.splice(index, 1) })
+        this.setState({ followers: this.props.user.followers.splice(index, 1) })
+
+        API.updateUser(email, {
+          following: this.props.user.following.splice(index, 1),
+        })
+        API.updateUser(this.props.email, {
+          followers: this.props.user.followers.splice(index, 1),
+        })
+        console.log("testing")
+      } else {
+        console.log("didnt work")
+      }
+
+      // if (this.props.user.following.indexOf(this.props.email) > -1) {
+      //   this.props.user.following.splice(this.props.email)
+      // }
+    }
+
+
     
   render () {
-    const TopSkill1 = this.props.skills.length > 0 ? <p><FaCode /> {this.props.skills[0]}</p> : <p className="text-center skillsNotAvailable">User hasnt added any skills yet!</p>
+    const TopSkill1 = this.props.skills.length > 0 ? <p><FaCode /> {this.props.skills[0]}</p> : <p className="text-center skillsNotAvailable">{this.props.email} hasnt added any skills yet!</p>
     const TopSkill2 = this.props.skills.length > 1 ? <p><FaCode /> {this.props.skills[1]}</p> : <p></p>
     const TopSkill3 = this.props.skills.length > 2 ? <p><FaCode /> {this.props.skills[2]}</p> : <p></p>
     const TopSkill4 = this.props.skills.length > 3 ? <p><FaCode /> {this.props.skills[3]}</p> : <p></p>
     const TopSkill5 = this.props.skills.length > 4 ? <p><FaCode /> {this.props.skills[4]}</p> : <p></p>
-
 
     if(this.state.rank === "") {
       this.setState({ rank: "1"})
@@ -84,6 +113,12 @@ console.log(this.props.email)
       this.setState({ rank: <div className="badgePlacement"><span id="badgeFounder"><i class="fas fa-crown"></i><span id="badgeTitle">Founder</span></span></div>
     })
     }
+
+    if (this.props.email !== this.props.user.email) {
+    var test1 = <Button onClick={this.handleUnfollowing} className="modal-button mUnfollow"><span id="searchFollow"><t>Unfollow</t></span><i class="fas fa-user-minus"></i></Button> 
+    var test2 = <Button onClick={this.handleFollowingUser} className="modal-button mFollow"><span id="searchFollow"><t>Follow</t></span><i class="fas fa-user-plus"></i></Button>
+    }
+    console.log(this.props.user)
 
     if (window.location.pathname === "/userprofile/"+this.props.id) {
     return (
@@ -118,12 +153,15 @@ console.log(this.props.email)
             <hr></hr>
             <h5 className="text-center">Github</h5>{this.props.repoLink ?
             <a href={"https://github.com/"+this.props.repoLink}><h6>https://github.com/{this.props.repoLink}</h6></a>
-            : <p className="text-center githubNotAvailable">User hasnt added a Github username yet!</p> }
+            : <p className="text-center githubNotAvailable">{this.props.email} hasnt added a username yet!</p> }
             <hr></hr>
           <div className="text-center">
-            {this.props.email !== this.props.user.email ?
-          <Button onClick={this.handleFollowingUser} className="modal-button memberUnfollow"><span id="searchFollow">{this.state.isFollowing ? <t>Unfollow</t> : <t>Follow</t>}</span>{this.state.isFollowing ? <i class="fas fa-user-minus"></i> : <i class="fas fa-user-plus"></i>}</Button>
-            : "" }
+            <div>{this.props.user.following.indexOf(this.props.email) > -1 ?
+            <div>{test1}</div>
+            :
+            <div>{test2}</div>
+            }
+            </div>
           </div>
         </CardBody>
       </Card>
