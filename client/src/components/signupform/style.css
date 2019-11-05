@@ -1,3 +1,4 @@
+  
 body{
     font-weight: 500;
 }
@@ -202,14 +203,12 @@ body{
       left: -210px;
       width: 90%
   }
-
   #signupPassword {
       position: absolute;
       top: 52.5%;
       width: 90%;
       left: -17.5%;
   }
-
   #signupPhone {
     position: absolute;
     top: 75%;

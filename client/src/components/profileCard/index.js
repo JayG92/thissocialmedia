@@ -180,7 +180,7 @@ class ProfileCard extends React.Component {
             <div className="text-center">
               <div>{this.state.profilepic.length >= 1 ? <img id="pImage" src={this.state.profilepic} alt="Profile"></img> : <img id="pImage" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" alt="Profile"></img>}</div>
               
-              <CardTitle id="pUsername">@{this.props.user.email}</CardTitle>
+              <CardTitle id="pUsername">{this.props.user.email}</CardTitle>
             </div>
 
             <CardText>
@@ -312,34 +312,21 @@ class ProfileCard extends React.Component {
             This is some placeholder block-level help text for the above input.
             It's a bit lighter and easily wraps to a new line.
           </FormText>
-
                   </ModalBody>
-
                   <ModalFooter>
-
                     <Label for="exampleText"><h6 className="text-muted pMaxLength"><small>Characters Left: {this.state.bio.length}/155</small></h6></Label>
                     <Label for="exampleText"><h6 className="text-muted pMaxSkills"><small>Top Skills Limit: {this.state.skills.length}/5</small></h6></Label>
-
                     <Button color="primary" onClick={this.handleFormSubmit}>Save</Button>
                     <Button color="light" onClick={() => this.setState({ skills: [] })}>Clear Skills</Button>
                     <Button color="danger" onClick={this.toggle}>Cancel</Button>
-
                   </ModalFooter>
                 </Modal>
               </div>
-
             </div>
           </CardBody>
         </Card>
-
       </div>
-
     );
-
   };
 }
-
-
-
 export default withContext(ProfileCard);
-

@@ -1,47 +1,25 @@
 import React from 'react';
-import { Alert, Button, Form, Input } from 'reactstrap';
+import { Button, Form, Input } from 'reactstrap';
 import "./style.css"
 import API from '../../utils/API';
 import { withContext } from "../../context/"
 
 class SigninForm extends React.Component {
   // Setting the component's initial state
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-      bio: "",
-      profilepic: "",
-      invalid: true,
-      success: false,
-      visible: true
-    };
-    this.onDismiss = this.onDismiss.bind(this);
-  }
-
-  onDismiss() {
-    this.setState({ visible: false });
-  }
-
-
-  clearInputs = () => {
-    this.setState({
-      email: "",
-      password: "",
-      phonenumber: "",
-      birthday: ""
-    })
-
-
+  state = {
+    email: "",
+    password: "",
+    bio: "",
+    profilepic: ""
   };
+
 
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+        [name]: value
     });
-  };
+};
 
 
   login = () => {
@@ -63,16 +41,8 @@ class SigninForm extends React.Component {
     .catch(err => {
       console.log("Signin error: " + err)
     })
-      .catch(err => {
-        console.log("Wrong username or password" + err);
-        this.setState({ invalid: false })
-        
-      })
-  };
-
-
-
-
+  }
+ 
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
@@ -81,24 +51,13 @@ class SigninForm extends React.Component {
           Login {this.state.email}
         </p> */}
         <Form inline className="signinform">
-
-        <div>{this.state.invalid === false ?
-          <Alert
-            className="Notpopup"
-            isOpen={this.state.visible}
-            toggle={this.onDismiss}
-            color="danger">Wrong username or Password
-                  </Alert> : ""}
-        </div>
-
-
           <Input
             id="userEmail"
             value={this.state.email}
             name="email"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="Username"
+            placeholder="User Email"
           />
           <Input
             id="userPassword"
@@ -110,9 +69,6 @@ class SigninForm extends React.Component {
           />
           <Button className="submit-button signinBtn" onClick={this.login}>Submit</Button>
         </Form>
-
-
-     
       </div>
     );
   }

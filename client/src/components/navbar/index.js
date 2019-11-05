@@ -1,7 +1,6 @@
 import React from 'react';
 import "./style.css"
 import logo from "../../imgs/whitelogo.png";
-import { withContext } from "../../context";
 
 import {
   Collapse,
@@ -69,4 +68,4 @@ class ThisNavbar extends React.Component {
   }
 }
 
-export default withContext (ThisNavbar);
+export default ThisNavbar;

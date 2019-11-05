@@ -38,7 +38,6 @@ class App extends React.Component {
     this.setState({ user });
   };
 
-
   render() {
     return (
       <Router>
@@ -62,4 +61,3 @@ class App extends React.Component {
 }
 
 export default App;
-
