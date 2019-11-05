@@ -4,7 +4,6 @@ import { Container, Row, Col } from 'reactstrap';
 import ThisNavbar from "../components/navbar/index";
 import Search_profileCard from "../components/search_profileCard";
 import EventCard from "../components/eventcard";
-import Feed from "../components/feed/index";
 import Axios from "axios";
 import "./userProfile.css";
 import { withContext } from "../context";

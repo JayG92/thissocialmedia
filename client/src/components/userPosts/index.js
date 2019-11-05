@@ -15,6 +15,8 @@ class UserPosts extends React.Component {
     render() {
         // if (this.props.username === "/userprofile/"+this.props.id) {}
         if (window.location.pathname === "/userprofile/"+this.props.id) {
+            // var sortingPosts = this.props.userPosts
+            // var testing = sortingPosts.reverse();
         return (
             <div>
                 {this.props.userPosts.map(userPost => (
