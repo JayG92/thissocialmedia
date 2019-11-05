@@ -41,10 +41,11 @@ class Search_profileCard extends React.Component {
     if (this.props.user.following.indexOf(this.props.email) > -1) {
       console.log("it worked")
     } else {
+      this.props.updateUser({
+        followerTest:this.state.user.followers,
+        followingTest:this.state.user.followers,
+      })
       let email = this.props.user.email
-      this.setState({ isFollowing: !this.state.isFollowing })
-      this.setState({ following: this.props.user.following })
-      this.setState({ followers: this.props.user.followers })
 
       API.updateUser(email, {
         following: this.props.email,
@@ -53,6 +54,11 @@ class Search_profileCard extends React.Component {
         followers: this.props.user.email,
       })
         .catch(err => console.log(err));
+
+        this.setState({ isFollowing: !this.state.isFollowing })
+        this.setState({ following: this.props.user.following })
+        this.setState({ followers: this.props.user.followers })
+  
     }
   }
 
@@ -163,6 +169,7 @@ class Search_profileCard extends React.Component {
                   <div>{test1}</div>
                   :
                   <div>{test2}</div>
+                 
                 }
                 </div>
               </div>
@@ -177,4 +184,4 @@ class Search_profileCard extends React.Component {
   };
 }
 
-export default withContext(Search_profileCard)
+export default withContext(Search_profileCard);

@@ -235,7 +235,7 @@ class PostForm extends React.Component {
                                     className="formBox"
                                     value={this.state.title}
                                     onChange={this.handleInputChange}
-                                    name="picTitle"
+                                    name="title"
                                     placeholder="Project title"
                                     bsSize="sm"
                                 />
