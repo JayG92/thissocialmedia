@@ -11,3 +11,29 @@
 .eventContainer {
     /* position: fixed; */
 }
+
+.eventBox {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.shadow-sm {
+    margin-bottom: 5%;
+}
+
+.eventBody {
+    font-size: 12px;
+    line-height: 1px;
+    margin-top: 10px;
+}
+
+.eventDate {
+    font-size: 12px;
+    line-height: 1px;
+}
+
+.eventTime {
+    font-size: 12px;
+    line-height: 10px;
+    margin-bottom: -10px;
+}

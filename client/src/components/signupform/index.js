@@ -64,7 +64,7 @@ signup = () => {
         <div className="logoBg"></div>
         <Row>
           {/* Logo */}
-          <Col xs="6">
+          <Col className="signupimg" xs="6">
             <div className="d-none d-xs-block">
               <div className="signupBackground">Text</div>
             </div>

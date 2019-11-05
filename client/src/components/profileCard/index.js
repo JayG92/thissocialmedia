@@ -133,6 +133,16 @@ class ProfileCard extends React.Component {
     }
   };
 
+  handleCancelBtn = (event) => {
+    event.preventDefault();
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+    this.setState({ bio: this.props.bio })
+    this.setState({ skills: this.props.skills })
+    this.setState({ repoLink: this.props.repoLink })
+  }
+
   // loadUser = (event) => {
   //   let email = this.props.user.email
 
@@ -175,7 +185,7 @@ class ProfileCard extends React.Component {
 
 
   render() {
-    const TopSkill1 = this.state.skills.length > 0 ? <p><FaCode /> {this.state.skills[0]}</p> : <p className="text-center">Add your top 5 skills here!</p>
+    const TopSkill1 = this.state.skills.length > 0 ? <p><FaCode /> {this.state.skills[0]}</p> : <p className="text-center skillsNotAvailable">Add your top 5 skills here!</p>
     const TopSkill2 = this.state.skills.length > 1 ? <p><FaCode /> {this.state.skills[1]}</p> : <p></p>
     const TopSkill3 = this.state.skills.length > 2 ? <p><FaCode /> {this.state.skills[2]}</p> : <p></p>
     const TopSkill4 = this.state.skills.length > 3 ? <p><FaCode /> {this.state.skills[3]}</p> : <p></p>
@@ -240,8 +250,9 @@ class ProfileCard extends React.Component {
             <p className="topSkill4">{TopSkill4}</p>
             <p className="topSkill5">{TopSkill5}</p>
             <hr></hr>
-            <h5 className="text-center">Github</h5>
+            <h5 className="text-center">Github</h5>{this.state.repoLink.length > 1 ?
             <a target="_blank" href={"https://github.com/"+this.state.repoLink}><h6>https://github.com/{this.state.repoLink}</h6></a>
+            : <p className="text-center githubNotAvailable">Add your Github username here!</p>}
             <hr></hr>
             <div className="buttons">
               <a href={"/userprofile/"+this.state._id}><Button className="view-profile">View Profile</Button></a><div><Button className="modal-button pEdit" onClick={this.toggle}>{this.props.buttonLabel}<i className="far fa-edit"></i> </Button>
@@ -363,7 +374,7 @@ class ProfileCard extends React.Component {
 
                     <Button color="primary" onClick={this.handleFormSubmit}>Save</Button>
                     <Button color="light" onClick={() => this.setState({ skills: [] })}>Clear Skills</Button>
-                    <Button color="danger" onClick={this.toggle}>Cancel</Button>
+                    <Button color="danger" onClick={this.handleCancelBtn}>Cancel</Button>
 
                   </ModalFooter>
                 </Modal>
@@ -431,16 +442,15 @@ class ProfileCard extends React.Component {
 
             <hr></hr>
             <h5 className="text-center">Top Skills</h5>
-            <div className="skillsContainer">
             <p className="topSkill1">{TopSkill1}</p>
             <p className="topSkill2">{TopSkill2}</p>
             <p className="topSkill3">{TopSkill3}</p>
             <p className="topSkill4">{TopSkill4}</p>
             <p className="topSkill5">{TopSkill5}</p>
-            </div>
             <hr></hr>
-            <h5 className="text-center">Github</h5>
+            <h5 className="text-center">Github</h5>{this.state.repoLink.length > 1 ?
             <a target="_blank" href={"https://github.com/"+this.state.repoLink}><h6>https://github.com/{this.state.repoLink}</h6></a>
+            : <p className="text-center githubNotAvailable">Add your Github username here!</p>}
             <hr></hr>
             <div className="buttons">
               <a href={"/userprofile/"+this.state._id}><Button className="view-profile">View Profile</Button></a><div><Button className="modal-button pEdit" onClick={this.toggle}>{this.props.buttonLabel}<i className="far fa-edit"></i> </Button>
@@ -560,7 +570,7 @@ class ProfileCard extends React.Component {
 
                     <Button color="primary" onClick={this.handleFormSubmit}>Save</Button>
                     <Button color="light" onClick={() => this.setState({ skills: [] })}>Clear Skills</Button>
-                    <Button color="danger" onClick={this.toggle}>Cancel</Button>
+                    <Button color="danger" onClick={this.handleCancelBtn}>Cancel</Button>
 
                   </ModalFooter>
                 </Modal>
@@ -583,4 +593,3 @@ class ProfileCard extends React.Component {
 
 
 export default withContext(ProfileCard);
-

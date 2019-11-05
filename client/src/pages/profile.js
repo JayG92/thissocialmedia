@@ -1,14 +1,16 @@
 import React from "react";
 import API from "../utils/API";
+import CommentBox from "../components/commentBox/index"
+
 import Footer from "../components/footer/index";
 import PostForm from "../components/postform/index";
 import Feed from "../components/feed/index";
 import { withContext } from "../context/"
-
 import EventCard from "../components/eventcard/index";
 import ThisNavbar from "../components/navbar/index";
 import ProfileCard from "../components/profileCard/index"
 import { Row, Col, Container } from 'reactstrap';
+import { throws } from "assert";
 
 
 class Profile extends React.Component {
@@ -23,6 +25,10 @@ class Profile extends React.Component {
     profilepic: "",
     _id: "",
     rank: "",
+    userPosts: '',
+    postPic:"",
+    picTitle:"",
+
   }
 
   componentDidMount() {
@@ -81,11 +87,13 @@ loadProject = () => {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title || this.state.body || this.state.date || this.state.time || this.state.projectLink) {
+    if (this.state.title || this.state.body || this.state.date || this.state.time || this.state.projectLink||this.state.postPic||this.state.postTitle) {
       API.savePost({
         title: this.state.title,
         body: this.state.body,
         projectLink: this.state.projectLink,
+        postPic:this.state.postPic,
+        picTitle:this.state.picTitle
 
       })
         .then(res => this.loadPosts())
@@ -131,12 +139,16 @@ loadProject = () => {
                 loadPosts={this.loadPosts}
                 loadEvents={this.loadEvents}
                 getUserInfo={this.getUserInfo}
+                _id={this.state._id}
+                userPosts={this.state.userPosts}
+
                 
                 />
               <Feed 
               posts={this.state.posts} 
               _id={this.state._id}
               />
+              <CommentBox/>
             </Col>
             <Col xs="3">
               <EventCard events={this.state.events} />

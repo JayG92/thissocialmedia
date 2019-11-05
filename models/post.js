@@ -15,7 +15,9 @@ var PostSchema = new Schema({
     user: {
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
-    }
+    },
+    postPic: {type:String},
+    picTitle:{type:String}
 
 
 });

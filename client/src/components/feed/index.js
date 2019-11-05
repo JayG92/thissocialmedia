@@ -22,8 +22,8 @@ function Feed({ posts }) {
                             </strong>
                             <div> { post.title.length >= 1 ? <div className="projectTag"><i className="far fa-star"></i> Project</div> : ""} </div>
                             <hr className="feedHr"></hr>
-                            <h3>{post.title}</h3>
-                            <div className="postBody">{post.body}</div>
+                            <h3>{post.title} {post.picTitle}</h3>
+                            <div className="postBody">{post.body}<img className="postPic" src={post.postPic}/></div>
                         
                             <div> { post.projectLink.length >= 1 ? <div><br></br><br></br><small className="projectLink">Project Link: <a target="_blank" href={"https://" + post.projectLink}>{post.projectLink}</a></small></div> : ""} </div>
                       

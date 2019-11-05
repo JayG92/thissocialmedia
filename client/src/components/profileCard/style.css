@@ -156,6 +156,7 @@ body {
     padding-left: 8px;
     padding-right: 8px;
     font-size: 14px;
+    border-radius: 10px;
 }
 
 .topSkill1, .topSkill2, .topSkill3, .topSkill4, .topSkill5 {
@@ -273,6 +274,15 @@ body {
     padding-right: 5px;
     color: white;
     background-color: rgb(226, 193, 5);
+}
+
+.githubNotAvailable {
+    font-size: 13px;
+}
+
+.skillsNotAvailable {
+    margin-top: 7%;
+    font-size: 13px;
 }
 
 
