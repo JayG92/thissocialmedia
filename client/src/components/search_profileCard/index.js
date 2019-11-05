@@ -177,8 +177,4 @@ class Search_profileCard extends React.Component {
   };
 }
 
-<<<<<<< HEAD
-export default Search_profileCard;
-=======
 export default withContext(Search_profileCard)
->>>>>>> 6e5b50b91034539b533f91bff6a05aed468cc18d

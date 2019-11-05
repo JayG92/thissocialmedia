@@ -571,45 +571,36 @@ class ProfileCard extends React.Component {
                   <br></br><br></br>
                   <h5>Upload Profile Picture</h5>
                   <textarea type="input" name="text" className="repoLink" maxLength={255} placeholder="Upload a picture!" defaultValue={this.state.profilepic} onChange={this.onChangePic}></textarea>
-<<<<<<< HEAD
-                  
-                  <Input type="file" name="text" id="exampleFile" onChange={this.onChangePic} />
-          <FormText color="muted">
-            This is some placeholder block-level help text for the above input.
-            It's a bit lighter and easily wraps to a new line.
-          </FormText>
-=======
 
->>>>>>> 6e5b50b91034539b533f91bff6a05aed468cc18d
                   </ModalBody>
+
                   <ModalFooter>
+
                     <Label for="exampleText"><h6 className="text-muted pMaxLength"><small>Characters Left: {this.state.bio.length}/155</small></h6></Label>
                     <Label for="exampleText"><h6 className="text-muted pMaxSkills"><small>Top Skills Limit: {this.state.skills.length}/5</small></h6></Label>
+
                     <Button color="primary" onClick={this.handleFormSubmit}>Save</Button>
                     <Button color="light" onClick={() => this.setState({ skills: [] })}>Clear Skills</Button>
-<<<<<<< HEAD
-                    <Button color="danger" onClick={this.toggle}>Cancel</Button>
-=======
                     <Button color="danger" onClick={this.handleCancelBtn}>Cancel</Button>
 
->>>>>>> 6e5b50b91034539b533f91bff6a05aed468cc18d
                   </ModalFooter>
                 </Modal>
               </div>
+
             </div>
           </CardBody>
         </Card>
       </div>
-<<<<<<< HEAD
-=======
       
 
 
       
       }
       </div>
->>>>>>> 6e5b50b91034539b533f91bff6a05aed468cc18d
     );
   };
 }
+
+
+
 export default withContext(ProfileCard);

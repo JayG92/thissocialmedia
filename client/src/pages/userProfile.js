@@ -6,13 +6,9 @@ import Search_profileCard from "../components/search_profileCard";
 import EventCard from "../components/eventcard";
 import Axios from "axios";
 import "./userProfile.css";
-<<<<<<< HEAD
-
-=======
 import { withContext } from "../context";
 import UserPosts from "../components/userPosts";
 import Footer from "../components/footer";
->>>>>>> 6e5b50b91034539b533f91bff6a05aed468cc18d
 
 
 
@@ -180,8 +176,4 @@ class UserProfile extends React.Component {
   }
 }
 
-<<<<<<< HEAD
-export default UserProfile
-=======
 export default withContext(UserProfile)
->>>>>>> 6e5b50b91034539b533f91bff6a05aed468cc18d
