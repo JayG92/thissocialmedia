@@ -16,12 +16,15 @@ class Profile extends React.Component {
     posts: [],
     events: [],
     bio: "",
+    profilepic:"",
     skills: [],
     projectLink: [],
     repoLink: "",
-    likes: 0,
     profilepic: "",
-    _id: ""
+    _id: "",
+    rank: "",
+    userPosts: "",
+    isFixed: true,
   }
 
   componentDidMount() {
@@ -119,17 +122,21 @@ loadProject = () => {
                 skills={this.state.skills}
                 bio={this.state.bio}
                 repoLink={this.state.repoLink}
-                likes={this.state.likes}
                 profilepic={this.state.profilepic}
                 _id={this.state._id}
+                rank={this.state.rank}
+                isFixed={this.state.isFixed}
               />
-              <Footer />
+              
             </Col>
             <Col xs="6">
               <PostForm
                 loadPosts={this.loadPosts}
                 loadEvents={this.loadEvents}
                 getUserInfo={this.getUserInfo}
+                _id={this.state._id}
+                userPosts={this.state.userPosts}
+
                 
                 />
               <Feed 
@@ -139,6 +146,8 @@ loadProject = () => {
             </Col>
             <Col xs="3">
               <EventCard events={this.state.events} />
+              <Footer />
+
             </Col>
           </Row>
         </Container>

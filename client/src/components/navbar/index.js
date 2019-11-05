@@ -38,27 +38,29 @@ class ThisNavbar extends React.Component {
   render() {
     console.log(this.state)
 
+    
+
     return (
-      <div>
+      <div className="navbarContainer">
         <Navbar color="#51CAF5" expand="md">
           <NavbarBrand href="/"><img id="logo" src={logo} alt="Logo"></img><div id="logoText">THIS.</div></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem id="navLinks">
-                <NavLink className="navTextHome text-center" href="/home">Home</NavLink>
+                <a><NavLink className="navTextHome text-center" href="/home">Home</NavLink></a>
               </NavItem>
               <NavItem>
-                <NavLink className="navText" href="/members">Members</NavLink>
+                <a><NavLink className="navText" href="/members">Members</NavLink></a>
               </NavItem>
               <NavItem>
-                <NavLink className="navText" href="/messages">Messages</NavLink>
+                <a><NavLink className="navText" href="/messages">Messages</NavLink></a>
               </NavItem>
               <NavItem>
-                <NavLink className="navText" href={"/userprofile/"+this.state._id}>Profile</NavLink>
+                <a><NavLink className="navText" href={"/userprofile/"+this.props._id}>Profile</NavLink></a>
               </NavItem>
               <NavItem>
-                <NavLink className="navText" href="/">Log Out</NavLink>
+                <a><NavLink className="navText" href="/">Log Out</NavLink></a>
               </NavItem>
             </Nav>
           </Collapse>

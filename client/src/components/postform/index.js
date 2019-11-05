@@ -24,22 +24,33 @@ class PostForm extends React.Component {
             eventBody: "",
             likes: 0,
             email: "",
-            user: ""
+            user: "",
+            _id: "",
+            userPosts: []
         };
     }
 
-    clearInputs =() =>{
+    componentWillReceiveProps(props) {
         this.setState({
-          title:"",
-          body:"",
-          projectLink:"",
-          date:"",
-          time:"",
-          eventTitle:"",
-          eventBody:""
+          _id: props._id,
+        })
+      }
+
+    clearInputs = () => {
+        this.setState({
+            title: "",
+            body: "",
+            projectLink: "",
+            date: "",
+            time: "",
+            eventTitle: "",
+            eventBody: "",
+            eventBody:"",
+            postPic: "",
+            picTitle:"",
 
         })
-        }
+    }
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -51,6 +62,11 @@ class PostForm extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.title || this.state.body || this.state.projectLink) {
+            let email = this.props.user.email
+
+            let userPosts = this.state.userPosts.concat([{title: this.state.title, body: this.state.body, projectLink: this.state.projectLink}])
+            let test = this.props.userPosts.concat([{title: this.state.title, body: this.state.body, projectLink: this.state.projectLink, username: this.props.user.email}])
+            
             API.savePost({
                 title: this.state.title,
                 body: this.state.body,
@@ -58,25 +74,18 @@ class PostForm extends React.Component {
                 likes: this.state.likes,
                 email: this.props.user.email,
             })
+            API.updateUser(email, {
+                userPosts: test,
+            })
+
+
+
                 .then(res => this.props.loadPosts(), this.clearInputs())
                 .catch(err => console.log(err));
         }
     };
 
-    // handleProjectSubmit = event => {
-    //     event.preventDefault();
-    //     console.log(this.state);
-    //     if (this.state.title || this.state.body || this.state.projectLink) {
-    //         API.savePost({
-    //             title: this.state.title,
-    //             body: this.state.body,
-    //             projectLink: this.state.projectLink,
-    //             likes: this.state.likes,
-    //         })
-    //             .then(res => this.props.loadPosts())
-    //             .catch(err => console.log(err));
-    //     }
-    // };
+
 
     handleEventSubmit = event => {
         event.preventDefault();
@@ -130,6 +139,15 @@ class PostForm extends React.Component {
                             <i className="far fa-clipboard fa-lg"></i>
                         </NavLink>
                     </NavItem>
+                    <NavItem>
+                        <NavLink
+                            className={classnames({ active: this.state.activeTab === '4' })}
+                            onClick={() => { this.toggle('4'); }}
+                        >
+                            <i className="far fa-images fa-lg"></i>
+                        </NavLink>
+                    </NavItem>
+
 
                 </Nav>
                 <TabContent activeTab={this.state.activeTab}>
@@ -208,7 +226,7 @@ class PostForm extends React.Component {
                         <div className="text-center">
                             <Button className="formPostBtn" onClick={this.handleEventSubmit}>Post Event</Button>
                         </div>
-                    </TabPane>
+                    </TabPane >
                     <TabPane tabId="3">
                         <Row>
                             <Col sm="12">
@@ -217,7 +235,7 @@ class PostForm extends React.Component {
                                     className="formBox"
                                     value={this.state.title}
                                     onChange={this.handleInputChange}
-                                    name="title"
+                                    name="picTitle"
                                     placeholder="Project title"
                                     bsSize="sm"
                                 />
@@ -235,18 +253,46 @@ class PostForm extends React.Component {
                                         id="exampleText"
                                     />
                                 </FormGroup>
-                                <p className="https">https://</p>
-                                <Input 
+                                <div className="https">https://</div>
+                                <Input
                                     className="formBox pLink"
                                     value={this.state.projectLink}
                                     onChange={this.handleInputChange}
                                     placeholder="Link to your project"
                                     name="projectLink"
-                                    
-                                    />
+
+                                />
 
                                 <div className="text-center">
                                     <Button className="formPostBtn" onClick={this.handleFormSubmit}>Post Project</Button>
+                                </div>
+                            </Col>
+                        </Row>
+                    </TabPane>
+                    <TabPane tabId="4">
+
+                        <Row>
+                            <Col sm="12">
+                                <div className="inputMargin"></div>
+                                <Input
+                                    className="formBox"
+                                    value={this.state.picTitle}
+                                    onChange={this.handleInputChange}
+                                    name="picTitle"
+                                    placeholder="Title"
+                                    bsSize="sm"
+                                />
+                                <Input
+                                    className="formBox"
+                                    value={this.state.postPic}
+                                    onChange={this.handleInputChange}
+                                    name="postPic"
+                                    placeholder="Post a Picture!"
+                                    bsSize="md"
+                                />
+
+                                <div className="text-center">
+                                    <Button className="formPostBtn" onClick={this.handleFormSubmit}>Post Picture</Button>
                                 </div>
 
                             </Col>

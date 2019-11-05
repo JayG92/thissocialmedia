@@ -12,7 +12,7 @@ module.exports = {
   findById: function (req, res) {
     db.User
       .findById()
-      .then(res.json({ token: tokenizer(req.user), email: req.user.email }))
+      .then(res.json({ token: tokenizer(req.user), email: req.user.email, _id: req.user._id }))
       .catch(err => res.status(422).json(err));
 
   },
@@ -24,9 +24,13 @@ module.exports = {
           bio: dbUser.bio,
           skills: dbUser.skills,
           repoLink: dbUser.repoLink,
-          likes: dbUser.repoLink,
           profilepic: dbUser.profilepic,
-          _id: dbUser._id
+          _id: dbUser._id,
+          rank: dbUser.rank,
+          followers: dbUser.followers,
+          following: dbUser.following,
+          userPosts: dbUser.userPosts,
+          isFixed: dbUser.isFixed,
         })
       })
       .catch(err => res.status(422).json(err));
@@ -34,7 +38,7 @@ module.exports = {
   },
   signIn: function (req, res) {
     console.log("sign in route hit");
-    res.json({ token: tokenizer(req.user), email: req.user.email });
+    res.json({ token: tokenizer(req.user), email: req.user.email, _id: req.user._id, followers: req.user.followers, following: req.user.following });
   },
 
   signUp: function (req, res) {

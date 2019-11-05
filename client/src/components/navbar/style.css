@@ -7,6 +7,12 @@
     box-shadow: 0 4px 2px -2px gray;
 }
 
+.navbarContainer {
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+}
+
 .nav-item {
     margin-right: 5%;
 }
@@ -15,7 +21,15 @@
     color: white;
 }
 
-.nav-link:hover {
+/* .nav-link:hover {
+    color: rgb(204, 204, 204);
+} */
+
+.navTextHome:hover {
+    color: rgb(204, 204, 204);
+}
+
+.navText:hover {
     color: rgb(204, 204, 204);
 }
 
@@ -24,7 +38,7 @@
 }
 
 .navbar-nav {
-    margin-left: 82.5%;
+    margin-left: 79%;
 }
 
 #navLinks {

@@ -60,11 +60,25 @@ body {
     margin-right: 10px;
 }
 
-.memberUnfollow {
-    margin-top: 25px;
+.mUnfollow {
+    margin-top: 0px;
+    width: 150px;
+}
+
+.mFollow {
+    margin-top: 0px;
     width: 150px;
 }
 
 .test {
     display: none;
+}
+
+.githubNotAvailable {
+    font-size: 13px;
+}
+
+.skillsNotAvailable {
+    margin-top: 7%;
+    font-size: 13px;
 }

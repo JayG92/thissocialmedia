@@ -4,10 +4,15 @@ import { Container, Row, Col } from 'reactstrap';
 import ThisNavbar from "../components/navbar/index";
 import Search_profileCard from "../components/search_profileCard";
 import EventCard from "../components/eventcard";
-import Feed from "../components/feed/index";
 import Axios from "axios";
 import "./userProfile.css";
+<<<<<<< HEAD
 
+=======
+import { withContext } from "../context";
+import UserPosts from "../components/userPosts";
+import Footer from "../components/footer";
+>>>>>>> 6e5b50b91034539b533f91bff6a05aed468cc18d
 
 
 
@@ -19,6 +24,7 @@ class UserProfile extends React.Component {
     users: [],
     email: [],
     _id: "",
+    rank: "",
   }
 
   componentDidMount() {
@@ -47,24 +53,16 @@ class UserProfile extends React.Component {
     });
   };
 
-  findArrayElementByTitle(posts, title) {
-    posts.find((email) => {
-    return email.title === title;
-  })
-}
+  loadPosts = (email) => {
+    // let email = this.props.user.email
 
-loadPosts = () => {
-      let email = this.props.user.email
-
-  API.getPosts(email)
-    .then(res => {
-      let test = res.data
-      console.log(test)
-      this.setState({ posts: test })
-    }
-    )
-    .catch(err => console.log(err));
-};
+    API.getPosts(email)
+      .then(res => {
+        this.setState({ posts: res.data })
+      }
+      )
+      .catch(err => console.log(err));
+  };
 
   loadEvents = () => {
     API.getEvents()
@@ -105,6 +103,8 @@ loadPosts = () => {
   };
 
 
+
+
   // loadPosts = () => {
   //   let email = this.props.user.email
 
@@ -132,33 +132,47 @@ loadPosts = () => {
     const { users } = this.state;
     return (
       <div>
-        <ThisNavbar />
+        <ThisNavbar
+          _id={this.props.user._id}
+        />
+
         <Container>
           <div className="topContainer"></div>
           <Row>
             <Col xs="3">
-            {users[0] && users.map(user => (
-              <Search_profileCard
-              key={user.id}
-              email={user.email}
-              id={user._id}
-              bio={user.bio}
-              skills={user.skills}
-              repoLink={user.repoLink}
-              profilepic={user.profilepic}
-              
-              />
+              {users[0] && users.map(user => (
+                <Search_profileCard
+                  key={user.id}
+                  email={user.email}
+                  id={user._id}
+                  bio={user.bio}
+                  skills={user.skills}
+                  repoLink={user.repoLink}
+                  profilepic={user.profilepic}
+                  _id={user._id}
+                  rank={user.rank}
+
+                />
               ))}
             </Col>
             <Col className="SearchContainer" xs="6">
-              <Feed 
-              posts={this.state.posts}
-              _id={this.state._id}
-
-             />
-             
-             </Col>
-            <Col xs="3"><EventCard events={this.state.events} /></Col>
+              {users[0] && users.map(user => (
+                <UserPosts
+                  key={user.id}
+                  email={user.email}
+                  id={user._id}
+                  profilepic={user.profilepic}
+                  _id={user._id}
+                  repoLink={user.repoLink}
+                  rank={user.rank}
+                  userPosts={user.userPosts}
+                />
+              ))}
+            </Col>
+            <Col xs="3"><EventCard events={this.state.events} />
+            <Footer />
+            <br></br>
+            </Col>
           </Row>
         </Container>
       </div>
@@ -166,4 +180,8 @@ loadPosts = () => {
   }
 }
 
+<<<<<<< HEAD
 export default UserProfile
+=======
+export default withContext(UserProfile)
+>>>>>>> 6e5b50b91034539b533f91bff6a05aed468cc18d

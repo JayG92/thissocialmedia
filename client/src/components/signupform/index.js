@@ -13,14 +13,11 @@ class Signupform extends React.Component {
     this.state = {
       email: "",
       password: "",
-      phonenumber: "",
-      birthday: "",
-      bio:"",
+      bio: "",
+      rank: "1",
       invalid: true,
       success: false,
-      visible: true
     };
-
     this.onDismiss = this.onDismiss.bind(this);
   }
 
@@ -32,7 +29,7 @@ class Signupform extends React.Component {
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-        [name]: value
+      [name]: value
     });
 };
 
@@ -50,6 +47,7 @@ signup = () => {
     console.log(res.data);
     this.setState({ success: true });
     this.clearInputs();
+    this.setState({ rank: "1" })
   })
   .catch(err => {
     console.log("help" + err);
@@ -78,7 +76,7 @@ signup = () => {
             </h4>
             <h4 className="logoSubText sub2">
               <i className="fas fa-user-friends logoSubIcons" />
-              Hear what people are talking about.
+              Built by developers for developers.
             </h4>
             <h4 className="logoSubText sub3">
               <i className="far fa-comment logoSubIcons" />
