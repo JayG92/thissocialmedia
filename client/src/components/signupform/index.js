@@ -64,7 +64,7 @@ signup = () => {
         <div className="logoBg"></div>
         <Row>
           {/* Logo */}
-          <Col xs="6">
+          <Col>
             <div className="d-none d-xs-block">
               <div className="signupBackground">Text</div>
             </div>
@@ -89,9 +89,9 @@ signup = () => {
           {/* SignupSheet */}
           <Col className="marginSignup" xs="6">
             <h3 className="signupTitle">Join today!</h3>
-            <div>{this.state.invalid === false ? <Alert className="popup" isOpen={this.state.visible} toggle={this.onDismiss} color="danger">This is a YOU SUCK alert — check it out!</Alert> : ""}</div><div>{this.state.success === true ? <Alert className="popup" isOpen={this.state.visible} toggle={this.onDismiss} color="success">This is a YOU AIGHT alert — check it out!</Alert> : ""}</div>
+            <div>{this.state.invalid === false ? <Alert className="popup" isOpen={this.state.visible} toggle={this.onDismiss} color="danger">Something went wrong, please try again!</Alert> : ""}</div><div>{this.state.success === true ? <Alert className="popup" isOpen={this.state.visible} toggle={this.onDismiss} color="success">Account created!</Alert> : ""}</div>
             <Form className="signupform">
-              <Label>Email</Label>
+              <Label>Username</Label>
               <Input
                 id="signupEmail"
                 className="marginForm"
@@ -100,7 +100,7 @@ signup = () => {
                 name="email"
                 onChange={this.handleInputChange}
                 type="text"
-                placeholder="Email"
+                placeholder="Username"
               />
               <Label>Password</Label>
               <Input

@@ -16,6 +16,11 @@ body{
 
 .marginSignup {
     left: 10%;
+    margin-top: 1%;
+}
+
+.marginLogo {
+    margin-top: -3%;
 }
 
 
@@ -181,6 +186,10 @@ body{
       left: -80%;
   }
 
+  .signupBtn {
+
+  }
+
   .signupform {
       padding-top: 50%;
       margin-top: 10%;
@@ -191,12 +200,19 @@ body{
   }
 
   .signupBtn {
+      margin-top: -12.5%;
       margin-left: 15%;
       width: 70%;
   }
 
   .marginSignup {
   }
+
+  .logoSubIcons {
+      margin-left: 4%;
+    margin-right: 0%;
+    width: 20px;
+}
 
   /* #signupEmail {
       position: absolute;

@@ -134,6 +134,7 @@ class UserProfile extends React.Component {
 
         <Container>
           <div className="topContainer"></div>
+          <div className="margintest"></div>
           <Row>
             <Col xs="3">
               {users[0] && users.map(user => (

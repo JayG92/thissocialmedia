@@ -4,6 +4,7 @@ import API from "../utils/API";
 import { Container, Row, Col } from 'reactstrap';
 import ThisNavbar from "../components/navbar/index";
 import Member_userBox from "../components/member_userBox/index";
+import "./members.css";
 import Axios from "axios";
 import { withContext } from "../context";
 
@@ -67,6 +68,7 @@ class UserProfile extends React.Component {
         />
         <Container>
           <div className="topContainer"></div>
+          <div className="membersmargin"></div>
           <Row>
 
             <Col>

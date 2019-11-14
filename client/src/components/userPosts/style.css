@@ -1,0 +1,12 @@
+@media all and (max-width: 550px) and (min-width: 300px) {
+    .margintest {
+        margin-bottom: 110%;
+        }
+
+        .postUsername {
+            margin-top: 2.5%;
+            font-weight: 700;
+        }
+        
+
+}

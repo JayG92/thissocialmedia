@@ -82,3 +82,10 @@ body {
     margin-top: 7%;
     font-size: 13px;
 }
+
+@media all and (max-width: 550px) and (min-width: 300px) {
+    /* .viewingProfile {
+        padding-top: 45px;
+    } */
+
+}

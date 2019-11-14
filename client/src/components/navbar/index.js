@@ -36,19 +36,28 @@ class ThisNavbar extends React.Component {
   }
 
   logout = () => {
+<<<<<<< HEAD
    window.onbeforeunload = function(){
     localStorage.removeItem('user');
     return '';
    }
 }
-  render() {
-    console.log(this.state)
+=======
+    window.onbeforeunload = function() {
+      localStorage.removeItem('user');
+      return '';
+    };
+  };
 
-    
+>>>>>>> a056788f69681cfce7c1314a73dd4c9ced25a705
+  render() {
+
+    console.log("navbar")
+    console.log(this.props)
 
     return (
       <div className="navbarContainer">
-        <Navbar color="#51CAF5" expand="md">
+        <Navbar color="#51CAF5" className="navbar-dark">
           <NavbarBrand href="/"><img id="logo" src={logo} alt="Logo"></img><div id="logoText">THIS.</div></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -66,7 +75,11 @@ class ThisNavbar extends React.Component {
                 <a><NavLink className="navText" href={"/userprofile/"+this.props._id}>Profile</NavLink></a>
               </NavItem>
               <NavItem>
+<<<<<<< HEAD
                 <a><NavLink className="navText" href={"/"} onClick={this.logout}>Log Out</NavLink></a>
+=======
+                <a><NavLink className="navText" onClick={this.logout} href="/">Log Out</NavLink></a>
+>>>>>>> a056788f69681cfce7c1314a73dd4c9ced25a705
               </NavItem>
             </Nav>
           </Collapse>
