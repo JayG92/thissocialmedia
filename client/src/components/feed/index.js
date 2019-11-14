@@ -17,9 +17,9 @@ function Feed({ posts }) {
                     <CardText>
                         <div className="feedPadding">
                             
-                            <strong>
+                            <div className="postUsername">
                                 @{post.email}
-                            </strong>
+                            </div>
                             <div> { post.title.length >= 1 ? <div className="projectTag"><i className="far fa-star"></i> Project</div> : ""} </div>
                             <hr className="feedHr"></hr>
                             <h3>{post.title}</h3>

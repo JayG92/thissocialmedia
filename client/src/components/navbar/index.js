@@ -49,7 +49,7 @@ class ThisNavbar extends React.Component {
 
     return (
       <div className="navbarContainer">
-        <Navbar color="#51CAF5" expand="md">
+        <Navbar color="#51CAF5" className="navbar-dark">
           <NavbarBrand href="/"><img id="logo" src={logo} alt="Logo"></img><div id="logoText">THIS.</div></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>

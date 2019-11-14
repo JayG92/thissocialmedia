@@ -288,7 +288,7 @@ class PostForm extends React.Component {
                                     onChange={this.handleInputChange}
                                     name="postPic"
                                     placeholder="Post a Picture!"
-                                    bsSize="md"
+                                    bsSize="sm"
                                 />
 
                                 <div className="text-center">

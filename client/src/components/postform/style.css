@@ -64,3 +64,21 @@
 .projectTag {
     display: block;
 }
+
+@media all and (max-width: 550px) and (min-width: 300px) {
+
+.postcard {
+    margin-top: 35%;
+}
+
+.formPostBtn {
+    width: 40%;
+}
+
+.https {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+
+}

@@ -77,6 +77,26 @@
         margin-left: -450%;
     }
 
+    .navbar-toggler {
+        border: 0px solid transparent;
+    }
+
+    .navbar-dark .navbar-toggler {
+        border: none;
+    }
+
+    #navLinks, .nav-link {
+        margin-left: 0%;
+    }
+
+    .navbar-nav {
+        margin-left: 0%;
+    }
+
+    .nav-item {
+        margin-right: 0%;
+    }
+
 
 
 

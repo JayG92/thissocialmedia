@@ -53,3 +53,22 @@
     border-color: rgb(56, 128, 155);
 }
 
+
+@media all and (max-width: 550px) and (min-width: 300px) {
+.memberFloat {
+    float: left;
+    margin-right: 0%;
+    margin-bottom: 3%;
+    width: 172px;
+}
+
+.memberFollow {
+    display: none;
+}
+
+.membersmargin {
+        margin-bottom: 10%;
+        }
+        
+
+}

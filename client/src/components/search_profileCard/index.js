@@ -41,10 +41,10 @@ class Search_profileCard extends React.Component {
     if (this.props.user.following.indexOf(this.props.email) > -1) {
       console.log("it worked")
     } else {
-      this.props.updateUser({
-        followerTest:this.state.user.followers,
-        followingTest:this.state.user.followers,
-      })
+      // this.props.updateUser({
+      //   followersTest:this.state.user.followers,
+      //   followingTest:this.state.user.following,
+      // })
       let email = this.props.user.email
 
       API.updateUser(email, {
@@ -56,8 +56,8 @@ class Search_profileCard extends React.Component {
         .catch(err => console.log(err));
 
         this.setState({ isFollowing: !this.state.isFollowing })
-        this.setState({ following: this.props.user.following })
-        this.setState({ followers: this.props.user.followers })
+        this.setState({ following: this.props.user.following.concat(this.state.following) })
+        this.setState({ followers: this.props.user.followers.concat(this.state.followers) })
   
     }
   }
@@ -153,17 +153,17 @@ class Search_profileCard extends React.Component {
 
               <CardText>{this.props.bio}</CardText>
               <hr></hr>
-              <h5 className="text-center">Top Skills</h5>
+              <h5 className="topSkillTitle text-center">Top Skills</h5>
               <p className="topSkill1">{TopSkill1}</p>
               <p className="topSkill2">{TopSkill2}</p>
               <p className="topSkill3">{TopSkill3}</p>
               <p className="topSkill4">{TopSkill4}</p>
               <p className="topSkill5">{TopSkill5}</p>
-              <hr></hr>
+              <hr className="topSkillHr"></hr>
               <h5 className="text-center">Github</h5>{this.props.repoLink ?
                 <a href={"https://github.com/" + this.props.repoLink}><h6>https://github.com/{this.props.repoLink}</h6></a>
                 : <p className="text-center githubNotAvailable">{this.props.email} hasnt added a username yet!</p>}
-              <hr></hr>
+              <hr className="githubHr"></hr>
               <div className="text-center">
                 <div>{this.props.user.following.indexOf(this.props.email) > -1 ?
                   <div>{test1}</div>

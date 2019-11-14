@@ -1,13 +1,5 @@
-.topContainer {
-    margin-bottom: 0%;
-}
-
-.SearchContainer {
-    margin-top: 2%;
-}
-
 @media all and (max-width: 550px) and (min-width: 300px) {
-    .margintest {
+    .membersmargin {
         padding-bottom: 5%;
         }
         
