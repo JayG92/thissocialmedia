@@ -35,6 +35,12 @@ class ThisNavbar extends React.Component {
     });
   }
 
+  logout = () => {
+   window.onbeforeunload = function(){
+    localStorage.removeItem('user');
+    return '';
+   }
+}
   render() {
     console.log(this.state)
 
@@ -60,7 +66,7 @@ class ThisNavbar extends React.Component {
                 <a><NavLink className="navText" href={"/userprofile/"+this.props._id}>Profile</NavLink></a>
               </NavItem>
               <NavItem>
-                <a><NavLink className="navText" href="/">Log Out</NavLink></a>
+                <a><NavLink className="navText" href={"/"} onClick={this.logout}>Log Out</NavLink></a>
               </NavItem>
             </Nav>
           </Collapse>
