@@ -116,6 +116,17 @@ loadProject = () => {
 
 
   render() {
+
+    function myFunction(x) {
+      if (x.matches) { // If media query matches
+      } else {
+      }
+    }
+    
+    var x = window.matchMedia("(max-width: 530px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction) // Attach listener function on state changes
+
     return (
       <div>
         <ThisNavbar
@@ -125,6 +136,7 @@ loadProject = () => {
           <div className="topContainer"></div>
           <Row>
             <Col xs="3">
+            <div>{x.matches ? '' :
               <ProfileCard
                 skills={this.state.skills}
                 bio={this.state.bio}
@@ -134,6 +146,7 @@ loadProject = () => {
                 rank={this.state.rank}
                 isFixed={this.state.isFixed}
               />
+            }</div>
               
             </Col>
             <Col xs="6">

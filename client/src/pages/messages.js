@@ -16,13 +16,13 @@ class Messages extends React.Component {
   constructor(props) {
     super(props);
 
-  this.state = {
-    users: [],
-    email: [],
-    messages:[],
-    userPosts: [],
+    this.state = {
+      users: [],
+      email: [],
+      messages: [],
+      userPosts: [],
 
-  }
+    }
   }
 
 
@@ -30,7 +30,7 @@ class Messages extends React.Component {
   componentWillReceiveProps(props) {
     this.setState({
       _id: props._id,
-      email:props.email
+      email: props.email
     })
   }
 
@@ -39,6 +39,7 @@ class Messages extends React.Component {
   componentDidMount() {
     this.loadUser();
     this.loadPosts();
+    this.getMessages();
     // this.loadEvents();
     this.getUserInfo();
   }
@@ -58,20 +59,20 @@ class Messages extends React.Component {
       .catch(err => console.log(err));
   };
 
-loadProject = () => {
-  API.getPosts()
-    .then(res =>
-      this.setState({ posts: res.data }),
-    )
-    .catch(err => console.log(err));
-};
-loadUser = () => {
-  API.getUsers()
-    .then(res =>
-      this.setState({ users: res.data }),
-    )
-    .catch(err => console.log(err));
-};
+  loadProject = () => {
+    API.getPosts()
+      .then(res =>
+        this.setState({ posts: res.data }),
+      )
+      .catch(err => console.log(err));
+  };
+  loadUser = () => {
+    API.getUsers()
+      .then(res =>
+        this.setState({ users: res.data }),
+      )
+      .catch(err => console.log(err));
+  };
   loadEvents = () => {
     API.getEvents()
       .then(res =>
@@ -80,21 +81,7 @@ loadUser = () => {
       .catch(err => console.log(err));
   };
 
-  // handleEventSubmit = event => {
-  //   event.preventDefault();
-  //   if (this.state.eventTitle || this.state.eventBody || this.state.date || this.state.time) {
-  //     API.saveEvent({
-  //       eventTitle: this.state.eventTitle,
-  //       eventBody: this.state.eventBody,
-  //       date: this.state.date,
-  //       time: this.state.time,
 
-
-  //     })
-  //       .then(res => this.loadEvents())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
 
 
   handleFormSubmit = event => {
@@ -102,15 +89,15 @@ loadUser = () => {
     event.preventDefault();
 
     if (this.state.messages) {
-      let test=this.state.userPosts.concat([{messages: this.state.messages}])
+      let test = this.state.userPosts.concat([{ messages: this.state.messages }])
       API.saveUser({
-      messages:this.state.messages
+        messages: this.state.messages
       })
       API.updateUser(email, {
         userPosts: test
-    })
+      })
 
-        .then(res => this.loadPost(),this.clearInputs())
+        .then(res => this.getMessages(), this.clearInputs())
         .catch(err => console.log(err));
     }
   };
@@ -136,71 +123,84 @@ loadUser = () => {
       .catch(err => console.log(err));
   };
 
-  getMessages= () => {
-    let messages=this.props.user.messages
+  getMessages = () => {
+    let messages = this.props.user.messages
     API.getUser(messages)
-    .then(res => {
-      this.setState(res.data);
+      .then(res => {
+        this.setState(res.data);
 
-    })
-    .catch(err=>console.log(err))
+      })
+      .catch(err => console.log(err))
   }
 
   clearInputs = () => {
     this.setState({
-      messages:""
+      messages: ""
 
     })
-}
+  }
 
 
 
-render() {
-  const { users } = this.state;
-  return (
-    <div>
-      <ThisNavbar
-              _id={this.state._id}
-      />
-      <Container>
-        <div className="topContainer"></div>
-        <Row>
-          <Col xs="3">
-            <div className="memberListTitle">
-                    <div className="border-bottom" id="mBgColor"></div>
-      <div className="text-center"><h5 className="memberTitle">Members</h5>
-          {users.length !== 0 && users.map(user => (
-            <MemberList 
-            email={user.email}
-            />
-          ))}
+  render() {
+    const { users } = this.state;
+    return (
+      <div>
+        <ThisNavbar
+          _id={this.state._id}
+        />
+        <Container>
+          <div className="topContainer"></div>
+          <Row>
+            <Col xs="3">
+              <div className="memberListTitle">
+                <div className="border-bottom" id="mBgColor"></div>
+                <div className="text-center"><h5 className="memberTitle">Members</h5>
+                  {users.length !== 0 && users.map(user => (
+                    <MemberList
+                      email={user.email}
+                    />
+                  ))}
+                </div>
+              </div>
+              <br></br>
+            </Col>
+
+            <Col xs="9">
+              <div className="memberMessages">
+                <div className="messageContainer">
+                {users.map(user => (
+                  
+                  <div className="messageBody"><p className="first-message"> {user.messages}Message Here
+   
+
+</p>
+</div>
+               )  
+               )}
+                  <div className="messagePost border-top">
+                    <Form className="formMessage">
+                      <FormGroup>
+                        <Input onChange={this.handleInputChange}
+                          value={this.state.userPosts.messages}
+                          type="messages"
+                          name="messages"
+                          id="textMessage"
+                          placeholder="Type a message" />
+                      </FormGroup>
+                    </Form>
+                    <Button onClick={this.handleFormSubmit}
+                      className="submitMessage" color="primary">Send</Button>
                   </div>
-                  </div>
-                  <br></br>
-          </Col>
+                </div>
+              </div>
+              <br></br>
+            </Col>
+          </Row>
+        </Container>
+      </div>
 
-          <Col xs="9">
-            <div className="memberMessages">
-            <div className="messageContainer">
-            <div className="messageUsername border-bottom">@</div>
-            <div className="messageBody">Message goes here</div>
-            <div className="messagePost border-top">    
-            <Form className="formMessage">
-    <FormGroup>
-      <Input type="message" name="message" id="textMessage" placeholder="Type a message" />
-    </FormGroup>
-    </Form>
-    <Button className="submitMessage" color="primary">Send</Button>
-    </div>      
-            </div>
-            </div>
-            <br></br>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-
-  );
-}
+    );
+  }
 }
 export default withContext(Messages);

@@ -28,9 +28,9 @@ body {
 .pCardEdit {
     top: 0px;
 
-    margin-left: -50px;
+    margin-left: -45px;
     width: 300px;
-    margin-top: 7.5%;
+    margin-top: 8%;
     height: auto;
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
     position: relative;
@@ -291,8 +291,31 @@ body {
 
  @media all and (max-width: 550px) and (min-width: 300px) {
 
-    .pCard {
+    .topSkill1, .topSkill2, .topSkill3, .topSkill4, .topSkill5 {
         display: none;
+        line-height: .04;
+        display: inline-block;
+        margin-bottom: -2%;
+        width: 120px;
+    }
+
+    .topSkillTitle {
+        display: none;
+    }
+
+    .topSkillHr {
+        display: none;
+    }
+
+    .githubHr {
+        display: none;
+    }
+
+    .pCard {
+        /* display: none; */
+        margin-left: 0%;
+        margin-top: 25%;
+        width: 349.25px;
     }
 
     .event-card {
@@ -313,9 +336,16 @@ body {
         width: 350px;
     }
 
+
+
+
+
     .postInteraction {
         width: 350px;
     }
+
+
+
 
     .likes {
         margin-left: 7.5%;

@@ -35,7 +35,7 @@ class ProfileCard extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
     this.onChangePic = this.onChangePic.bind(this);
-    this.isCardFixed = this.isCardFixed.bind(this);
+    // this.isCardFixed = this.isCardFixed.bind(this);
 
   }
 
@@ -180,18 +180,24 @@ class ProfileCard extends React.Component {
     }
   }
 
-  isCardFixed = () => {
-    let email = this.props.user.email
+  // isCardFixed = () => {
+  //   let email = this.props.user.email
 
+  //   this.setState(prevState => ({
+  //     isFixed: !prevState.isFixed
+  //   }));
+  //   console.log(this.props)
+  //   console.log(this.state.isFixed)
+  //   API.updateUser(email, {
+  //     isFixed: this.state.isFixed
+  //   })
+  //     .catch(err => console.log(err));
+  // }
+
+  isCardFixed = () => {
     this.setState(prevState => ({
       isFixed: !prevState.isFixed
     }));
-    console.log(this.props)
-    console.log(this.state.isFixed)
-    API.updateUser(email, {
-      isFixed: this.state.isFixed
-    })
-      .catch(err => console.log(err));
   }
 
 
@@ -227,7 +233,7 @@ class ProfileCard extends React.Component {
 
     return (
       <div>
-      {this.props.isFixed === true ?
+      {this.state.isFixed === true ?
       <div className="pCard">
         <Card>
         <Button className="isCardFixed" onClick={this.isCardFixed}><i class="fas fa-clone"></i></Button>
@@ -254,7 +260,7 @@ class ProfileCard extends React.Component {
 
 
             <hr></hr>
-            <h5 className="text-center">Top Skills</h5>
+            <h5 className="topSkillTitle text-center">Top Skills</h5>
             <p className="topSkill1">{TopSkill1}</p>
             <p className="topSkill2">{TopSkill2}</p>
             <p className="topSkill3">{TopSkill3}</p>
@@ -264,7 +270,7 @@ class ProfileCard extends React.Component {
             <h5 className="text-center">Github</h5>{this.state.repoLink.length > 1 ?
             <a target="_blank" href={"https://github.com/"+this.state.repoLink}><h6>https://github.com/{this.state.repoLink}</h6></a>
             : <p className="text-center githubNotAvailable">Add your Github username here!</p>}
-            <hr></hr>
+            <hr className="githubHr"></hr>
             <div className="buttons">
               <a href={"/userprofile/"+this.state._id}><Button className="view-profile">View Profile</Button></a><div><Button className="modal-button pEdit" onClick={this.toggle}>{this.props.buttonLabel}<i className="far fa-edit"></i> </Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
