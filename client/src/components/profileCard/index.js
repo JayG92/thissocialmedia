@@ -35,6 +35,8 @@ class ProfileCard extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
     this.onChangePic = this.onChangePic.bind(this);
+    this.isCardFixed = this.isCardFixed.bind(this);
+
   }
 
   componentWillReceiveProps(props) {
@@ -44,7 +46,8 @@ class ProfileCard extends React.Component {
       repoLink: props.repoLink,
       profilepic: props.profilepic,
       _id: props._id,
-      rank: props.rank
+      rank: props.rank,
+      isFixed: this.state.isFixed,
     })
   }
 
@@ -178,9 +181,17 @@ class ProfileCard extends React.Component {
   }
 
   isCardFixed = () => {
+    let email = this.props.user.email
+
     this.setState(prevState => ({
       isFixed: !prevState.isFixed
     }));
+    console.log(this.props)
+    console.log(this.state.isFixed)
+    API.updateUser(email, {
+      isFixed: this.state.isFixed
+    })
+      .catch(err => console.log(err));
   }
 
 
@@ -216,7 +227,7 @@ class ProfileCard extends React.Component {
 
     return (
       <div>
-      {this.state.isFixed ?
+      {this.props.isFixed === true ?
       <div className="pCard">
         <Card>
         <Button className="isCardFixed" onClick={this.isCardFixed}><i class="fas fa-clone"></i></Button>

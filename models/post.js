@@ -17,7 +17,9 @@ var PostSchema = new Schema({
         ref:"User",
     },
     postPic: {type:String},
-    picTitle:{type:String}
+    picTitle:{type:String},
+    messages: {type:String}
+
 
 
 });

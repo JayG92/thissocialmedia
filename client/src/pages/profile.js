@@ -10,7 +10,6 @@ import EventCard from "../components/eventcard/index";
 import ThisNavbar from "../components/navbar/index";
 import ProfileCard from "../components/profileCard/index"
 import { Row, Col, Container } from 'reactstrap';
-import { throws } from "assert";
 
 
 class Profile extends React.Component {
@@ -28,7 +27,9 @@ class Profile extends React.Component {
     userPosts: '',
     postPic:"",
     picTitle:"",
-
+    messages:"",
+    userPosts: "",
+    isFixed: true,
   }
 
   componentDidMount() {
@@ -131,6 +132,7 @@ loadProject = () => {
                 profilepic={this.state.profilepic}
                 _id={this.state._id}
                 rank={this.state.rank}
+                isFixed={this.state.isFixed}
               />
               
             </Col>
@@ -148,7 +150,6 @@ loadProject = () => {
               posts={this.state.posts} 
               _id={this.state._id}
               />
-              <CommentBox/>
             </Col>
             <Col xs="3">
               <EventCard events={this.state.events} />

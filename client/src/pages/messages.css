@@ -1,0 +1,66 @@
+.memberListTitle {
+    margin-top: 7.5%;
+    padding-top: 20px;
+    margin-left: -6%;
+    margin-right: -6%;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+}
+
+.memberTitle {
+    padding-bottom: 10px;
+}
+
+#mBgColor {
+    top: 3%;
+    left: 0%;
+    background-color: rgb(81, 165, 196);
+    height: 65px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.messageContainer {
+    position: relative;
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.messageUsername {
+    position: fixed;
+    height: 80px;
+    width: 57.3%;
+    background-color: rgb(239, 241, 241);
+}
+
+.memberMessages {
+    position: relative;
+    margin-top: 12.7%;
+    background: white;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+}
+
+.messageBody {
+    height: 100%;
+}
+
+.messagePost {
+    position: fixed;
+    bottom: 10.7%;
+    height: 60px;
+    width: 57.3%;
+    background-color: rgb(239, 241, 241);
+}
+
+.formMessage {
+    margin-top: 1.5%;
+    display: inline-block;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    width: 77.5%;
+}
+
+.submitMessage {
+    margin-top: -.5%;
+    width: 15%;
+}

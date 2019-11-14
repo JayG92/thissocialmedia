@@ -12,6 +12,7 @@ const UserSchema = new Schema({
   following: { type: Array },
   followers: { type: Array },
   userPosts: { type: Array },
+  isFixed: { type: Boolean },
   date: { type: Date, default: Date.now },
   posts: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -29,8 +30,7 @@ const UserSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Event"
   }],
-  loggedIn: { type: Boolean, default: false }
-
+  loggedIn: { type: Boolean, default: false },
 
 });
 

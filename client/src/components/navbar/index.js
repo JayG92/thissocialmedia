@@ -36,10 +36,17 @@ class ThisNavbar extends React.Component {
     });
   }
 
-  render() {
-    console.log(this.state)
+  logout = () => {
+    window.onbeforeunload = function() {
+      localStorage.removeItem('user');
+      return '';
+    };
+  };
 
-    
+  render() {
+
+    console.log("navbar")
+    console.log(this.props)
 
     return (
       <div className="navbarContainer">
@@ -49,19 +56,19 @@ class ThisNavbar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem id="navLinks">
-                <NavLink className="navTextHome text-center" href="/home">Home</NavLink>
+                <a><NavLink className="navTextHome text-center" href="/home">Home</NavLink></a>
               </NavItem>
               <NavItem>
-                <NavLink className="navText" href="/members">Members</NavLink>
+                <a><NavLink className="navText" href="/members">Members</NavLink></a>
               </NavItem>
               <NavItem>
-                <NavLink className="navText" href="/messages">Messages</NavLink>
+                <a><NavLink className="navText" href="/messages">Messages</NavLink></a>
               </NavItem>
               <NavItem>
-                <NavLink className="navText" href={"/userprofile/"+this.props._id}>Profile</NavLink>
+                <a><NavLink className="navText" href={"/userprofile/"+this.props._id}>Profile</NavLink></a>
               </NavItem>
               <NavItem>
-                <NavLink className="navText" href="/">Log Out</NavLink>
+                <a><NavLink className="navText" onClick={this.logout} href="/">Log Out</NavLink></a>
               </NavItem>
             </Nav>
           </Collapse>

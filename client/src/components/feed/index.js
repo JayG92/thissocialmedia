@@ -11,7 +11,6 @@ function Feed({ posts }) {
 
     return (
         <>
-
             {posts.map(post => (
                 <div className="postBox">
                     <CardText>

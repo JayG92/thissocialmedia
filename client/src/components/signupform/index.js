@@ -76,7 +76,7 @@ signup = () => {
             </h4>
             <h4 className="logoSubText sub2">
               <i className="fas fa-user-friends logoSubIcons" />
-              Hear what people are talking about.
+              Built by developers for developers.
             </h4>
             <h4 className="logoSubText sub3">
               <i className="far fa-comment logoSubIcons" />
