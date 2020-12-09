@@ -12,7 +12,14 @@ require('./services/passport');
 //Mongoose Connection
 const db = require("./config/connection");
 db(process.env.MONGODB_URI || "mongodb://localhost/thissocialmedia");
-
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://kevin:<3asy2remember>@cluster0.e5xmr.mongodb.net/<thissocialmedia>?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
