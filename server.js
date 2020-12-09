@@ -12,6 +12,7 @@ require('./services/passport');
 //Mongoose Connection
 const db = require("./config/connection");
 db(process.env.MONGODB_URI || "mongodb://localhost/thissocialmedia");
+
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://kevin:<3asy2remember>@cluster0.e5xmr.mongodb.net/<thissocialmedia>?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
